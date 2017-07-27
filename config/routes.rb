@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+
+  resources :forests
+  resources :pointlesses
+  devise_for :users
+  get 'main/dashboard'
+  get 'forests/maketrue'
+  get'maketrue' => 'forests#maketrue'
+  root 'main#dashboard'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

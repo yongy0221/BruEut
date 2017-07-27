@@ -1,0 +1,25 @@
+<%= form_for(@pointless) do |f| %>
+  <% if @pointless.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pointless.errors.count, "error") %> prohibited this pointless from being saved:</h2>
+
+      <ul>
+      <% @pointless.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
