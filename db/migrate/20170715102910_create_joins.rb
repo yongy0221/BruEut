@@ -1,4 +1,4 @@
-class CreateJoins < ActiveRecord::Migration[5.0]
+class CreateJoins < ActiveRecord::Migration
   def change
     create_table :joins do |t|
       t.integer :post_id
