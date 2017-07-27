@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   resources :events
-=======
   devise_for :users
   root "post#index"
   get 'post/index'
   get 'like' => 'post#like'
-  
+
   post 'create' => 'post#create'
-  
+
   get "like/:post_id" => "post#like"
   get "unlike/:post_id" => "post#unlike"
-  
+
   get "join/:post_id" => "post#join"
   get "disjoin/:post_id" => "post#disjoin"
-  
->>>>>>> origin
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
