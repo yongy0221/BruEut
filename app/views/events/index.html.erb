@@ -48,7 +48,8 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Description</th>
+        <th>Description&emsp;</th>
+        <th>Location</th>
         <th>Start time</th>
         <th>End time</th>
         <th>Event type</th>
@@ -59,11 +60,12 @@
     <tbody>
       <% @events.each do |event| %>
         <tr>
-          <td><%= event.title %></td>
-          <td><%= event.description %></td>
-          <td><%= event.start_time %></td>
-          <td><%= event.end_time %></td>
-          <td><%= event.event_type %></td>
+          <td><%= event.title %>&emsp;</td>
+          <td><%= event.description %>&emsp;</td>
+          <td><%= event.location %>&emsp;</td>
+          <td><%= event.start_time %>&emsp;</td>
+          <td><%= event.end_time %>&emsp;</td>
+          <td><%= event.event_type %>&emsp;</td>
           <td><%= link_to 'Show', event %></td>
           <td><%= link_to 'Edit', edit_event_path(event) %></td>
           <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
