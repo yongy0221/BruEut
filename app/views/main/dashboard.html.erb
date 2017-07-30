@@ -1,0 +1,11 @@
+<%= link_to "뻘게",  pointlesses_path %>
+<%= link_to "대숲", forests_path %>
+<h1>User Sign Up</h1>
+<% if user_signed_in? %>
+ <%= link_to "Edit information", edit_user_registration_path %>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+<%= link_to "Sign_up", new_user_registration_path %>, or
+
+<%= link_to "Log_in", user_session_path %>
+<% end %>

@@ -8,13 +8,13 @@
         Title: <%= post.title %> <br>
         Content: <%= post.content %> <br>
         Time: <%= post.created_at%>
-        
-        
+
+
         <% post.comments.each do |comment| %>
             <div style = "border : 3px solid red; margin-bottom: 10px; margin-left: 100px; margin-right: 100px; ">
                 ID : <%= comment.username%> <br>
                 Content : <%= comment.content%> <br>
-                Time: <%= comment.created_at%>    
+                Time: <%= comment.created_at%>
             </div>
         <% end %>
         <form action = "/comment" method="POST">

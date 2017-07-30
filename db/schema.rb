@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727070042) do
+ActiveRecord::Schema.define(version: 20170727073718) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "username"
@@ -30,6 +30,21 @@ ActiveRecord::Schema.define(version: 20170727070042) do
     t.string   "location"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "forest_admins", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "like"
+    t.integer  "dislike"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forests", force: :cascade do |t|
+    t.text     "content"
+    t.boolean  "censored"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|
@@ -59,6 +74,17 @@ ActiveRecord::Schema.define(version: 20170727070042) do
     t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pointlesses", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "hit"
+    t.integer  "like"
+    t.integer  "dislike"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :events
+  resources :forests
+  resources :pointlesses
   devise_for :users
   root "partypost#index"
   get 'partypost/index'
@@ -21,6 +23,10 @@ Rails.application.routes.draw do
   post'comment' => "home#comment"
   get 'search', to: "search#index"
 
+
+  get 'main/dashboard'
+  get 'forests/maketrue'
+  get'maketrue' => 'forests#maketrue'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
