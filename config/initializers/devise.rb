@@ -8,6 +8,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'a26e95e0036d074b60887a8940a8ebee6edb9902232bae04d2a24881d2a1062958c303be47e4a3aca25032f54c3bb086ba876933029b27e25bfd3108c620e97e'
 
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -109,6 +110,7 @@ Devise.setup do |config|
 
   # Set up a pepper to generate the hashed password.
   # config.pepper = 'e8346e3a2345d9c7df1143f2874bd1a1eb34116b926314ead87e9bc17413899bbe0292db9107c469e263fce55001b0e0dbca663fbdaa7139f90dbe07190147d2'
+
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -246,6 +248,7 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
