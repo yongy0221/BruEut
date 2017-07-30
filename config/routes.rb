@@ -1,17 +1,26 @@
 Rails.application.routes.draw do
   resources :events
   devise_for :users
-  root "post#index"
-  get 'post/index'
-  get 'like' => 'post#like'
+  root "partypost#index"
+  get 'partypost/index'
+  get 'partylike' => 'partypost#partylike'
 
-  post 'create' => 'post#create'
+  post 'partycreate' => 'partypost#partycreate'
 
-  get "like/:post_id" => "post#like"
-  get "unlike/:post_id" => "post#unlike"
+  get "partylike/:post_id" => "partypost#partylike"
+  get "partyunlike/:post_id" => "partypost#partyunlike"
 
-  get "join/:post_id" => "post#join"
-  get "disjoin/:post_id" => "post#disjoin"
+  get "partyjoin/:post_id" => "partypost#partyjoin"
+  get "partydisjoin/:post_id" => "partypost#partydisjoin"
+
+
+  get 'search/index'
+
+  get 'home/index'
+  post'upload' => "home#upload_post"
+  post'comment' => "home#comment"
+  get 'search', to: "search#index"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

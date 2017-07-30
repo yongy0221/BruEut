@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20170727070042) do
 
+  create_table "comments", force: :cascade do |t|
+    t.string   "username"
+    t.text     "content"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -23,13 +31,6 @@ ActiveRecord::Schema.define(version: 20170727070042) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "joins", force: :cascade do |t|
-    t.integer  "post_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "user_id"
@@ -37,12 +38,34 @@ ActiveRecord::Schema.define(version: 20170727070042) do
     t.datetime "updated_at"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "partyjoins", force: :cascade do |t|
+    t.integer  "partypost_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "partylikes", force: :cascade do |t|
+    t.integer  "partypost_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "partyposts", force: :cascade do |t|
     t.string   "article"
     t.integer  "user_id"
     t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "username"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
