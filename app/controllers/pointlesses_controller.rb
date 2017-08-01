@@ -3,15 +3,59 @@ class PointlessesController < ApplicationController
 
   # GET /pointlesses
   # GET /pointlesses.json
+  def like
+    @pointless = Pointless.find(params[:pointless_id])
+    iorn = true
+    @pointless.pluids.each do |p|
+      puts p.user_id
+      if current_user.id == p.user_id
+        p.destroy
+        iorn = false
+        break
+      end
+    end
+    if iorn == true
+      @pluid = Pluid.new(user_id: current_user.id, pointless_id: @pointless.id)
+      @pluid.save
+      @pointless.like = @pointless.like + 1
+    else
+      @pointless.like = @pointless.like - 1
+    end
+    @pointless.save
+    redirect_to :back
+
+  end
+  def dislike
+      @pointless = Pointless.find(params[:pointless_id])
+      iorn = true
+      @pointless.pdluids.each do |p|
+        puts p.user_id
+        if current_user.id == p.user_id
+          p.destroy
+          iorn = false
+          break
+        end
+      end
+      if iorn == true
+        @pdluid = Pdluid.new(user_id: current_user.id, pointless_id: @pointless.id)
+        @pdluid.save
+        @pointless.dislike = @pointless.dislike + 1
+      else
+        @pointless.dislike = @pointless.dislike - 1
+      end
+      @pointless.save
+      redirect_to :back
+
+    end
   def index
-    @pointlesses = Pointless.all
+    @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 2).reverse_order
   end
 
   # GET /pointlesses/1
   # GET /pointlesses/1.json
   def show
     @user=current_user
-  end
+    end
 
   # GET /pointlesses/new
   def new
@@ -27,6 +71,7 @@ class PointlessesController < ApplicationController
   def create
     @pointless = Pointless.new(pointless_params)
     @pointless.user_id = current_user.id
+    @pointless.user_name = current_user.name
     @pointless.hit = 0
     @pointless.like = 0
     @pointless.dislike = 0
@@ -40,6 +85,7 @@ class PointlessesController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /pointlesses/1
   # PATCH/PUT /pointlesses/1.json

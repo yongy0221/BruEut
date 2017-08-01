@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727073718) do
+ActiveRecord::Schema.define(version: 20170801045635) do
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "ckeditor_assets", ["type"], name: "index_ckeditor_assets_on_type"
 
   create_table "comments", force: :cascade do |t|
     t.string   "username"
@@ -31,6 +45,17 @@ ActiveRecord::Schema.define(version: 20170727073718) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "fcomments", force: :cascade do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "forest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "fcomments", ["forest_id"], name: "index_fcomments_on_forest_id"
 
   create_table "forest_admins", force: :cascade do |t|
     t.string   "content"
@@ -76,10 +101,40 @@ ActiveRecord::Schema.define(version: 20170727073718) do
     t.datetime "updated_at"
   end
 
+  create_table "pcomments", force: :cascade do |t|
+    t.string   "commenter"
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "pointless_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "pcomments", ["pointless_id"], name: "index_pcomments_on_pointless_id"
+
+  create_table "pdluids", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "pointless_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "pdluids", ["pointless_id"], name: "index_pdluids_on_pointless_id"
+
+  create_table "pluids", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "pointless_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "pluids", ["pointless_id"], name: "index_pluids_on_pointless_id"
+
   create_table "pointlesses", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "user_id"
+    t.string   "user_name"
     t.integer  "hit"
     t.integer  "like"
     t.integer  "dislike"
@@ -108,6 +163,8 @@ ActiveRecord::Schema.define(version: 20170727073718) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.integer  "tier",                   default: 9
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

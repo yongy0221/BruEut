@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">LionKing</a>
+        <a class="navbar-brand" href=<%= root_path %>>BruEut</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar">
             <form action="/search" class="navbar-form navbar-left" role="search">
@@ -24,8 +24,12 @@
             <li class="dropdown">
               <a class="dropdown-toggle aa" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>User<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li id="profile-link"><a href="#">Edit Profile</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+                <li id="profile-link"><a href=<%=edit_user_registration_path%>>Edit Profile</a></li>
+                <% if user_signed_in? %>
+                <li><a href= <%= destroy_user_session_path %>><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+                <% else %>
+                <li><a href= <%= user_session_path %>><span class="glyphicon glyphicon-log-in"></span>Log In</a></li>
+                <% end %>
               </ul>
             </li>
           </ul
