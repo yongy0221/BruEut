@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(version: 20170801045635) do
     t.string   "title"
     t.text     "content"
     t.integer  "user_id"
-    t.string   "user_name"
     t.integer  "hit"
     t.integer  "like"
     t.integer  "dislike"
