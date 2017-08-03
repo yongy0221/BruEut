@@ -2,33 +2,7 @@
   <%= stylesheet_link_tag "events.css" %>
 
   <script>
-  var slideIndex = 1;
-  showSlides(slideIndex);
-
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display="none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-  }
-
+  // this is for calendar
    var initialize_calendar;
    initialize_calendar = function() {
     //  console.log("calendar works!")
@@ -76,17 +50,17 @@
 
   <div class="slideshow-container">
     image slides container
-    <div class="mySlides firstpic">
+    <div class="mySlides fade firstpic">
       <%= image_tag 'poster1.jpg', class:"img_posters" %>
       <div class="text">Caption One</div>
     </div>
 
-    <div class="mySlides">
+    <div class="mySlides fade">
       <%= image_tag 'poster2.jpg', class:"img_posters"%>
       <div class="text">Caption Two</div>
     </div>
 
-    <div class="mySlides">
+    <div class="mySlides fade">
       <%= image_tag 'poster3.jpg', class:"img_posters" %>
       <div class="text">Caption Three</div>
     </div>
@@ -141,4 +115,34 @@
   <br />
 
   <div class="calendar"></div>
+
+  <script>
+  // this is for posters slide
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display="none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+  </script>
 </body>
