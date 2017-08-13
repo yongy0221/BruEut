@@ -1,0 +1,100 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.slideshow-container {
+  /*max-width: 1000px;*/
+  display: block;
+  vertical-align: middle;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+    /*max-width: 1000px;*/
+    display: none;
+    text-align: center;
+}
+
+.img_posters {
+  width: 400px;
+  height: 400px;
+}
+
+.firstpic {
+  display: block;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 130%;
+  /*transform: translate(0,-50%);*/
+  width: auto;
+  /*margin-top: -22px;*/
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.prev {
+  left: 15%;
+  border-radius: 3px 0 0 3px;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 15%;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(29,117,217,0.8);
+  color: white;
+}
+
+/* Caption text */
+.text {
+  color: #db0707;
+  font-size: 15px;
+  padding: 8px 12px;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation: fade 1.5s forwards;
+  animation: fade 1.5s forwards;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

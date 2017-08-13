@@ -3,7 +3,6 @@
 <div class="background">
 <h1>대나무숲</h1>
 <% if user_signed_in? %>
-<%=@user.id %>
 <% if @user.id== 1 %>
 <div class="main">
 <table>
@@ -17,18 +16,15 @@
   <tbody>
     <% @forests.each do |forest| %>
       <tr>
-        <%= forest.censored %>
+    
         <td><% if forest.censored == false %>
 
-        <!-- <td><form action="maketure" method=post>
-          <input type=hidden name=post_id value = <%= forest.id %> >
-          <input type=submit value="Trufefy">
-        </form> -->
+
         <%= link_to 'Trufefy', maketrue_path(forest) %>
         <% else %>
         true
          <% end %></td>
-        <td><%= forest.content %></td>
+        <td><%= forest.content.html_safe %></td>
         <td><%= link_to 'Show', forest %></td>
         <td><%= link_to 'Edit', edit_forest_path(forest) %></td>
         <td><%= link_to 'Destroy', forest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -39,47 +35,37 @@
 <br>
 <% else %>
 <table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% @forests.each do |forest| %>
+  <% @f=forest%>
+      <% if forest.censored == true %>
+          <%= forest.content.html_safe %>   <%= link_to 'Show', forest %><br>
+          <br>Comments
+           <%= render forest.fcomments %>
+           Add a comment:
+           <%= render "fcomments/form" %><br>
+           <br>
+      <% end %>
 
-  <tbody>
-    <% @forests.each do |forest| %>
-      <tr>
-        <% if forest.censored == true %>
-        <td><%= forest.content %></td>
-        <td><%= link_to 'Show', forest %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% end %>
 <% end %>
 <br>
 <%= link_to 'New Forest', new_forest_path %>
 <% else %>
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+   <br>Content
+<br><br>
     <% @forests.each do |forest| %>
-      <tr>
+    <% @f=forest%>
         <% if forest.censored == true %>
-        <td><%= forest.content %></td>
-        <td><%= link_to 'Show', forest %></td>
+            <%= forest.content.html_safe %>   <%= link_to 'Show', forest %><br>
+            <br>Comments
+             <%= render forest.fcomments %>
+             Add a comment:
+             <%= render "fcomments/form" %><br>
+             <br>
         <% end %>
-      </tr>
+
     <% end %>
-  </tbody>
-</table>
 <% end %>
 <br>
 </div>

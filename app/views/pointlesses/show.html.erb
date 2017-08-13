@@ -2,19 +2,33 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @pointless.title %>
+  <%= @pointless.title.html_safe %>
 </p>
 
 <p>
   <strong>Content:</strong>
-  <%= @pointless.content %>
+  <%= @pointless.content.html_safe %>
 </p>
 <% if user_signed_in?%>
 <% if @user.id == @pointless.user_id %>
- <%= link_to 'Edit', edit_pointless_path(@pointless) %>
+<form action='like' method=post %>
+  <input type=hidden name=pointless_id value = <%= @pointless.id %> >
+  <input type=Submit value="Like <%= @pointless.like %>">
+</form>
+<form action='dislike' method=post %>
+  <input type=hidden name=pointless_id value = <%= @pointless.id %> >
+  <input type=Submit value="DisLike <%= @pointless.dislike %>">
+</form>
 <%= link_to 'Destroy', @pointless, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
-
 <% end %>
+<h2>Comments</h2>
+<%= render @pointless.pcomments %>
+<h2>Add a comment:</h2>
+<%= render "pcomments/form" %>
+
 <%= link_to 'Back', pointlesses_path %>
 <%= link_to 'Home', root_path %>
+
+<% @pointless.pluids.each do |p| %>
+<% end %>

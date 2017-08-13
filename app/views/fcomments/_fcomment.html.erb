@@ -1,0 +1,18 @@
+<p>
+  <b>Commenter:</b>
+  <%= fcomment.commenter %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= fcomment.body %>
+</p>
+<p>
+<% if user_signed_in? %>
+  <% if fcomment.user_id == current_user.id %>
+
+  <%= link_to 'Destroy Comment', [fcomment.forest, fcomment],
+    :confirm => 'Are you Sure?',
+    :method => :delete %>
+<% end %>
+<% end %>
