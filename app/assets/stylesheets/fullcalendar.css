@@ -1436,3 +1436,9 @@ be a descendant of the grid when it is being dragged.
 	width: 57.5%;
 	left: 41%
 }
+th.fc-day-header.fc-widget-header.fc-sun{
+	background-color: rgba(255,86,115,0.30);
+}
+th.fc-day-header.fc-widget-header.fc-sat{
+	background-color: rgba(29,117,217,0.30);
+}
