@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :forests
   resources :pointlesses
   devise_for :users
-  root "partypost#index"
+  root "main#dashboard"
+
   get 'partypost/index'
   get 'partylike' => 'partypost#partylike'
 

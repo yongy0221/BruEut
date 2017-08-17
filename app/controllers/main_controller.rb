@@ -1,4 +1,5 @@
 class MainController < ApplicationController
   def dashboard
-  end 
+    redirect_to "/users/sign_in" unless user_signed_in?
+  end
 end
