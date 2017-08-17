@@ -1,0 +1,19 @@
+.ppost-form {
+  border: solid 3px #1d75d9;
+  width: 80%;
+  position: relative;
+  left: 10%;
+  padding: 1% 1%;
+}
+
+.article{
+  width: 600px;
+}
+.blankspace{
+  position:relative;
+  left:10%;
+}
+
+.ppost-button{
+
+}
