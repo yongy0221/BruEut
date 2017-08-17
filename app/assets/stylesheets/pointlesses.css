@@ -1,0 +1,52 @@
+*{
+  color: black;
+}
+p{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+h5{
+  font-size:100px;
+  text-align: center;
+  color: #1e59d8;
+  text-shadow: 2px 2px 3px White;
+}
+
+.main{
+  /*margin: 50px;*/
+  margin-left: 10%;
+  margin-right:10%;
+  margin-color:blue;
+  border: 1px solid white;
+  position: relative;
+  bottom:230px;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+  padding:35px;
+}
+
+.Eut{
+   border-collapse: collapse;
+   text-align: left;
+   line-height: 1.5;
+}
+
+.Eut thead th {
+     padding: 10px;
+     font-weight: bold;
+     vertical-align: top;
+     color: #369;
+     border-bottom: 3px solid #036;
+}
+
+.Eut td {
+  width: 350px;
+   padding: 10px;
+   vertical-align: top;
+   border-bottom: 1px solid #ccc;
+  }
+
+.right {
+  text-align: right;
+}
