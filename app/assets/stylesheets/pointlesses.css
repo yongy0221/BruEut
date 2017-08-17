@@ -1,12 +1,4 @@
-*{
-  color: black;
-}
-p{
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
-h5{
+.ptitle{
   font-size:100px;
   text-align: center;
   color: #1e59d8;
@@ -20,10 +12,15 @@ h5{
   margin-color:blue;
   border: 1px solid white;
   position: relative;
-  bottom:230px;
+  bottom:200px;
   background-color: white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
   padding:35px;
+}
+
+.titlebox{
+  width:50%;
+  text-align: center;
 }
 
 .Eut{
@@ -33,7 +30,7 @@ h5{
 }
 
 .Eut thead th {
-     padding: 10px;
+     padding: 3%;
      font-weight: bold;
      vertical-align: top;
      color: #369;
@@ -41,12 +38,37 @@ h5{
 }
 
 .Eut td {
-  width: 350px;
-   padding: 10px;
+   width: 60%;
+   padding: 5%;
    vertical-align: top;
    border-bottom: 1px solid #ccc;
   }
 
 .right {
+  width: 93%;
   text-align: right;
+}
+
+.pcontent{
+  bottom: 200px;
+  width: 95%;
+  margin-left: 10%;
+  margin-right:10%;
+}
+
+.pcontitle{
+  font-size: 20px;
+}
+
+.pcomment {
+  font-size: 13px;
+  padding-left:6%;
+  padding-right:6%;
+  width: 70%;
+
+}
+
+.pcomments{
+  font-size: 16px;
+  font-weight:bold;
 }

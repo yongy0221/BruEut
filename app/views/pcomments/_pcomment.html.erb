@@ -1,17 +1,17 @@
-<p>
-  <b>Commenter:</b>
+<p class="pcomment">
+  <b>아이디:</b>
   <%= pcomment.commenter %>
 </p>
 
-<p>
-  <b>Comment:</b>
+<p class="pcomment">
+  <b>내용:</b>
   <%= pcomment.body %>
 </p>
 <p>
 <% if user_signed_in? %>
   <% if pcomment.user_id == current_user.id %>
 
-  <%= link_to 'Destroy Comment', [pcomment.pointless, pcomment],
+  <%= link_to '댓글삭제', [pcomment.pointless, pcomment],
     :confirm => 'Are you Sure?',
     :method => :delete %>
 <% end %>
