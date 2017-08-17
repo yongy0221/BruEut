@@ -35,8 +35,15 @@
                 </div>
                 <br />
                 <%@partyposts.reverse.each do |p|%>
-                    <div class="well">
-                        <span class="ppost-title"><%= p.article%></span><br />
+                  <% if p.partyjoins.count == p.total%>
+                    <% @statusColor = "sred" %>
+                  <% elsif p.partyjoins.count.between?(1,p.total)%>
+                    <% @statusColor = "syellow" %>
+                  <% elsif p.partyjoins.count == 0 %>
+                    <% @statusColor = "sgreen" %>
+                  <%end%>
+                    <div class="ppost-content <%=@statusColor%>">
+                        <span class="ppost-title "><%= p.article%></span><br />
                         posted by: <%= p.user.email %> <br>
                         <%if Partyjoin.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
                             <div class="ppost-button"><a href = "/partyjoin/<%= p.id %>"> join </a> &nbsp; (<%= p.partyjoins.count %>) </div>
