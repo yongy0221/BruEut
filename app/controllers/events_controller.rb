@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @events = @events.sort_by { |event| event.start_time }
+    @cur = DateTime.now.strftime("%Y%m%d%H%M")
   end
 
   # GET /events/1

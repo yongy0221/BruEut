@@ -123,7 +123,14 @@
 }
 .events_contents{
   font-size: 20px;
-  display: block;
+  /*display: block;*/
   position: relative;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.events_divs{
+  width: 30%;
+  background-color: grey;
 }

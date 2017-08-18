@@ -46,19 +46,38 @@
     <br />
       <div class="events_board">
         <h3 class="upcoming">UPCOMING</h3>
-              <% @events.each do |event| %>
-              <p class="events_contents">
-                <%= event.title %>,
-                <!-- <%= event.description %>&emsp;<br /> -->
-                <%= event.location %>,
-                <%= event.start_time.strftime("%b %d") %>
-                <!-- <%= event.end_time %>&emsp; -->
-                <!-- <td><%= event.event_type %>&emsp;</td> -->
-                <!-- <td><%= link_to 'Show', event %></td>
-                <td><%= link_to 'Edit', edit_event_path(event) %></td>
-                <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-              </p>
+        <br />
+          <!-- events_divs를 둘러싸고 있는 큰 div -->
+          <div class="events_contents">
+            <!-- counter를 이용해서 upcoming 3개까지만 보여줌 -->
+            <% counter = 0 %>
+            <% @events.each do |event| %>
+              <!-- 오늘 날짜(@cur)와 비교해서 현재 시각 이후의 이벤트만 보여줌, 3개까지 -->
+              <% if counter < 3 && event.start_time.strftime("%Y%m%d%H%M") > @cur %>
+                <!-- 각각 이벤트 div -->
+                <div class="events_divs">
+                  <br />
+                  <br />
+                  <%= event.title %>
+                  <br />
+                  <!-- <%= event.description %>&emsp;<br /> -->
+                  <%= event.start_time.strftime("%b %d %I:%M%p") %>
+                  <br />
+                  <%= event.location %>
+                  <!-- <%= event.end_time %>&emsp; -->
+                  <!-- <td><%= event.event_type %>&emsp;</td> -->
+                  <!-- <td><%= link_to 'Show', event %></td>
+                  <td><%= link_to 'Edit', edit_event_path(event) %></td>
+                  <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                  <br />
+                  <br />
+                  <br />
+                  </div>
+                  <% counter = counter + 1 %>
               <% end %>
+            <% end %>
+          </div>
+        <br />
       </div>
 
 
