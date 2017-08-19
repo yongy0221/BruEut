@@ -13,11 +13,11 @@
   position:relative;
   left:10%;
 }
-
-.ppost-button{
-
+.ppost-content-container{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 .ppost-content{
   border-collapse: collapse;
   text-align: left;
@@ -27,6 +27,7 @@
     padding: 5px 15px;
     float: none;
     position: static;
+    width:45%;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
 }
 
