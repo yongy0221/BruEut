@@ -36,17 +36,17 @@ table.viewer{
    border: 2px solid black;
 }
 
-table th {
+/*table th {
     width: 150px;
     padding: 10px;
     font-weight: bold;
     vertical-align: top;
-}
-table td {
+}*/
+/*table td {
     width: 350px;
     padding: 10px;
     vertical-align: top;
-}
+}*/
 
 .fcontent {
     border-collapse: collapse;
