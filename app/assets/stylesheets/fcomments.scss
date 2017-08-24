@@ -11,24 +11,25 @@ table.type06 {
     // margin: 20px 10px;
     margin: 0px auto;
     float: inherit;
+
 }
 table.type06 th {
-    width: 150px;
-    padding: 10px;
-    font-weight: bold;
-    vertical-align: top;
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #efefef;
 }
 table.type06 td {
-    width: 350px;
-    padding: 10px;
-    vertical-align: top;
-}
-table.type06 .odd {
-    background: #efefef;
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
 }
 
 div.comment{
-  text-align: center;
+  text-align: right;
 }
 
 div.field{

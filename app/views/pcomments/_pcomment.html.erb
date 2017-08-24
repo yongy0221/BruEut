@@ -1,18 +1,23 @@
-<p class="pcomment">
-  <b>아이디:</b>
-  <%= pcomment.commenter %>
-</p>
+<head>
+<script src="https://use.fontawesome.com/8a1c7ad851.js"></script>
+</head>
 
-<p class="pcomment">
-  <b>내용:</b>
-  <%= pcomment.body %>
-</p>
-<p>
-<% if user_signed_in? %>
-  <% if pcomment.user_id == current_user.id %>
+<table class="type05">
+  <tr>
+    <th scope="row"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<b><%= pcomment.commenter %></th>
+    <td><%= pcomment.body %></td>
+    <td>
+      <div class="comment">
+        <% if user_signed_in? %>
+          <% if pcomment.user_id == current_user.id %>
 
-  <%= link_to '댓글삭제', [pcomment.pointless, pcomment],
-    :confirm => 'Are you Sure?',
-    :method => :delete %>
-<% end %>
-<% end %>
+          <%= link_to '[댓글삭제]', [pcomment.pointless, pcomment],
+            :confirm => 'Are you Sure?',
+            :method => :delete %>
+        <% end %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>
+<br>

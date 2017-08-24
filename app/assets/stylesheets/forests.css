@@ -2,13 +2,14 @@
   /*margin: 50px;*/
   margin-left: 10%;
   margin-right:10%;
-  margin-color:blue;
   border: 1px solid white;
   position: relative;
   bottom:200px;
   background-color: white;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
   padding:35px;
+  -webkit-text-size-adjust: 100%;
+  border-radius: 0.2%;
 }
 .titlebox{
   width:50%;
@@ -69,5 +70,11 @@ table.fcontent td {
     border-bottom: 1px solid #ccc;
 }
 
-.line { width:100%; text-align:center; border-bottom: 1px solid #000; line-height:0.1em; margin:10px 0 20px; }
-.line span { background:#fff; padding:0; }
+/*.line { width:100%; text-align:center; border-bottom: 1px solid #000; line-height:0.1em; margin:10px 0 20px; }
+.line span { background:#fff; padding:0; }*/
+
+.new {
+  width: 80%;
+  margin: auto;
+  border-top: 3px solid #369;
+}
