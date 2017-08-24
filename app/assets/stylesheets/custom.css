@@ -23,6 +23,7 @@
 
 .menutext {
   margin: 2% 5% 2% 5%;
+
   /*padding-left: 4%;*/
   font-size: 18px;
   color: white;
@@ -60,6 +61,7 @@
   color: rgba(232,30,102,0.90);
   text-shadow: 2px 1px 0.5px rgba(0,0,0,0.50);
 }
+
 a {
   text-decoration: none;
 }
