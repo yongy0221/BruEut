@@ -1,3 +1,5 @@
 class Pointless < ActiveRecord::Base
-  belongs_to :user
+  has_many :pcomments, :dependent => :destroy
+  has_many :pluids, :dependent => :destroy
+  has_many :pdluids, :dependent => :destroy
 end

@@ -11,7 +11,7 @@ class ForestsController < ApplicationController
   # GET /forests.json
   def index
     @user=current_user
-    @forests = Forest.all
+    @forests = Forest.all.reverse_order
   end
 
   # GET /forests/1
@@ -35,7 +35,7 @@ class ForestsController < ApplicationController
     @forest.censored=false
     respond_to do |format|
       if @forest.save
-        format.html { redirect_to @forest, notice: 'Forest was successfully created.' }
+        format.html { redirect_to forests_path, notice: '대숲에서 사연을 받았습니다.' }
         format.json { render :show, status: :created, location: @forest }
       else
         format.html { render :new }
