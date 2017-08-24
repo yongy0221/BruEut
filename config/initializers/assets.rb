@@ -5,7 +5,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( login.css )
 Rails.application.config.assets.precompile += %w( custom.css )
 Rails.application.config.assets.precompile += %w( regis.css )
-Rails.application.config.assets.precompile += %w( menubar.css )
 
 
 
