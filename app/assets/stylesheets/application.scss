@@ -102,21 +102,9 @@ input:checked + .slider:after
 @font-face {
   font-family:'AppleSDGothicNeo';
   src:url(asset-path('fonts/AppleSDGothicNeo.ttc'));
-  src:url(asset-path('fonts/AppleSDGothicNeo.ttc?#iefix')) format('embedded-opentype'),
-      url('fonts/AppleSDGothicNeo.ttf') format('truetype'),
-      url('fonts/AppleSDGothicNeo.woff') format('woff'),
-      url('fonts/AppleSDGothicNeo.svg#icofonts') format('svg');
-      font-weight: normal;
-      font-style: normal;
 }
 
 @font-face {
   font-family:'eurof35';
-  src:url(asset-path('fonts/eurof35.ttf'));
-  src:url(asset-path('fonts/eurof35.ttf?#iefix')) format('embedded-opentype'),
-    url('fonts/eurof35.ttf') format('truetype'),
-    url('fonts/eurof35.woff') format('woff'),
-    url('fonts/eurof35.svg#icofonts') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  src:url('eurof35.ttf') format('truetype');
 }
