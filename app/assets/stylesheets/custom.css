@@ -1,3 +1,8 @@
+
+p, td{
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 16px;
+}
 .mybar {
   background-color: #252525;
   width: auto;

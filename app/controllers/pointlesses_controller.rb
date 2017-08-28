@@ -48,7 +48,7 @@ class PointlessesController < ApplicationController
 
     end
   def index
-    @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 10).reverse_order
+    @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 4).reverse_order
   end
 
   # GET /pointlesses/1
