@@ -48,7 +48,7 @@ class PointlessesController < ApplicationController
 
     end
   def index
-    @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 2).reverse_order
+    @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 10).reverse_order
   end
 
   # GET /pointlesses/1
@@ -71,7 +71,6 @@ class PointlessesController < ApplicationController
   def create
     @pointless = Pointless.new(pointless_params)
     @pointless.user_id = current_user.id
-    @pointless.user_name = current_user.name
     @pointless.hit = 0
     @pointless.like = 0
     @pointless.dislike = 0

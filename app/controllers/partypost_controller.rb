@@ -10,7 +10,7 @@ class PartypostController < ApplicationController
     p.user = current_user
     p.total = params[:total]
     p.save
-    redirect_to "/partypost/index"
+    redirect_to "/partypost"
   end
 
   def partylike
@@ -18,13 +18,13 @@ class PartypostController < ApplicationController
     l.user = current_user
     l.partypost_id = params[:post_id]
     l.save
-    redirect_to "/partypost/index"
+    redirect_to "/partypost"
   end
 
   def partyunlike
     l = Partylike.where(:partypost_id => params[:post_id]).where(:user => current_user).take
     l.delete
-    redirect_to "/partypost/index"
+    redirect_to "/partypost"
   end
 
   def partyjoin
@@ -32,13 +32,13 @@ class PartypostController < ApplicationController
     j.user = current_user
     j.partypost_id = params[:post_id]
     j.save
-    redirect_to "/partypost/index"
+    redirect_to "/partypost"
   end
 
   def partydisjoin
     j = Partyjoin.where(:partypost_id => params[:post_id]).where(:user => current_user).take
     j.delete
-    redirect_to "/partypost/index"
+    redirect_to "/partypost"
   end
 
 

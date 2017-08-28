@@ -39,16 +39,21 @@
      color: #369;
      border-bottom: 3px solid #036;
      font-size: 17px;
+     padding-left: 0%;
 }
 
 .Eut tbody td {
-   padding: 3.5%;
-   vertical-align: top;
+   /*padding: 3.5%;*/
+   vertical-align: middle;
    border-bottom: 1px solid #ccc;
    font-size: 13px;
    text-align: left;
+   height: 50px;
   }
 
+.Eut-title:hover{
+  background-color: #f4c110;
+}
 .right {
   width: 93%;
   text-align: right;

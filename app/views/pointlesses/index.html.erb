@@ -15,8 +15,8 @@
 <table class="Eut">
   <thead>
     <tr>
-      <th scope ="row">제목</th>
-      <th>내용</th>
+      <th scope ="row">글쓴이</th>
+      <th>제목</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,7 +24,14 @@
   <tbody>
     <% @pointlesses.each do |pointless| %>
       <tr>
-        <td scope="row"><%= link_to pointless.title, pointless %>
+        <td scope="row"><%=pointless.user.name%>
+        </td>
+        <td>
+          <a href="/pointlesses/<%=pointless.id%>">
+            <div class="Eut-title" style="height:100%; width:100%;">
+              <%=pointless.title%>
+            </div>
+          </a>
         </td>
       </tr>
     <% end %>

@@ -51,3 +51,5 @@ group :development do
 
   gem 'devise'
 end
+
+gem 'rails_db'
