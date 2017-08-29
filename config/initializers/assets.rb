@@ -13,4 +13,5 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( login.css regis.css)
 Rails.application.config.assets.precompile += %w( events.css custom.css partypost.css forests.css pointlesses.css fcomments.css
   fullcalendar.js gcal.js moment.js
+  navbar.css
 )
