@@ -7,7 +7,7 @@ p, td{
   background-color: #252525;
   width: auto;
   height: 50px;
-  /*max-height: 10%;*/
+
   display: flex;
   flex-wrap: wrap;
 }
@@ -40,6 +40,7 @@ p, td{
 
 .menutext {
   margin: 2% 5% 2% 5%;
+
   /*padding-left: 4%;*/
   font-size: 18px;
   color: white;
@@ -85,6 +86,7 @@ p, td{
   text-shadow: 2px 1px 0.5px rgba(0,0,0,0.50);
 }
 
+
 .slideshow-container{
   display: flex;
   flex-wrap: wrap;
@@ -94,6 +96,7 @@ p, td{
   justify-content: center;
   margin-top: 3%;
 }
+
 .navbar-nav>li>a{
   color: #666;
 }
