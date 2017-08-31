@@ -2,7 +2,6 @@
   background-color: #252525;
   width: auto;
   height: 50px;
-  /*max-height: 10%;*/
   display: flex;
   flex-wrap: wrap;
 }
@@ -35,6 +34,10 @@
 
 .menutext {
   margin: 2% 5% 2% 5%;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d327182ffbae049b3ec80b1755c1958f3c9dcb4
   /*padding-left: 4%;*/
   font-size: 18px;
   color: white;
@@ -80,6 +83,13 @@
   text-shadow: 2px 1px 0.5px rgba(0,0,0,0.50);
 }
 
+<<<<<<< HEAD
+=======
+a {
+  text-decoration: none;
+}
+
+>>>>>>> 7d327182ffbae049b3ec80b1755c1958f3c9dcb4
 .slideshow-container{
   display: flex;
   flex-wrap: wrap;
@@ -89,6 +99,9 @@
   justify-content: center;
   margin-top: 3%;
 }
+<<<<<<< HEAD
 .navbar-nav>li>a{
   color: #666;
 }
+=======
+>>>>>>> 7d327182ffbae049b3ec80b1755c1958f3c9dcb4

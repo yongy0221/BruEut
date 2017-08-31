@@ -14,4 +14,4 @@ Rails.application.config.assets.precompile += %w( blue.css )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( events.css custom.css partypost.css forest.css pointlesses.css fcomments.css)

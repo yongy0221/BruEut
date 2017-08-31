@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  resources :pointlesses do
+    resources :pcomments
+    end
+  mount Ckeditor::Engine => '/ckeditor'
   resources :events
-  resources :forests
-  resources :pointlesses
+  resources :forests do
+    resources :fcomments
+  end
+  post 'pointlesses/like'
+  post 'pointlesses/dislike'
   devise_for :users
   root "main#dashboard"
 
-  get 'partypost/index'
+  get 'partypost' => 'partypost#index'
   get 'partylike' => 'partypost#partylike'
 
   post 'partycreate' => 'partypost#partycreate'
