@@ -33,22 +33,40 @@
 }
 
 .Eut thead th {
-     padding: 3%;
+     padding: 1%;
      font-weight: bold;
      vertical-align: top;
      color: #369;
      border-bottom: 3px solid #036;
      font-size: 17px;
+     padding-left: 0%;
 }
 
 .Eut tbody td {
-   padding: 3.5%;
-   vertical-align: top;
+   /*padding: 3.5%;*/
+   vertical-align: middle;
    border-bottom: 1px solid #ccc;
    font-size: 13px;
    text-align: left;
+   height: 50px;
   }
 
+.Eut-title-header{
+  width: 65%;
+  text-align: center;
+}
+
+.Eut-title-body{
+  width: 100%;
+  text-align: center;
+}
+.Eut-body:hover{
+  background-color: rgba(98,167,255,0.6);
+}
+.Eut-body a:hover{
+  text-decoration: none;
+  text-weight: bold;
+}
 .right {
   width: 93%;
   text-align: right;
@@ -104,7 +122,8 @@ table.boardtable tbody th {
 .new {
   width: 80%;
   margin: auto;
-  border-top: 3px solid #369;
+  margin-top: 3%;
+  border-top: 5px solid #369;
 }
 
 .newform{
@@ -122,11 +141,12 @@ table.newtable {
 }
 table.newtable th {
     width: 15%;
-    padding: 5%;
+    padding: 2%;
     font-weight: bold;
     vertical-align: top;
     border-bottom: 1px solid #ccc;
     background: #efefef;
+    text-align: right;
 }
 table.newtable td {
     width: auto;
@@ -141,14 +161,20 @@ textarea#message_area {
 }
 
 #title_area{
-  margin-top:3.4%;
+  /*margin-top:3.4%;*/
   margin-left: auto;
   margin-right: auto;
-  resize:horizontal; max-width:900px; min-width:400px;
   resize:vertical; height:40px;
+  width: 100%;
 }
 
 .actions{
   margin-right: 12%;
   text-align:right;
+}
+
+.pagination a:hover{
+  text-decoration: none;
+  color: #1d75d9;
+  background-color: white;
 }

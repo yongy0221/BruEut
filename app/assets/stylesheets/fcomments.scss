@@ -22,6 +22,7 @@ table.type06 th {
   background: #efefef;
 }
 table.type06 td {
+  font-size: 12px;
   width: 350px;
   padding: 10px;
   vertical-align: top;
@@ -29,20 +30,36 @@ table.type06 td {
 }
 
 div.comment{
+  width: 100%;
   text-align: right;
 }
 
 div.field{
-  margin-left: 24%;
+  margin-left: 12%;
   float: inherit;
   font-size: 15px;
-  width: 80px;
+  // width: 80px;
+  // border: 1px solid red;
 }
 
 div.fl{
   font-size: 18px;
+  // border: 1px solid blue;
+  display: flex;
+  resize: both;
+  font-family: 'kHandwritingM';
 }
 
 div.actions{
   margin-left:24% ;
+}
+
+.fl-comment{
+  resize: horizontal;
+  width: 600px;
+  height: 30px;
+  margin-left:7%;
+}
+.fl>label{
+  width: 100px;
 }
