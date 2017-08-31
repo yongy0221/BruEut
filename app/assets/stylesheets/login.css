@@ -1,7 +1,7 @@
 .border-form-div-1{
   max-width: 300px;
   padding: 19px 29px 29px;
-  margin: 37px 150px 10px 30px;
+  margin: 40px 150px 40px 150px;
   background-color: #fff;
   background: rgba(255,255,255,0.5);
   z-index: 10;
@@ -11,7 +11,7 @@
 .border-form-div-2{
   max-width: 300px;
   padding: 19px 29px 29px;
-  margin: 120px 50px 50px 80px;
+  margin: 120px 100px 120px 0px;
   background-color: #fff;
   background: rgba(255,255,255,0.5);
   z-index: 10;
@@ -67,11 +67,11 @@
 
 
 /*animation*/
--webkit-animation:move 5s;
-   -moz-animation:move 5s;
-    -ms-animation:move 5s;
-     -o-animation:move 5s;
-        animation:move 5s;
+-webkit-animation:move 6s;
+   -moz-animation:move 6s;
+    -ms-animation:move 6s;
+     -o-animation:move 6s;
+        animation:move 6s;
 /*animation-iteration-count*/
 -webkit-animation-iteration-count:infinite;
    -moz-animation-iteration-count:infinite;
