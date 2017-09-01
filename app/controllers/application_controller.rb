@@ -19,4 +19,9 @@ protected
         devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
     end
 
+@page_index1=nil
+@page_index2=nil
+@page_index3=nil
+@page_index4=nil
+
 end

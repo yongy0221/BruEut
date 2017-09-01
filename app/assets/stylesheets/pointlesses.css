@@ -1,0 +1,180 @@
+.ptitle{
+  font-size:100px;
+  text-align: center;
+  color: #1e59d8;
+  text-shadow: 2px 2px 3px White;
+}
+
+.main{
+  /*margin: 50px;*/
+  margin-left: 10%;
+  margin-right:10%;
+  margin-color:blue;
+  border: 1px solid white;
+  position: relative;
+  bottom:200px;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+  padding:35px;
+}
+
+.titlebox{
+  width:50%;
+  text-align: center;
+}
+
+.Eut{
+   border-collapse: collapse;
+   text-align: left;
+   line-height: 1.5;
+   margin-left: auto;
+   margin-right: auto;
+   width: 95%;
+}
+
+.Eut thead th {
+     padding: 1%;
+     font-weight: bold;
+     vertical-align: top;
+     color: #369;
+     border-bottom: 3px solid #036;
+     font-size: 17px;
+     padding-left: 0%;
+}
+
+.Eut tbody td {
+   /*padding: 3.5%;*/
+   vertical-align: middle;
+   border-bottom: 1px solid #ccc;
+   font-size: 13px;
+   text-align: left;
+   height: 50px;
+  }
+
+.Eut-title-header{
+  width: 65%;
+  text-align: center;
+}
+
+.Eut-title-body{
+  width: 100%;
+  text-align: center;
+}
+.Eut-body:hover{
+  background-color: rgba(98,167,255,0.6);
+}
+.Eut-body a:hover{
+  text-decoration: none;
+  text-weight: bold;
+}
+.right {
+  width: 93%;
+  text-align: right;
+}
+
+table.boardtable{
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+table.boardtable thead th{
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: black;
+  background: #f3f6f7;
+  margin: 20px 10px;
+}
+
+table.boardtable tbody th {
+    width: 150px;
+    padding: 10px;
+    height: 100%;
+    font-weight:normal;
+}
+
+.pcontitle{
+  font-size: 20px;
+}
+
+
+
+.pcomment {
+  font-size: 13px;
+  width: 70%;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1;
+}
+
+.pcomments{
+  font-size: 16px;
+  font-weight:bold;
+}
+
+.new {
+  width: 80%;
+  margin: auto;
+  margin-top: 3%;
+  border-top: 5px solid #369;
+}
+
+.newform{
+  width: auto;
+}
+
+table.newtable {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    margin: auto;
+    width: 90%;
+}
+table.newtable th {
+    width: 15%;
+    padding: 2%;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #efefef;
+    text-align: right;
+}
+table.newtable td {
+    width: auto;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+textarea#message_area {
+  width: auto;
+  height: auto;
+}
+
+#title_area{
+  /*margin-top:3.4%;*/
+  margin-left: auto;
+  margin-right: auto;
+  resize:vertical; height:40px;
+  width: 100%;
+}
+
+.actions{
+  margin-right: 12%;
+  text-align:right;
+}
+
+.pagination a:hover{
+  text-decoration: none;
+  color: #1d75d9;
+  background-color: white;
+}

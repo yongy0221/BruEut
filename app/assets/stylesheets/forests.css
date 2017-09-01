@@ -1,0 +1,80 @@
+.main{
+  /*margin: 50px;*/
+  margin-left: 10%;
+  margin-right:10%;
+  border: 1px solid white;
+  position: relative;
+  bottom:200px;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+  padding:35px;
+  -webkit-text-size-adjust: 100%;
+  border-radius: 0.2%;
+}
+.titlebox{
+  width:50%;
+  text-align: center;
+}
+.ftitle{
+  font-size:100px;
+  text-align: center;
+  color: green;
+  text-shadow: 2px 2px 3px White;
+}
+
+#subt{
+  color: white;
+}
+
+table.viewer{
+  border-collapse: collapse;
+   text-align: left;
+   line-height: 1.5;
+   /*border-top: 2px solid #ccc;
+   border-bottom: 2px solid #ccc;*/
+   margin: 20px 10px;
+   border: 2px solid black;
+}
+
+/*table th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+}*/
+/*table td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+}*/
+
+.fcontent {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    /*border-top: 3px solid #0a9117;*/
+    border-left: 4px solid #0a9117;
+    /*border-left: 3px solid #369;*/
+    margin : 20px 10px;
+    float: none;
+    position: static;
+    width: 100%;
+}
+
+table.fcontent td {
+    width: 349px;
+    padding: 10px;
+    vertical-align: top;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+/*.line { width:100%; text-align:center; border-bottom: 1px solid #000; line-height:0.1em; margin:10px 0 20px; }
+.line span { background:#fff; padding:0; }*/
+
+.new {
+  width: 80%;
+  margin: auto;
+  border-top: 3px solid #369;
+}

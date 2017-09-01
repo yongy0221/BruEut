@@ -1,8 +1,29 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<head>
+  <%= stylesheet_link_tag "login.css" %>
+</head>
+<body>
+  <div class="down">
+        <div id="content">
+          <div class="back">
+            <%= image_tag("ocean.jpg") %>
+          </div>
+        </div>
+    </div>
+    <div class="logo">
+      <%= image_tag("logo.png", height: 70, width: 250) %>
+    </div>
+    <div class="border-form-div">
+          <h2 style="text-align:center">안녕하세요 님</h2>
+          <br>
+
+            <!-- <%= render "devise/shared/links" %> -->
+            <br>
+    </div>
+</body>
 
 
-<%@posts.reverse.each do |post|%>
+
+<!-- <%@posts.reverse.each do |post|%>
     <div style = "border: 3px solid; margin-bottom :10px">
         Author: <%= post.username %> <br>
         Title: <%= post.title %> <br>
@@ -31,4 +52,4 @@
     Author: <input type = "text" name = "username">
     Contents: <input type = "text" name = "content">
     <input type = "submit" value = "send">
-</form>
+</form> -->

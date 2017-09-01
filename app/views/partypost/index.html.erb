@@ -1,13 +1,12 @@
-    <head>
 
-    </head>
     <body>
+
       <%= render 'layouts/blackbar' %>
       <div id="menuimage">
         <!-- <div class = "titlebox" >
           <h4 class = "title">파티원구함</h4>
         </div> -->
-        <%= image_tag 'sam_frodo_withtext.jpg', class: 'menuimage', style: 'opacity: 0.9;'%>
+        <%= image_tag 'sam-frodo-bigger-text.jpg', class: 'menuimage', style: 'opacity: 0.9;'%>
       </div>
         <!-- <h2><a href = "/users/sign_out"> logout </a></h2> <h6> - <%= current_user.email %></h6> -->
         <br />
@@ -34,14 +33,22 @@
                   </form>
                 </div>
                 <br />
+                <div class="ppost-content-container">
                 <%@partyposts.reverse.each do |p|%>
-                    <div class="well">
-                        <span class="ppost-title"><%= p.article%></span><br />
+                  <% if p.partyjoins.count == p.total%>
+                    <% @statusColor = "sred" %>
+                  <% elsif p.partyjoins.count.between?(1,p.total)%>
+                    <% @statusColor = "syellow" %>
+                  <% elsif p.partyjoins.count == 0 %>
+                    <% @statusColor = "sgreen" %>
+                  <%end%>
+                    <div class="ppost-content <%=@statusColor%>">
+                        <span class="ppost-title "><%= p.article%></span><br />
                         posted by: <%= p.user.email %> <br>
                         <%if Partyjoin.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
-                            <div class="ppost-button"><a href = "/partyjoin/<%= p.id %>"> join </a> &nbsp; (<%= p.partyjoins.count %>) </div>
+                            <i class="material-icons" style="font-size:30px;"><a href = "/partyjoin/<%= p.id %>"> person_add </a></i> (<%= p.partyjoins.count %>)
                         <%else%>
-                            <div class="ppost-button"><a href = "/partydisjoin/<%= p.id %>"> disjoin </a> &nbsp; (<%= p.partyjoins.count %>) </div>
+                            <i class="material-icons" style="font-size:30px;"><a href = "/partydisjoin/<%= p.id %>"> person_outline </a></i> (<%= p.partyjoins.count %>)
                         <%end%>
 
 
@@ -66,9 +73,13 @@
                         <br><br>
 
                         <%if Partylike.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
-                            <p><a href = "/partylike/<%= p.id %>"> like </a> &nbsp; (<%= p.partylikes.count %>) </p>
+                            <i class="material-icons">
+                              <a href = "/partylike/<%= p.id %>"> favorite </a></i>(<%= p.partylikes.count %>)
+
                         <%else%>
-                            <p><a href = "/partyunlike/<%= p.id %>"> unlike </a> &nbsp; (<%= p.partylikes.count %>) </p>
+                            <i class="material-icons">
+                              <a href = "/partyunlike/<%= p.id %>"> favorite_border </a></i>(<%= p.partylikes.count %>)
+
                         <%end%>
 
                         <%p.partylikes.each do |l|%>

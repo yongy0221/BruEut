@@ -1,12 +1,15 @@
-<head>
-  <%= stylesheet_link_tag "events.css" %>
-</head>
 <body>
-  <p id="notice"><%= notice %></p>
+  <p id="notice"><% notice %></p>
   <%= render 'layouts/blackbar' %>
+  <div id="menuimage">
+    <div class = "titlebox" >
+      <h4 class = "title">EVENTS</h4>
+    </div>
+    <%= image_tag 'royce_drone.jpg', class: 'menuimage'%>
+  </div>
 
   <div class="slideshow-container">
-    image slides container
+    <div class="prev" onclick="plusSlides(-1)">&#10094;</div>
     <div class="mySlides fade firstpic">
       <%= image_tag 'poster1.jpg', class:"img_posters" %>
       <div class="text">Caption One</div>
@@ -21,8 +24,8 @@
       <%= image_tag 'poster3.jpg', class:"img_posters" %>
       <div class="text">Caption Three</div>
     </div>
-    <span><a class="prev" onclick="plusSlides(-1)">&#10094;</a></span>
-    <span><a class="next" onclick="plusSlides(1)">&#10095;</a></span>
+
+    <div class="next" onclick="plusSlides(1)">&#10095;</div>
   </div>
   <br>
 
@@ -31,6 +34,7 @@
     <span class="dot" onclick="currentSlide(2)"></span>
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
+
 
     <!-- <thead>
       <tr>
@@ -46,7 +50,6 @@
     <br />
       <div class="events_board">
         <h3 class="upcoming">UPCOMING</h3>
-        <br />
           <!-- events_divs를 둘러싸고 있는 큰 div -->
           <div class="events_contents">
             <!-- counter를 이용해서 upcoming 3개까지만 보여줌 -->

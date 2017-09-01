@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post 'pointlesses/dislike'
   devise_for :users
   root "main#dashboard"
-  get 'partypost/index'
+
+  get 'partypost' => 'partypost#index'
   get 'partylike' => 'partypost#partylike'
 
   post 'partycreate' => 'partypost#partycreate'
