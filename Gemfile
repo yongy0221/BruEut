@@ -23,13 +23,15 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem "ckeditor"
 gem "paperclip"
 gem 'nested_scaffold'
 gem 'will_paginate'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+# gem 'bcrypt-ruby', '3.1.5', :require => 'bcrypt'
+gem 'bcrypt', platforms: :ruby
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -50,3 +52,5 @@ group :development do
 
   gem 'devise'
 end
+
+gem 'rails_db'

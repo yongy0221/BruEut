@@ -1,34 +1,56 @@
+<link rel="stylesheet" href="stylesheets/forests.css">
+
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @pointless.title.html_safe %>
-</p>
+<%=render 'layouts/blackbar'%>
 
-<p>
-  <strong>Content:</strong>
-  <%= @pointless.content.html_safe %>
-</p>
-<% if user_signed_in?%>
-<% if @user.id == @pointless.user_id %>
-<form action='like' method=post %>
-  <input type=hidden name=pointless_id value = <%= @pointless.id %> >
-  <input type=Submit value="Like <%= @pointless.like %>">
-</form>
-<form action='dislike' method=post %>
-  <input type=hidden name=pointless_id value = <%= @pointless.id %> >
-  <input type=Submit value="DisLike <%= @pointless.dislike %>">
-</form>
-<%= link_to 'Destroy', @pointless, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<% end %>
-<h2>Comments</h2>
-<%= render @pointless.pcomments %>
-<h2>Add a comment:</h2>
-<%= render "pcomments/form" %>
+<div id="menuimage">
+  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+</div>
+<!-- ///////////////게시글//////////////////////////// -->
+<div class="main">
+  <table class="boardtable">
+    <thead>
+      <tr class="pcontitle">
+        <th scope="cols"><%= @pointless.title.html_safe %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class ="pcontitle">
+        <th scope="row"><%= @pointless.content.html_safe %></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
 
-<%= link_to 'Back', pointlesses_path %>
-<%= link_to 'Home', root_path %>
+    <% if user_signed_in?%>
+      <% if @user.id == @pointless.user_id %>
+      <form action='like' method=post %>
+        <input type=hidden name=pointless_id value = <%= @pointless.id %> >
+        <input type=Submit value="Like <%= @pointless.like %>">
+      </form>
+      <form action='dislike' method=post %>
+        <input type=hidden name=pointless_id value = <%= @pointless.id %> >
+        <input type=Submit value="DisLike <%= @pointless.dislike %>">
+      </form>
+      <%= link_to '[삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    <% end %>
 
+    <br>
+    <br>
+    <div class="pcomment">
+      <%= render @pointless.pcomments %>
+      <%= render "pcomments/form" %>
+    </div>
+
+  <div class="right">
+  <%= link_to '[뒤로가기]', pointlesses_path %>
+  <%= link_to '[홈]', root_path %>
+  </div>
 <% @pointless.pluids.each do |p| %>
 <% end %>
+</div>

@@ -3,10 +3,20 @@
       <%= image_tag 'logo_inverse_03.png', class: 'barlogo'%>
   </a>
   <div class = "textholder" >
-    <a href = "/forests" class = "menutext">대나무숲</a>
-    <a href = "/pointlesses" class = "menutext">브루인생</a>
-    <a href = "/events" class = "menutext">이벤트</a>
-    <a href = "/partypost" class = "menutext">파티원구함</a>
+    <%if params[:controller]=="forests"%>
+        <%@page_index1 = "currentpage"%>
+      <%elsif params[:controller]=="pointlesses"%>
+       <%@page_index2 = "currentpage"%>
+      <%elsif params[:controller]=="events"%>
+        <%@page_index3 = "currentpage"%>
+      <%elsif params[:controller]=="partypost"%>
+        <%@page_index4 = "currentpage"%>
+    <%end%>
+    <a href = "/forests" class = "menutext <%=@page_index1%>">대나무숲</a>
+    <a href = "/pointlesses" class = "menutext <%=@page_index2%>">브루인생</a>
+    <a href = "/events" class = "menutext <%=@page_index3%>">이벤트</a>
+    <a href = "/partypost" class = "menutext <%=@page_index4%>">파티원구함</a>
+
   </div>
       <form action="/search" class="navbar-form navbar-left" id = "searchbar" role="search">
         <div class="form-group input-group">
@@ -18,7 +28,7 @@
       </form>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a class="dropdown-toggle aa" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>User<span class="caret"></span></a>
+        <a class="dropdown-toggle aa" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> 브루인<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li id="profile-link"><a href=<%=edit_user_registration_path%>>Edit Profile</a></li>
           <% if user_signed_in? %>

@@ -1415,7 +1415,7 @@ be a descendant of the grid when it is being dragged.
 /*HJ's work*/
 .fc-left{
 	width: 100%;
-	float: ;
+	z-index: 3;
 }
 .fc-prev-button{
 	left: 35.5%;
@@ -1434,7 +1434,8 @@ be a descendant of the grid when it is being dragged.
 .fc-center{
 	position: absolute;
 	width: 57.5%;
-	left: 41%
+	left: 41%;
+	z-index: -1;
 }
 th.fc-day-header.fc-widget-header.fc-sun{
 	background-color: rgba(255,86,115,0.30);

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :markets
   resources :pointlesses do
     resources :pcomments
     end
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   post 'pointlesses/dislike'
   devise_for :users
   root "main#dashboard"
+
   get 'partypost' => 'partypost#index'
   get 'partylike' => 'partypost#partylike'
 

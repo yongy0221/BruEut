@@ -1,0 +1,150 @@
+/*f.label, f.email_field,
+f.password_field, f.check_box, f.submit{
+  justify-content: center;
+  display: inline-block;
+}*/
+
+.border-form-div-1{
+  max-width: 300px;
+  width: 100%;
+  padding: 19px 29px 29px;
+  margin: 100px 185px 40px 150px;
+  background-color: #fff;
+  background: rgba(255,255,255,0.5);
+  z-index: 10;
+  float: right;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+          box-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+.border-form-div-2{
+  max-width: 300px;
+  width: 100%;
+  padding: 19px 29px 29px;
+  margin: 120px 185px 120px 0px;
+  background-color: #fff;
+  background: rgba(255,255,255,0.5);
+  z-index: 10;
+  float: right;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+          box-shadow: 0 1px 2px rgba(0,0,0,.25);
+}
+
+.back{
+  background-image: url("http://howdoyousay.fr/stock-photos/02.jpg");
+  height: 100%;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  z-index: -10;
+}
+
+.box{
+  position: relative;
+  clear: both;
+  white-space: nowrap;
+  flex-wrap: flex;
+}
+
+.intro{
+  font-size: 25px;
+  font-weight: 400;
+  color: white;
+}
+
+.Iam {
+  padding: 2em 5em;
+  font: normal 40px/50px Montserrat, sans-serif;
+  color: #999;
+}
+.Iam p {
+  height: 50px;
+  float: left;
+  margin-right: 0.3em;
+}
+.Iam b {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  top: 40px;
+}
+.Iam .innerIam {
+  display: inline-block;
+  color: #e74c3c;
+  position: relative;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+
+
+/*animation*/
+-webkit-animation:move 6s;
+   -moz-animation:move 6s;
+    -ms-animation:move 6s;
+     -o-animation:move 6s;
+        animation:move 6s;
+/*animation-iteration-count*/
+-webkit-animation-iteration-count:infinite;
+   -moz-animation-iteration-count:infinite;
+    -ms-animation-iteration-count:infinite;
+     -o-animation-iteration-count:infinite;
+        animation-iteration-count:infinite;
+/*animation-delay*/
+-webkit-animation-delay:1.5s;
+   -moz-animation-delay:1.5s;
+    -ms-animation-delay:1.5s;
+     -o-animation-delay:1.5s;
+        animation-delay:1.5s;
+}
+@keyframes move{
+0%  { top: 0px; }
+20% { top: -50px; }
+40% { top: -100px; }
+60% { top: -150px; }
+80% { top: -200px; }
+}
+
+@-webkit-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+@-moz-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+@-o-keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}
+@keyframes move {
+    0%  { top: 0px; }
+    20% { top: -50px; }
+    40% { top: -100px; }
+    60% { top: -150px; }
+    80% { top: -200px; }
+}

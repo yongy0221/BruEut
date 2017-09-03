@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :partyposts
   has_many :partylikes
   has_many :partyjoins
+  has_many :pointlesses
 end
