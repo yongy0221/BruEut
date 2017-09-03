@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require moment
 //= require fullcalendar
+//= require ckeditor/init
 //= require_tree .

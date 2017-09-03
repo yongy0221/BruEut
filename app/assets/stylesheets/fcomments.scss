@@ -1,0 +1,65 @@
+// Place all the styles related to the fcomments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.type06 {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    // margin: 20px 10px;
+    margin: 0px auto;
+    float: inherit;
+
+}
+table.type06 th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #efefef;
+}
+table.type06 td {
+  font-size: 12px;
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+div.comment{
+  width: 100%;
+  text-align: right;
+}
+
+div.field{
+  margin-left: 12%;
+  float: inherit;
+  font-size: 15px;
+  // width: 80px;
+  // border: 1px solid red;
+}
+
+div.fl{
+  font-size: 18px;
+  // border: 1px solid blue;
+  display: flex;
+  resize: both;
+  font-family: 'kHandwritingM';
+}
+
+div.actions{
+  margin-left:24% ;
+}
+
+.fl-comment{
+  resize: horizontal;
+  width: 600px;
+  height: 30px;
+  margin-left:7%;
+}
+.fl>label{
+  width: 100px;
+}

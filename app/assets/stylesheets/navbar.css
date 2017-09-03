@@ -1,0 +1,60 @@
+p, td{
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 16px;
+}
+.whitebar {
+  width: auto;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-wrap: wrap;
+}
+.barlogo2 {
+  height: 30px;
+  width: 120px;
+  /*position: fixed;*/
+  display: inline-block;
+  margin: 10% 25% 10% 25%;
+}
+#barlogo2:hover{
+  background-color: rgba(255, 255, 255, 0);
+}
+.textholder2{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-left: 20%;
+}
+
+.navbar-right {
+  float: right;
+  display: inline;
+}
+
+.textholder2 a:hover {
+  background-color: rgba(255, 255, 255, 0);
+  text-decoration: none;
+  color: #252525;
+}
+.menutext2 {
+  margin: 2% 5% 2% 5%;
+  /*padding-left: 4%;*/
+  font-size: 18px;
+  color: white;
+  display: inline-block;
+  text-align: center;
+  overflow-wrap: normal;
+  padding-bottom: 4%;
+}
+.currentpage{
+  border-bottom: solid 3px rgba(29,117,217,0.7);
+}
+.currentpage:visited{
+  color: #fcdd5f;
+}
+#navbar {
+  display: flex;
+}
+.navbar-nav>li>a{
+  color: #252525;
+}

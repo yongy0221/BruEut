@@ -1,0 +1,49 @@
+<div class = "mybar">
+  <a id="barlogo" href=<%= root_path %> >
+      <%= image_tag 'logo_inverse_03.png', class: 'barlogo'%>
+  </a>
+  <div class = "textholder" >
+    <%if params[:controller]=="forests"%>
+        <%@page_index1 = "currentpage"%>
+      <%elsif params[:controller]=="pointlesses"%>
+       <%@page_index2 = "currentpage"%>
+      <%elsif params[:controller]=="events"%>
+        <%@page_index3 = "currentpage"%>
+      <%elsif params[:controller]=="partypost"%>
+        <%@page_index4 = "currentpage"%>
+    <%end%>
+    <a href = "/forests" class = "menutext <%=@page_index1%>">대나무숲</a>
+    <a href = "/pointlesses" class = "menutext <%=@page_index2%>">브루인생</a>
+    <a href = "/events" class = "menutext <%=@page_index3%>">이벤트</a>
+    <a href = "/partypost" class = "menutext <%=@page_index4%>">파티원구함</a>
+
+  </div>
+      <form action="/search" class="navbar-form navbar-left" id = "searchbar" role="search">
+        <div class="form-group input-group">
+          <input type="text" class="form-control" placeholder="Search" name="term" id="srch-term">
+          <div class="input-group-btn">
+            <button class="btn btn-default" style="padding-bottom: 5px; margin-left: 10px;padding-top: 7px;" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+          </div>
+        </div>
+      </form>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle aa" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> 브루인<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li id="profile-link"><a href=<%=edit_user_registration_path%>>Edit Profile</a></li>
+          <% if user_signed_in? %>
+          <li><a href= <%= destroy_user_session_path %>><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+          <% else %>
+          <li><a href= <%= user_session_path %>><span class="glyphicon glyphicon-log-in"></span>Log In</a></li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>
+
+</div>
+<!-- <div id="menuimage">
+  <div class = "titlebox" >
+    <h4 class = "title">EVENTS</h4>
+  </div>
+  <%= image_tag 'royce_drone.jpg', class: 'menuimage'%>
+</div> -->
