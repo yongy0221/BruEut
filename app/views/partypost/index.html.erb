@@ -1,0 +1,102 @@
+
+    <body>
+
+      <%= render 'layouts/blackbar' %>
+      <div id="menuimage">
+        <!-- <div class = "titlebox" >
+          <h4 class = "title">파티원구함</h4>
+        </div> -->
+        <%= image_tag 'sam-frodo-bigger-text.jpg', class: 'menuimage', style: 'opacity: 0.9;'%>
+      </div>
+        <!-- <h2><a href = "/users/sign_out"> logout </a></h2> <h6> - <%= current_user.email %></h6> -->
+        <br />
+
+        <div class="container">
+            <div class="row">
+                <div class = "ppost-form">
+                  <h5>파티원 구하기</h5><br />
+                  <form action ="/partycreate" method="post">
+                      내용: <input type = "text" name="article" class = "article">
+                      인원수: <select name= "total">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10+</option>
+                      </select>
+                      <span class="blankspace">
+                      <input type = "submit" class="ppost-submit" value = "구해염!">
+                      </span>
+                  </form>
+                </div>
+                <br />
+                <div class="ppost-content-container">
+                <%@partyposts.reverse.each do |p|%>
+                  <% if p.partyjoins.count == p.total%>
+                    <% @statusColor = "sred" %>
+                  <% elsif p.partyjoins.count.between?(1,p.total)%>
+                    <% @statusColor = "syellow" %>
+                  <% elsif p.partyjoins.count == 0 %>
+                    <% @statusColor = "sgreen" %>
+                  <%end%>
+                    <div class="ppost-content <%=@statusColor%>">
+                        <span class="ppost-title "><%= p.article%></span><br />
+                        posted by: <%= p.user.email %> <br>
+                        <%if Partyjoin.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
+                            <i class="material-icons" style="font-size:30px;"><a href = "/partyjoin/<%= p.id %>"> person_add </a></i> (<%= p.partyjoins.count %>)
+                        <%else%>
+                            <i class="material-icons" style="font-size:30px;"><a href = "/partydisjoin/<%= p.id %>"> person_outline </a></i> (<%= p.partyjoins.count %>)
+                        <%end%>
+
+
+                        <br><br>
+
+                        <div class = "icon" >
+                          <% for i in 0 ... p.partyjoins.count %>
+                              <div>
+                                <%= image_tag 'personicon1.png'%>
+                              </div>
+                          <% end %>
+                            <% for i in 0 ... p.total - p.partyjoins.count %>
+                                <div style>
+                                  <%= image_tag 'personicon2.png'%>
+                                </div>
+                                <!--<img src = "https://www.iconfinder.com/icons/312112/account_green_human_male_man_person_profile_user_icon">-->
+                            <% end %>
+                        </div>
+
+
+
+                        <br><br>
+
+                        <%if Partylike.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
+                            <i class="material-icons">
+                              <a href = "/partylike/<%= p.id %>"> favorite </a></i>(<%= p.partylikes.count %>)
+
+                        <%else%>
+                            <i class="material-icons">
+                              <a href = "/partyunlike/<%= p.id %>"> favorite_border </a></i>(<%= p.partylikes.count %>)
+
+                        <%end%>
+
+                        <%p.partylikes.each do |l|%>
+                            <%= l.user.email%><br>
+                        <%end%>
+                        <!-- <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label> -->
+
+
+
+                    </div>
+                <%end%>
+
+
+            </div>
+
+        </div>
+    </body>

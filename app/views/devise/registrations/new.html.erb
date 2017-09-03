@@ -1,0 +1,44 @@
+<head>
+  <style>
+    footer {
+      display: none;
+    }
+  </style>
+  <%= stylesheet_link_tag "regis.css" %>
+  <%= stylesheet_link_tag "navbar" %>
+  <%=render 'layouts/navbar'%>
+</head>
+<body class="bady">
+  <br><br><br><br><div class="border-form-div">
+        <h2 style="text-align:center">회원가입</h2>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field" style="text-align:center">
+            <%= f.label :이메일 %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+
+
+          <div class="field" style="text-align:center">
+            <%= f.label :비밀번호 %>
+            <% if @minimum_password_length %>
+            (<%= @minimum_password_length %> 자리 까지)
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <div class="field" style="text-align:center">
+            <%= f.label :비밀번호_재입력 %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+
+          <div class="actions" style="text-align:center">
+            <%= f.submit "회원가입" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+</body>

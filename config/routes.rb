@@ -1,17 +1,40 @@
 Rails.application.routes.draw do
+  resources :pointlesses do
+    resources :pcomments
+    end
+  mount Ckeditor::Engine => '/ckeditor'
   resources :events
+  resources :forests do
+    resources :fcomments
+  end
+  post 'pointlesses/like'
+  post 'pointlesses/dislike'
   devise_for :users
-  root "post#index"
-  get 'post/index'
-  get 'like' => 'post#like'
+  root "main#dashboard"
 
-  post 'create' => 'post#create'
+  get 'partypost' => 'partypost#index'
+  get 'partylike' => 'partypost#partylike'
 
-  get "like/:post_id" => "post#like"
-  get "unlike/:post_id" => "post#unlike"
+  post 'partycreate' => 'partypost#partycreate'
 
-  get "join/:post_id" => "post#join"
-  get "disjoin/:post_id" => "post#disjoin"
+  get "partylike/:post_id" => "partypost#partylike"
+  get "partyunlike/:post_id" => "partypost#partyunlike"
+
+  get "partyjoin/:post_id" => "partypost#partyjoin"
+  get "partydisjoin/:post_id" => "partypost#partydisjoin"
+
+
+  get 'search/index'
+
+  get 'home/index'
+  post'upload' => "home#upload_post"
+  post'comment' => "home#comment"
+  get 'search', to: "search#index"
+
+
+  get 'main/dashboard'
+  get 'forests/maketrue'
+  get'maketrue' => 'forests#maketrue'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

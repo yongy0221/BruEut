@@ -1,0 +1,31 @@
+<%= form_for(@pointless) do |f| %>
+  <% if @pointless.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pointless.errors.count, "error") %> prohibited this pointless from being saved:</h2>
+
+      <ul>
+      <% @pointless.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="newtable">
+    <tr>
+      <th scope="row"><%= f.label :제목 %></th>
+      <td><%= f.text_field :title, :id => "title_area" %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= f.label :내용 %></th>
+      <td><%= f.cktext_area :content, :id => "message_area" %></td>
+    </tr>
+  </table>
+
+  <br>
+
+    <div class="actions">
+      <%= f.submit %>
+      <%= link_to '[뒤로가기]', pointlesses_path %>
+    </div>
+<% end %>

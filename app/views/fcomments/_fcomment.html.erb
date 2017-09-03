@@ -1,0 +1,39 @@
+<!-- <p>
+  <b>이름:</b>
+  <%= fcomment.commenter %>
+</p>
+
+ <p>
+  <b>댓글:</b>
+  <%= fcomment.body %>
+</p>
+<p>
+<% if user_signed_in? %>
+  <% if fcomment.user_id == current_user.id %>
+
+  <%= link_to '댓글삭제', [fcomment.forest, fcomment],
+    :confirm => 'Are you Sure?',
+    :method => :delete %>
+<% end %>
+<% end %> -->
+
+<table class="type06">
+    <tr>
+        <th scope="row"><b>이름:<%= fcomment.commenter %></b></th>
+        <td>댓글:<%= fcomment.body %></td>
+        <td>
+          <div class="comment">
+            <% if user_signed_in? %>
+            <% if fcomment.user_id == current_user.id %>
+
+            <%= link_to '[댓글삭제]', [fcomment.forest, fcomment],
+                :confirm => 'Are you Sure?',
+                :method => :delete %>
+
+            <% end %>
+            <% end %>
+        </div>
+      </td>
+    </tr>
+</table>
+<br>

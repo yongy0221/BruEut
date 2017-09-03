@@ -3,9 +3,21 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
+Rails.application.config.assets.precompile += %w( login.css )
+Rails.application.config.assets.precompile += %w( custom.css )
+Rails.application.config.assets.precompile += %w( regis.css )
+Rails.application.config.assets.precompile += %w( blue.css )
+
+
+
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( login.css regis.css)
+Rails.application.config.assets.precompile += %w( events.css custom.css partypost.css forests.css pointlesses.css fcomments.css
+  fullcalendar.js gcal.js moment.js
+  navbar.css
+)

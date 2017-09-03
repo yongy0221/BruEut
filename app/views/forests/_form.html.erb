@@ -1,0 +1,28 @@
+<%= form_for(@forest) do |f| %>
+  <% if @forest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@forest.errors.count, "error") %> prohibited this forest from being saved:</h2>
+
+      <ul>
+      <% @forest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <table class="newtable">
+    <tr>
+      <th scope="row"><%= f.label :내용 %></th>
+      <td><%= f.cktext_area :content, :id => "message_area" %></td>
+    </tr>
+  </table>
+
+  <br>
+
+  <div class="actions">
+    <%= f.submit %>
+    <%= link_to '[뒤로가기]', forests_path %>
+  </div>
+<% end %>

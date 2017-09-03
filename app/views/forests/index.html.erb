@@ -1,0 +1,91 @@
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'layouts/blackbar'%>
+
+<div id="menuimage">
+  <div class = "titlebox" >
+    <h5 class="ftitle">대나무숲</h5><br>
+    <h4 id="subt">익명보장해드립니다!</h4>
+  </div>
+  <%= image_tag 'bamboo1.jpg', class: 'menuimage'%>
+</div>
+<!-- ///////////////게시글//////////////////////////// -->
+
+<div class="background">
+<% if user_signed_in? %>
+<% if @user.id== 1 %>
+<div class="main">
+<table>
+  <!-- <thead>
+    <tr>
+      게시글
+    </tr>
+  </thead> -->
+
+  <tbody>
+    <% @forests.each do |forest| %>
+      <tr>
+        <td>
+          <% if forest.censored == false %>
+
+          <%= link_to 'Trufefy', maketrue_path(forest) %>
+          <% else %>
+          true
+          <% end %>
+       </td>
+        <td>
+          <%= forest.content.html_safe %>
+          <%= link_to 'Show', forest %>
+          <%= link_to 'Edit', edit_forest_path(forest) %>
+          <%= link_to 'Destroy', forest, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+</div>
+<% else %>
+<div class="main">
+  <% @forests.each do |forest| %>
+  <% @f=forest%>
+      <% if forest.censored == true %>
+      <table class="fcontent">
+          <tr>
+              <td><%= forest.content.html_safe %><br></td>
+              <!-- <%= link_to 'Show', forest %><br> -->
+          </tr>
+      </table>
+
+           <%= render forest.fcomments %>
+           <%= render "fcomments/form" %><br>
+      <% end %>
+
+  <% end %>
+<% end %>
+<br>
+<%= link_to 'New Forest', new_forest_path %>
+<% else %>
+
+   <br>게시글
+<br><br>
+    <% @forests.each do |forest| %>
+    <% @f=forest%>
+        <% if forest.censored == true %>
+            <%= forest.content.html_safe %>   <%= link_to 'Show', forest %><br>
+            <br>Comments
+             <%= render forest.fcomments %>
+             Add a comment:
+             <%= render "fcomments/form" %><br>
+             <br>
+        <% end %>
+        <!-- <h2 class="line"><span></span></h2> -->
+    <% end %>
+<% end %>
+<br>
+</div>
+</div>
