@@ -135,11 +135,11 @@ ActiveRecord::Schema.define(version: 20170801045635) do
     t.text     "content"
     t.integer  "user_id"
     t.string   "user_name"
-    t.integer  "hit"
-    t.integer  "like"
-    t.integer  "dislike"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "hit",        default: 0
+    t.integer  "like",       default: 0
+    t.integer  "dislike",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "posts", force: :cascade do |t|

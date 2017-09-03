@@ -7,10 +7,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href=<%= root_path %>>BruEut</a>
+        <a class="navbar-brand" id="barlogo" href=<%= root_path %> >
+            <%= image_tag 'logo_inverse_03.png', class: 'barlogo'%>
+        </a>
       </div>
       <div class="collapse navbar-collapse" id="navbar">
-            <form action="/search" class="navbar-form navbar-left" role="search">
+        <div>
+          <a class = "menutext">대나무숲</a>
+          <a class = "menutext">브루인생</a>
+          <a class = "menutext">이벤트</a>
+          <a class = "menutext">뻘게시판</a>
+        </div>
+            <form action="/search" class="navbar-form navbar-left" id = "searchbar" role="search">
               <div class="form-group input-group">
                 <input type="text" class="form-control" placeholder="Search" name="term" id="srch-term">
                 <div class="input-group-btn">
@@ -19,8 +27,6 @@
               </div>
             </form>
           <ul class="nav navbar-nav navbar-right">
-            <li class="navbar-left aa" id="newsfeed-link"><a href="#"><span class="glyphicon glyphicon-globe"></span>Feed</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-envelope aa"></span>Message</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle aa" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>User<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -32,7 +38,7 @@
                 <% end %>
               </ul>
             </li>
-          </ul
+          </ul>
       </div>
     </div>
 </nav>
