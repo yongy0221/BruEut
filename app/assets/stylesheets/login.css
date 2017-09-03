@@ -1,3 +1,9 @@
+/*f.label, f.email_field,
+f.password_field, f.check_box, f.submit{
+  justify-content: center;
+  display: inline-block;
+}*/
+
 .border-form-div-1{
   max-width: 300px;
   width: 100%;
@@ -35,15 +41,6 @@
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.25);
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25);
           box-shadow: 0 1px 2px rgba(0,0,0,.25);
-}
-
-.field {
-  justify-content: center;
-}
-
-
-.actions{
-  justify-content: center;
 }
 
 .back{

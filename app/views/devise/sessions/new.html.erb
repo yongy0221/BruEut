@@ -15,24 +15,24 @@
                 <h2 style="text-align:center">로그인</h2>
                 <br>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                  <div class="field" style="align:center">
+                  <div class="field">
                     <%= f.label :이메일 %><br />
                     <%= f.email_field :email, autofocus: true %>
                   </div>
 
-                  <div class="field" style="align:center">
+                  <div class="field">
                     <%= f.label :비밀번호 %><br />
                     <%= f.password_field :password, autocomplete: "off" %>
                   </div>
 
                   <% if devise_mapping.rememberable? -%>
-                    <div class="field" style="align:center">
+                    <div class="field">
                       <%= f.check_box :remember_me %>
                       <%= f.label :로그인_상태_유지 %>
                     </div>
                   <% end -%>
 
-                  <div class="actions" style="align:center">
+                  <div class="actions" style="align-items: left;">
                     <%= f.submit "로그인" %>
                   </div>
                   <% end %>
