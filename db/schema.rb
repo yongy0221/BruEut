@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170801045635) do
+ActiveRecord::Schema.define(version: 20170903083741) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -77,6 +77,18 @@ ActiveRecord::Schema.define(version: 20170801045635) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "markets", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.string   "user_name"
+    t.integer  "hit",        default: 0
+    t.integer  "like",       default: 0
+    t.integer  "dislike",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "partyjoins", force: :cascade do |t|

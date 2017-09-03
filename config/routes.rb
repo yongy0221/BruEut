@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :markets
   resources :pointlesses do
     resources :pcomments
     end

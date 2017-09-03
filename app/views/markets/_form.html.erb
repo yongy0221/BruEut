@@ -1,0 +1,44 @@
+<%= form_for(@market) do |f| %>
+  <% if @market.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@market.errors.count, "error") %> prohibited this market from being saved:</h2>
+
+      <ul>
+      <% @market.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="newtable">
+    <tr>
+      <th scope="row"><%= f.label :제목 %></th>
+      <td><%= f.text_field :title, :id => "title_area" %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= f.label :내용 %></th>
+      <td><%= f.cktext_area :content, :id => "message_area" %></td>
+    </tr>
+  </table>
+
+  <br>
+
+    <div class="actions">
+      <%= f.submit %>
+      <%= link_to '[뒤로가기]', markets_path %>
+    </div>
+<% end %>
+<!--
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %> -->
