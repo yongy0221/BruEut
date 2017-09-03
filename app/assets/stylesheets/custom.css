@@ -1,4 +1,3 @@
-
 p, td{
   font-family: 'AppleSDGothicNeo-Light';
   font-size: 16px;
@@ -28,7 +27,7 @@ p, td{
   width: 50%;
   display: flex;
   justify-content: center;
-  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .textholder a:hover {

@@ -1,22 +1,46 @@
+/*f.label, f.email_field,
+f.password_field, f.check_box, f.submit{
+  justify-content: center;
+  display: inline-block;
+}*/
+
 .border-form-div-1{
   max-width: 300px;
+  width: 100%;
   padding: 19px 29px 29px;
-  margin: 40px 150px 40px 150px;
+  margin: 100px 185px 40px 150px;
   background-color: #fff;
   background: rgba(255,255,255,0.5);
   z-index: 10;
   float: right;
+  display: inline-block;
+  position: relative;
   vertical-align: middle;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+          box-shadow: 0 1px 2px rgba(0,0,0,.25);
 }
 .border-form-div-2{
   max-width: 300px;
+  width: 100%;
   padding: 19px 29px 29px;
-  margin: 120px 100px 120px 0px;
+  margin: 120px 185px 120px 0px;
   background-color: #fff;
   background: rgba(255,255,255,0.5);
   z-index: 10;
   float: right;
+  display: inline-block;
+  position: relative;
   vertical-align: middle;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.25);
+          box-shadow: 0 1px 2px rgba(0,0,0,.25);
 }
 
 .back{
@@ -32,6 +56,9 @@
 
 .box{
   position: relative;
+  clear: both;
+  white-space: nowrap;
+  flex-wrap: flex;
 }
 
 .intro{
