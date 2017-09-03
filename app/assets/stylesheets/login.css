@@ -1,8 +1,6 @@
-/*f.label, f.email_field,
-f.password_field, f.check_box, f.submit{
-  justify-content: center;
-  display: inline-block;
-}*/
+.slightleft{
+  margin-right: 39px;
+}
 
 .border-form-div-1{
   max-width: 300px;
@@ -52,13 +50,6 @@ f.password_field, f.check_box, f.submit{
   -o-background-size: cover;
   background-size: cover;
   z-index: -10;
-}
-
-.box{
-  position: relative;
-  clear: both;
-  white-space: nowrap;
-  flex-wrap: flex;
 }
 
 .intro{
