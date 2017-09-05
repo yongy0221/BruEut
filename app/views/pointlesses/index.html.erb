@@ -52,6 +52,12 @@
   <%= link_to '[글쓰기]', new_pointless_path %>
 <% end %>
 
+<div class="col three">
+    <% if user_signed_in? %>
+        <a href="<%= new_pointless_path%>" class="btn btn-dark-blue">글쓰기</a>
+        <% end %>
+        </div>
+
 <%= link_to '[홈]', root_path %> <br>
 
 <%= will_paginate @pointlesses %>
