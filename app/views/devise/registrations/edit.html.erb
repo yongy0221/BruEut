@@ -12,7 +12,7 @@
 <body class="bady">
   <br>
   <div class="border-form-div3">
-    <h3 style="text-align:center">내정보 설정</h2>
+    <h3 style="text-align:center">내 정보 설정</h2>
       <div class="slightleftedit" style="text-align:center">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
@@ -27,7 +27,7 @@
           <% end %>
 
           <div class="field" style="text-align:center">
-            <%= f.label :비밀번호 %> <i>(재설정을 원할 경우에만 입력하세요)</i><br />
+            <%= f.label :비밀번호 %> <i>(재설정시에만 입력)</i><br />
             <%= f.password_field :password, autocomplete: "off" %>
             <% if @minimum_password_length %>
               <br />

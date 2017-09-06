@@ -20,6 +20,8 @@
 }
 .ppost-content{
   border-collapse: collapse;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 18px;
   text-align: left;
     line-height: 1.5;
     border: 1px solid #ccc;
@@ -28,6 +30,7 @@
     float: none;
     position: static;
     width:45%;
+    /*height: 45%;*/
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
 }
 
@@ -39,4 +42,42 @@
 }
 .sred {
   border-left: 5px solid #c8331f;
+}
+.button-favorite{
+  border: 1px solid #dc385f;
+  border-radius: 3%;
+  margin-left: 3%;
+  padding: 20px 30px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 14px;
+}
+.button-favorite:hover{
+  text-decoration: none;
+  background-color: #dc385f;
+}
+.button-holder{
+  display: inline-block;
+  max-width: 50%;
+  /*position:relative;*/
+}
+.button-join{
+  border: 1px solid #1d75d9;
+  border-radius: 3%;
+  margin-left: 3%;
+  padding: 20px 30px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 14px;
+  background-color: white;
+}
+.button-join:hover{
+  text-decoration: none;
+  background-color: #1d75d9;
+}
+.button-container{
+  display:flex;
+  flex-wrap: wrap;
 }

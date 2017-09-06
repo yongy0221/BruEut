@@ -27,8 +27,7 @@
                         <option value="9">9</option>
                         <option value="10">10+</option>
                       </select>
-                      <span class="blankspace">
-                      <input type = "submit" class="ppost-submit" value = "구해염!">
+                      <input type = "submit" class="ppost-submit button-join" value = "구해염!">
                       </span>
                   </form>
                 </div>
@@ -45,14 +44,8 @@
                     <div class="ppost-content <%=@statusColor%>">
                         <span class="ppost-title "><%= p.article%></span><br />
                         posted by: <%= p.user.email %> <br>
-                        <%if Partyjoin.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
-                            <i class="material-icons" style="font-size:30px;"><a href = "/partyjoin/<%= p.id %>"> person_add </a></i> (<%= p.partyjoins.count %>)
-                        <%else%>
-                            <i class="material-icons" style="font-size:30px;"><a href = "/partydisjoin/<%= p.id %>"> person_outline </a></i> (<%= p.partyjoins.count %>)
-                        <%end%>
 
-
-                        <br><br>
+                        <br/>
 
                         <div class = "icon" >
                           <% for i in 0 ... p.partyjoins.count %>
@@ -61,29 +54,48 @@
                               </div>
                           <% end %>
                             <% for i in 0 ... p.total - p.partyjoins.count %>
-                                <div style>
+                                <div>
                                   <%= image_tag 'personicon2.png'%>
                                 </div>
                                 <!--<img src = "https://www.iconfinder.com/icons/312112/account_green_human_male_man_person_profile_user_icon">-->
                             <% end %>
+                          <%if p.total <= 8%>
+                          <br />
+                            <div style='width:100%; height:62px; display:block;'></div>
+                          <%end%>
                         </div>
 
+                        <br />
+                        <div class="button-container">
 
-
-                        <br><br>
+                        <%if Partyjoin.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
+                          <div class="button-holder">
+                            <a class="button-join" href = "/partyjoin/<%= p.id %>"><i class="material-icons" style="font-size:30px;"> person_add </i>쪼인하기(<%= p.partyjoins.count %>)</a>
+                          </div>
+                        <%else%>
+                          <div class="button-holder">
+                            <a class="button-join" href = "/partydisjoin/<%= p.id %>"><i class="material-icons" style="font-size:30px;"> cancel </i>나가기(<%= p.partyjoins.count %>)</a>
+                          </div>
+                        <%end%>
 
                         <%if Partylike.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
-                            <i class="material-icons">
-                              <a href = "/partylike/<%= p.id %>"> favorite </a></i>(<%= p.partylikes.count %>)
+                            <div class="button-holder">
+                              <a class = "button-favorite material-icons" href = "/partylike/<%= p.id %>"><i class="material-icons"> favorite </i>좋아요(<%= p.partylikes.count %>)</a>
+                            </div>
 
                         <%else%>
-                            <i class="material-icons">
-                              <a href = "/partyunlike/<%= p.id %>"> favorite_border </a></i>(<%= p.partylikes.count %>)
+                            <div class = "button-holder">
+                              <a class = "button-favorite" href = "/partyunlike/<%= p.id %>"><i class="material-icons"> favorite_border </i>좋아요 취소(<%= p.partylikes.count %>)</a>
+                            </div>
 
                         <%end%>
 
-                        <%p.partylikes.each do |l|%>
-                            <%= l.user.email%><br>
+                        </div>
+                        <br />
+                        <p>
+                          <%p.partylikes.each do |l|%>
+                              좋아요:<%= l.user.email%><br>
+                        </p>
                         <%end%>
                         <!-- <label class="switch">
                             <input type="checkbox">

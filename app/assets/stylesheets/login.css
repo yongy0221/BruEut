@@ -22,6 +22,7 @@
           box-shadow: 0 1px 2px rgba(0,0,0,.25);
 }
 .border-form-div-2{
+  font-family: 'AppleSDGothicNeo-Light';
   max-width: 300px;
   width: 100%;
   padding: 19px 29px 29px;
@@ -56,6 +57,8 @@
   font-size: 25px;
   font-weight: 400;
   color: white;
+  font-family: 'kHandwritingM';
+  font-size: 35px;
 }
 
 .Iam {
@@ -77,11 +80,15 @@
 }
 .Iam .innerIam {
   display: inline-block;
-  color: #e74c3c;
+  /*color: #e74c3c;*/
+  color: #f0fa4c;
   position: relative;
   white-space: nowrap;
   top: 0;
   left: 0;
+  font-family: 'kHandwritingM';
+  font-weight: lighter;
+  font-size: 45px;
 
 
 /*animation*/
