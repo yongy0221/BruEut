@@ -1,3 +1,41 @@
+/*log in button*/
+.loginbutton{
+  background:#1d75d9;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:30px;
+  font-size:1.0em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.loginbutton:hover{
+  background:rgba(255,255,255,0.3);
+  color:#1d75d9;
+}
+.loginbutton:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1d75d9;
+  transition:400ms ease all;
+}
+.loginbutton:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.loginbutton:hover:before,.loginbutton:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
 .slightleft{
   margin-right: 39px;
 }

@@ -1,3 +1,121 @@
+/*register button*/
+.regisbutton{
+  background:#1d75d9;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:30px;
+  font-size:1.0em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.regisbutton:hover{
+  background:rgba(255,255,255,0.3);
+  color:#1d75d9;
+}
+.regisbutton:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1d75d9;
+  transition:400ms ease all;
+}
+.regisbutton:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.regisbutton:hover:before,.regisbutton:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/*..*/
+
+.btn{
+  background:#1d75d9;
+  color:#fff;
+  border-radius:0;
+  position:relative;
+  height:30px;
+  font-size:1.0em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  width:90px;
+}
+.btn:hover{
+  background:rgba(255,255,255,0.3);
+  color:#1d75d9;
+}
+.btn:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1d75d9;
+  transition:400ms ease all;
+}
+.btn:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn:hover:before,.btn:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/*edit my info button*/
+.editmybutton{
+  background:#1d75d9;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:30px;
+  font-size:1.0em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.editmybutton:hover{
+  background:rgba(255,255,255,0.3);
+  color:#1d75d9;
+}
+.editmybutton:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1d75d9;
+  transition:400ms ease all;
+}
+.editmybutton:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.editmybutton:hover:before,.editmybutton:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/*..*/
+
 .slightleftregis{
   margin-right: 29px;
 }
