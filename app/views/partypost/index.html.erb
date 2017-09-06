@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row">
                 <div class = "ppost-form">
-                  <h5>파티원 구하기</h5><br />
+                  <h5>파티원 구하기</h5>
                   <form action ="/partycreate" method="post">
                       내용: <input type = "text" name="article" class = "article">
                       인원수: <select name= "total">
@@ -27,7 +27,7 @@
                         <option value="9">9</option>
                         <option value="10">10+</option>
                       </select>
-                      <input type = "submit" class="ppost-submit button-join" value = "구해염!">
+                      <input type = "submit" class="ppost-submit button-post" value = "구해염!">
                       </span>
                   </form>
                 </div>
@@ -69,24 +69,24 @@
                         <div class="button-container">
 
                         <%if Partyjoin.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
-                          <div class="button-holder">
+                          <!-- <div class="button-holder"> -->
                             <a class="button-join" href = "/partyjoin/<%= p.id %>"><i class="material-icons" style="font-size:30px;"> person_add </i>쪼인하기(<%= p.partyjoins.count %>)</a>
-                          </div>
+                          <!-- </div> -->
                         <%else%>
-                          <div class="button-holder">
-                            <a class="button-join" href = "/partydisjoin/<%= p.id %>"><i class="material-icons" style="font-size:30px;"> cancel </i>나가기(<%= p.partyjoins.count %>)</a>
-                          </div>
+                          <!-- <div class="button-holder"> -->
+                            <a class="button-join" href = "/partydisjoin/<%= p.id %>"><i class="material-icons" style="font-size:30px;"> cancel </i>나가기</a>
+                          <!-- </div> -->
                         <%end%>
 
                         <%if Partylike.where(:user_id=>current_user).where(:partypost_id => p.id).empty?%>
-                            <div class="button-holder">
+                            <!-- <div class="button-holder"> -->
                               <a class = "button-favorite material-icons" href = "/partylike/<%= p.id %>"><i class="material-icons"> favorite </i>좋아요(<%= p.partylikes.count %>)</a>
-                            </div>
+                            <!-- </div> -->
 
                         <%else%>
-                            <div class = "button-holder">
+                            <!-- <div class = "button-holder"> -->
                               <a class = "button-favorite" href = "/partyunlike/<%= p.id %>"><i class="material-icons"> favorite_border </i>좋아요 취소(<%= p.partylikes.count %>)</a>
-                            </div>
+                            <!-- </div> -->
 
                         <%end%>
 

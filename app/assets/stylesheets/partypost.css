@@ -4,6 +4,7 @@
   position: relative;
   left: 10%;
   padding: 1% 1%;
+  font-family: 'AppleSDGothicNeo-Light'
 }
 
 .article{
@@ -47,7 +48,7 @@
   border: 1px solid #dc385f;
   border-radius: 3%;
   margin-left: 3%;
-  padding: 20px 30px;
+  padding: 20px 40px;
   text-align: center;
   vertical-align: middle;
   font-family: 'AppleSDGothicNeo-Light';
@@ -57,16 +58,12 @@
   text-decoration: none;
   background-color: #dc385f;
 }
-.button-holder{
-  display: inline-block;
-  max-width: 50%;
-  /*position:relative;*/
-}
+
 .button-join{
   border: 1px solid #1d75d9;
   border-radius: 3%;
-  margin-left: 3%;
-  padding: 20px 30px;
+  margin-left: 15%;
+  padding: 20px 40px;
   text-align: center;
   vertical-align: middle;
   font-family: 'AppleSDGothicNeo-Light';
@@ -80,4 +77,22 @@
 .button-container{
   display:flex;
   flex-wrap: wrap;
+}
+
+.button-post{
+  border: 1px solid #1d75d9;
+  border-radius: 3%;
+  margin-left: 2%;
+  padding: 15px 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 14px;
+  background-color: white;
+  position: static;
+}
+.button-post:hover{
+  color: white;
+  text-decoration: none;
+  background-color: #1d75d9;
 }
