@@ -22,7 +22,10 @@
   <br>
 
   <div class="actions">
-    <%= f.submit %>
-    <%= link_to '[뒤로가기]', forests_path %>
+    <div class="col two">
+      <a href="<%= forests_path%>" class="btn btn-dark-blue">뒤로가기</a>
+    </div>
+
+      <%= link_to '[글쓰기]', f.submit %>
   </div>
 <% end %>

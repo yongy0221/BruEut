@@ -68,7 +68,7 @@
   text-weight: bold;
 }
 .right {
-  width: 93%;
+  width: 98%;
   text-align: right;
 }
 
@@ -179,21 +179,22 @@ textarea#message_area {
   background-color: white;
 }
 
+/*------- 여기서부터 글쓰기 버튼-------*/
+
 .col.three{
   float: right;
-  /*margin: 0 0 1em;*/
-  padding-right: .2%;
-  padding-left: .2%;
-  width: 10%;
+  width: 8%;
+  font-size: 12px;
+  padding: .0% .2%;
 }
 
 .btn {
-  font-size: 10px;
   white-space:nowrap;
-  width:90%;
-  padding:.8em 1.5em;
+  width:100%;
+  margin: 3%;
+  border:.5% 1%;
   font-family: Open Sans, Helvetica,Arial,sans-serif;
-  line-height:12px;
+  line-height:14px;
   display: inline-block;
   zoom: 1;
   color: #fff;
@@ -208,6 +209,8 @@ textarea#message_area {
   border-color: #237fbc;
   -webkit-box-shadow: 0 3px 0 #1a5c87;
   box-shadow: 0 3px 0 #1a5c87;
+  color: #fff;
+  padding: 0.5em 0.2em;
 }
 .btn.btn-dark-blue:hover{
   background-color:#166ea8;
@@ -216,4 +219,34 @@ textarea#message_area {
   top: 3px; outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+/*-------여기서부터 홈버튼-------*/
+
+.col.one{
+  float: right;
+  padding-right: .1%;
+  padding-left: .1%;
+  width: 5%;
+  font-size: 10px;
+}
+
+.btn.btn-home{
+  background-color: #2eabde;
+  border-color: #2eabde;
+  -webkit-box-shadow: 0 3px 0 #1b6684;
+  box-shadow: 0 3px 0 #1b6684;
+  color: #fff;
+}
+.btn.btn-home:active{
+  top: 3px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;}
+
+.icon-only i{
+  padding-top: 0.5em;
+  padding-bottom: 0em;
+  font-size: 16px;
+  line-height:0px;
 }
