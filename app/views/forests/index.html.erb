@@ -16,8 +16,8 @@
 <!-- ///////////////게시글//////////////////////////// -->
 
 <div class="background">
-<% if user_signed_in? %>
-<% if @user.id== 1 %>
+<% if current_user %>
+<% if @user.tier== 1 %>
 <div class="main">
 <table>
   <!-- <thead>
@@ -32,7 +32,7 @@
         <td>
           <% if forest.censored == false %>
 
-          <%= link_to 'Trufefy', maketrue_path(forest) %>
+            <%= link_to 'Trufefy', maketrue_path(forest) %>
           <% else %>
           true
           <% end %>

@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.datetime :oauth_expires_at
       t.string :email
       t.string :bname
-      t.integer :tier
+      t.integer :tier, default: 10
 
       t.timestamps null: false
     end

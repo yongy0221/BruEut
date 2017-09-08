@@ -2,9 +2,11 @@ class ForestsController < ApplicationController
   before_action :set_forest, only: [:show, :edit, :update, :destroy]
 
   def maketrue
-    @forest=Forest.find(params[:format])
-    @forest.censored=true
-    @forest.save
+    if current_user.teir == 1
+      @forest=Forest.find(params[:format])
+      @forest.censored=true
+      @forest.save
+    end
     redirect_to :back
   end
   # GET /forests
@@ -26,6 +28,9 @@ class ForestsController < ApplicationController
 
   # GET /forests/1/edit
   def edit
+    if current_user.tier != 1
+      redirect_to :back
+    end
   end
 
   # POST /forests
@@ -61,6 +66,9 @@ class ForestsController < ApplicationController
   # DELETE /forests/1
   # DELETE /forests/1.json
   def destroy
+    if current_user != 1
+      redirect_to :back
+    end
     @forest.destroy
     respond_to do |format|
       format.html { redirect_to forests_url, notice: 'Forest was successfully destroyed.' }
