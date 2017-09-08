@@ -1,16 +1,22 @@
 Rails.application.routes.draw do
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
   resources :markets
   resources :pointlesses do
     resources :pcomments
-    end
+  end
   mount Ckeditor::Engine => '/ckeditor'
   resources :events
   resources :forests do
     resources :fcomments
   end
+  get 'main/rindex'
+  get 'pointless/rindex' => 'main#rindex'
   post 'pointlesses/like'
   post 'pointlesses/dislike'
-  devise_for :users
   root "main#dashboard"
 
   get 'partypost' => 'partypost#index'

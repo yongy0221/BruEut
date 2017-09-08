@@ -8,6 +8,7 @@ class CreatePointlesses < ActiveRecord::Migration
       t.integer :hit, default: 0
       t.integer :like, default: 0
       t.integer :dislike, default: 0
+      t.boolean :rec, default: false
       t.timestamps null: false
     end
   end

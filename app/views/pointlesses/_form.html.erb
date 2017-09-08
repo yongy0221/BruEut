@@ -14,18 +14,18 @@
   <table class="newtable">
     <tr>
       <th scope="row"><%= f.label :제목 %></th>
-      <td><%= f.text_field :title, :id => "title_area" %></td>
+      <td><%= f.text_field :title, :id => "title_area", :required=> true %></td>
     </tr>
     <tr>
       <th scope="row"><%= f.label :내용 %></th>
-      <td><%= f.cktext_area :content, :id => "message_area" %></td>
+      <td><%= f.cktext_area :content, :id => "message_area", :required=> true %></td>
     </tr>
   </table>
 
   <br>
-
-    <div class="actions">
-      <%= f.submit %>
-      <%= link_to '[뒤로가기]', pointlesses_path %>
-    </div>
+  <div class="actions">
+    <%= button_tag(type: 'submit', class: "btns", style: "margin-left: 93%") do %>
+     작성
+    <% end %>
+  </div>
 <% end %>
