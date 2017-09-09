@@ -181,14 +181,14 @@ textarea#message_area {
 
 /*------- 여기서부터 글쓰기 버튼-------*/
 
-.col.three{
+.colu.three{
   float: right;
   width: 8%;
   font-size: 12px;
   padding: .0% .2%;
 }
 
-.btn {
+.butn {
   white-space:nowrap;
   width:100%;
   margin: 3%;
@@ -204,7 +204,7 @@ textarea#message_area {
   transition: border .25s linear, color .25s linear, background-color .25s linear;
 }
 
-.btn.btn-dark-blue{
+.butn.butn-dark-blue{
   background-color: #237fbc;
   border-color: #237fbc;
   -webkit-box-shadow: 0 3px 0 #1a5c87;
@@ -212,10 +212,10 @@ textarea#message_area {
   color: #fff;
   padding: 0.5em 0.2em;
 }
-.btn.btn-dark-blue:hover{
+.butn.butn-dark-blue:hover{
   background-color:#166ea8;
 }
-.btn.btn-dark-blue:active{
+.butn.butn-dark-blue:active{
   top: 3px; outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -223,30 +223,30 @@ textarea#message_area {
 
 /*-------여기서부터 홈버튼-------*/
 
-.col.one{
+.colu.one{
   float: right;
   padding-right: .1%;
   padding-left: .1%;
   width: 5%;
-  font-size: 10px;
+  font-size: 11px;
 }
 
-.btn.btn-home{
+.butn.butn-home{
   background-color: #2eabde;
   border-color: #2eabde;
   -webkit-box-shadow: 0 3px 0 #1b6684;
   box-shadow: 0 3px 0 #1b6684;
   color: #fff;
 }
-.btn.btn-home:active{
+.butn.butn-home:active{
   top: 3px;
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;}
 
 .icon-only i{
-  padding-top: 0.5em;
-  padding-bottom: 0em;
+  padding-top: 0.75em;
+  padding-bottom: 0.8em;
   font-size: 16px;
   line-height:0px;
 }
