@@ -57,9 +57,8 @@
 
         <p>정말 브루이웃을 떠나시겠습니까?<%= button_to "탈퇴 확인", registration_path(resource_name),
         data: { confirm: "탈퇴한 아이디는 본인과 타인 모두 재사용 및 복구가 불가하오니 신중하게 선택하시기 바랍니다" },
-        method: :delete, :class => 'btn'%></p>
-
-        <%= link_to "뒤로", :back %>
+        method: :delete, :class => 'btn cancelbtn'%></p>
+        <%= link_to "뒤로", :back, :class => "links_login" %>
         <br>
       </div>
     </div>

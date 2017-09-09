@@ -15,9 +15,9 @@
           <h4 style="text-align:center">안녕하세요 <%=current_user.email %>님</h4>
           <br>
           <% if user_signed_in? %>
-            <%= link_to "내정보", edit_user_registration_path %>
+            <%= link_to "내정보", edit_user_registration_path, :class => "links_login" %>
             <br>
-            <%= link_to "로그아웃", destroy_user_session_path %>
+            <%= link_to "로그아웃", destroy_user_session_path, :class => "links_login" %>
           <% else %>
             <%= link_to "회원가입", new_user_registration_path %>, or
             <%= link_to "로그인", user_session_path %>
