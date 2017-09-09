@@ -24,8 +24,13 @@
 
   <br>
 
-    <div class="actions">
-      <%= f.submit %>
-      <%= link_to '[뒤로가기]', pointlesses_path %>
+    <div class="butns">
+      <div class="colu three">
+          <a href="<%= pointlesses_path%>" class="butn butn-grey">뒤로가기</a>
+      </div>
+
+      <div class="colu three">
+          <%=f.submit '글쓰기', :class => 'butn butn-dark-blue' %>
+      </div>
     </div>
 <% end %>

@@ -21,11 +21,14 @@
 
   <br>
 
-  <div class="actions">
-    <div class="col two">
-      <a href="<%= forests_path%>" class="butn butn-dark-blue">뒤로가기</a>
+  <div class="butns">
+    <div class="colu three">
+        <a href="<%= forests_path%>" class="butn butn-grey">뒤로가기</a>
     </div>
 
-      <%= link_to '[글쓰기]', f.submit %>
+
+    <div class="colu three">
+        <%=f.submit '글쓰기', :class => 'butn butn-dark-blue' %>
+    </div>
   </div>
 <% end %>

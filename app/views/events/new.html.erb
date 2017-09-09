@@ -1,5 +1,15 @@
-<h1>이벤트 추가</h1>
+<%=render 'layouts/blackbar'%>
 
-<%= render 'form' %>
+<div class="new">
 
-<%= link_to 'Back', events_path %>
+  <h1>이벤트 추가</h1>
+
+  <%= render 'form' %>
+
+  <div class="butns">
+    <div class="colu three">
+        <a href="<%= pointlesses_path%>" class="butn butn-grey">뒤로가기</a>
+    </div>
+  </div>
+
+</div>
