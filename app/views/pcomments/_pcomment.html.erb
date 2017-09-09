@@ -6,7 +6,7 @@
     <td><%= pcomment.body %></td>
     <td>
       <div class="comment">
-        <% if user_signed_in? %>
+        <% if current_user %>
           <% if pcomment.user_id == current_user.id %>
 
           <%= link_to '[댓글삭제]', [pcomment.pointless, pcomment],
