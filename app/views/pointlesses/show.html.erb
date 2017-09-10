@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="stylesheets/forests.css">
-
-
 
 <p id="notice"><%= notice %></p>
 
@@ -23,21 +20,23 @@
       </tr>
     </tbody>
   </table>
+    <% if @user.id == @pointless.user_id %>
+    <%= link_to '[글 삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
+    <% end %>
   <br>
   <br>
 
     <% if user_signed_in?%>
-      <% if @user.id == @pointless.user_id %>
+    <div style="display:flex;">
       <form action='like' method=post %>
         <input type=hidden name=pointless_id value = <%= @pointless.id %> >
-        <input type=Submit value="Like <%= @pointless.like %>">
+        <input class = "button-like" type=Submit value="공감 <%= @pointless.like %>">
       </form>
       <form action='dislike' method=post %>
         <input type=hidden name=pointless_id value = <%= @pointless.id %> >
-        <input type=Submit value="DisLike <%= @pointless.dislike %>">
+        <input class = "button-dislike" type=Submit value="비공감 <%= @pointless.dislike %>">
       </form>
-      <%= link_to '[삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
+    </div>
     <% end %>
 
     <br>
@@ -46,10 +45,8 @@
       <%= render @pointless.pcomments %>
       <%= render "pcomments/form" %>
     </div>
-
   <div class="right">
-  <%= link_to '[뒤로가기]', pointlesses_path %>
-  <%= link_to '[홈]', root_path %>
+  <%= link_to '뒤로가기', pointlesses_path, :class=>"butn butn-grey" %>
   </div>
 <% @pointless.pluids.each do |p| %>
 <% end %>

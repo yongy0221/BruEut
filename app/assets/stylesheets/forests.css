@@ -120,6 +120,7 @@ footer.text-center{
 
   .butn.butn-grey:hover{
     background-color:#6a7879;
+    text-decoration: none;
   }
 
   .butn.butn-grey:active{

@@ -67,9 +67,11 @@
   text-decoration: none;
   text-weight: bold;
 }
+
 .right {
   width: 98%;
   text-align: right;
+  color: white;
 }
 
 table.boardtable{
@@ -106,7 +108,7 @@ table.boardtable tbody th {
 
 .pcomment {
   font-size: 13px;
-  width: 70%;
+  width: 100%;
   margin-left:auto;
   margin-right:auto;
   line-height:1;
@@ -211,6 +213,7 @@ textarea#message_area {
 }
 .butn.butn-dark-blue:hover{
   background-color:#166ea8;
+  text-decoration: none;
 }
 .butn.butn-dark-blue:active{
   top: 3px; outline: none;
@@ -248,4 +251,41 @@ textarea#message_area {
   padding-bottom: 0.83em;
   font-size: 16px;
   line-height:0px;
+}
+
+.button-like{
+  border: 1px solid #dc385f;
+  border-radius: 3%;
+  padding: 15px 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 14px;
+  background-color: white;
+}
+.button-like:hover{
+  text-decoration: none;
+  background-color: #dc385f;
+  color: white;
+}
+
+.button-dislike{
+  border: 1px solid #828282;
+  border-radius: 3%;
+  margin-left: 20px;
+  padding: 15px 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 14px;
+  background-color: white;
+}
+.button-dislike:hover{
+  text-decoration: none;
+  background-color: #828282;
+  color: white;
+}
+
+.pagination{
+  margin: 5px 10px;
 }

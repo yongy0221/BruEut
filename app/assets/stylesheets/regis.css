@@ -80,6 +80,7 @@
 .editmybutton{
   background:#1d75d9;
   color:#fff;
+  width: 52%;
   border:none;
   position:relative;
   height:30px;
@@ -88,6 +89,7 @@
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
+  margin-left: 12%;
 }
 .editmybutton:hover{
   background:rgba(255,255,255,0.3);

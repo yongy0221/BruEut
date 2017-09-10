@@ -10,10 +10,14 @@
   cursor:pointer;
   transition:800ms ease all;
   outline:none;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 .links_login:hover{
   background:rgba(255,255,255,0.3);
   color:#1d75d9;
+  text-decoration: none;
 }
 .links_login:before,button:after{
   content:'';

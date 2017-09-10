@@ -1,5 +1,5 @@
 <%= form_for([@f, @f.fcomments.build]) do |f| %>
-  <div class="field">
+  <div class="field forComment">
     <%= f.hidden_field :user_id, :value => @user.id %>
   <!-- </div>
   <div class="field"> -->
@@ -10,8 +10,10 @@
       <%= f.label :댓글달기%>
       <%= f.text_area :body, :class=>"fl-comment" %>
     </div>
-  </div>
-  <div class="actions">
-    <%= f.submit :value => "등록"%>
+
+    <div class="actions">
+      <%= f.submit :value => "등록", :class => "button-submit"%>
+    </div>
+
   </div>
 <% end %>

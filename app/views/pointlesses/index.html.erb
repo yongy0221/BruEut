@@ -52,21 +52,14 @@
 <br>
 
 <div class="right">
-<div class="colu one">
-    <% if user_signed_in? %>
-        <a href="<%= root_path%>" class="butn butn-home icon-only"><i class="fa fa-home" aria-hidden="true"></i></a>
-      <% end %>
+
+  <div class="colu three">
+      <% if user_signed_in? %>
+          <a href="<%= new_pointless_path%>" class="butn butn-dark-blue"><i class="fa fa-pencil"></i>글쓰기</a>
+        <% end %>
   </div>
-
-<div class="colu three">
-    <% if user_signed_in? %>
-        <a href="<%= new_pointless_path%>" class="butn butn-dark-blue"><i class="fa fa-pencil"></i>글쓰기</a>
-      <% end %>
-  </div>
+  <%= will_paginate @pointlesses %>
 
 
-<br>
-
-<%= will_paginate @pointlesses %>
 </div>
 </div>
