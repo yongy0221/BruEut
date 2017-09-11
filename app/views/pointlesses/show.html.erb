@@ -15,6 +15,7 @@
     <thead>
       <tr class="pcontitle">
         <th scope="cols"><%= @pointless.title.html_safe %></th>
+        <th scope = "cols"> <%= @pointless.user.name %> </th>
       </tr>
     </thead>
     <tbody>
@@ -26,17 +27,27 @@
   <br>
   <br>
 
-    <% if user_signed_in?%>
-      <% if @user.id == @pointless.user_id %>
+    <% if current_user%>
+
       <form action='like' method=post %>
-        <input type=hidden name=pointless_id value = <%= @pointless.id %> >
-        <input type=Submit value="Like <%= @pointless.like %>">
-      </form>
-      <form action='dislike' method=post %>
-        <input type=hidden name=pointless_id value = <%= @pointless.id %> >
-        <input type=Submit value="DisLike <%= @pointless.dislike %>">
-      </form>
-      <%= link_to '[삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <input type=hidden name=pointless_id value = <%= @pointless.id %> >
+          <input type=Submit value="Like <%= @pointless.like %>">
+        </form> <form action='dislike' method=post %>
+          <input type=hidden name=pointless_id value = <%= @pointless.id %> >
+          <input type=Submit value="DisLike <%= @pointless.dislike %>">
+        </form>
+        <div>
+        <%= link_to pointlesses_path, {:style=>'text-decoration:none;'} do%>
+            <div class="btnn" style="margin-left: 0%; ">목록</div>
+          <% end %>
+        <% if current_user %>
+         <% if @user.id == @pointless.user_id %>
+          <%= link_to @pointless, method: :delete, data: { confirm: 'Are you sure?'}, :style=>'text-decoration:none;' do %>
+            <div class="btnn" style="margin-left:89%; margin-top:-43px">삭제</div>
+          <% end %>
+        <% end %>
+
+      </div>
       <% end %>
     <% end %>
 
@@ -44,13 +55,11 @@
     <br>
     <div class="pcomment">
       <%= render @pointless.pcomments %>
-      <%= render "pcomments/form" %>
+      <% if current_user %>
+        <%= render "pcomments/form" %>
+      <% end %>
     </div>
 
-  <div class="right">
-  <%= link_to '[뒤로가기]', pointlesses_path %>
-  <%= link_to '[홈]', root_path %>
-  </div>
 <% @pointless.pluids.each do |p| %>
 <% end %>
 </div>

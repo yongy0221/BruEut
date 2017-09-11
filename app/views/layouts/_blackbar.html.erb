@@ -32,12 +32,12 @@
       <li class="dropdown">
         <a class="dropdown-toggle aa" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> 브루인<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li id="profile-link"><a href=<%=edit_user_registration_path%>>Edit Profile</a></li>
-          <% if user_signed_in? %>
-          <li><a href= <%= destroy_user_session_path %>><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
-          <% else %>
-          <li><a href= <%= user_session_path %>><span class="glyphicon glyphicon-log-in"></span>Log In</a></li>
-          <% end %>
+          <% if current_user %>
+           <li id="profile-link"><%= link_to "내정보", root_path %></li>
+           <li><%= link_to "로그아웃", signout_path, id: "sign_out" %><span class="glyphicon glyphicon-log-in"></span></li>
+         <% else %>
+           <li><%= link_to "로그인", "/auth/google_oauth2", id: "sign_in" %><span class="glyphicon glyphicon-log-in"></span></li>
+         <% end %>
         </ul>
       </li>
     </ul>

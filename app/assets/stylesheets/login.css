@@ -51,13 +51,29 @@
   background-size: cover;
   z-index: -10;
 }
-
+.glogin{
+  background-image: url("google_signin.png");
+  background-size: 220px 50px;
+  width: 221px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  height: 50px;
+  z-index: 15;
+  opacity: 1;
+}
+.box{
+  position: relative;
+  clear: both;
+  white-space: nowrap;
+  flex-wrap: flex;
+}
 .intro{
   font-size: 25px;
   font-weight: 400;
   color: white;
 }
-
 .Iam {
   padding: 2em 5em;
   font: normal 40px/50px Montserrat, sans-serif;
