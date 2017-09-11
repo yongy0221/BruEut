@@ -15,6 +15,7 @@
     <thead>
       <tr class="pcontitle">
         <th scope="cols"><%= @market.title.html_safe %></th>
+        <th scope = "cols"> <%= @market.user.name %> </th>
       </tr>
     </thead>
     <tbody>
@@ -26,50 +27,38 @@
   <br>
   <br>
 
-    <% if user_signed_in?%>
-      <% if @user.id == @market.user_id %>
+    <% if current_user%>
+
       <form action='like' method=post %>
-        <input type=hidden name=market_id value = <%= @market.id %> >
-        <input type=Submit value="Like <%= @market.like %>">
-      </form>
-      <form action='dislike' method=post %>
-        <input type=hidden name=market_id value = <%= @market.id %> >
-        <input type=Submit value="DisLike <%= @market.dislike %>">
-      </form>
-      <%= link_to '[삭제]', @market, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <input type=hidden name=market_id value = <%= @market.id %> >
+          <input type=Submit value="Like <%= @market.like %>">
+        </form> <form action='dislike' method=post %>
+          <input type=hidden name=market_id value = <%= @market.id %> >
+          <input type=Submit value="DisLike <%= @market.dislike %>">
+        </form>
+        <div>
+        <%= link_to markets_path, {:style=>'text-decoration:none;'} do%>
+            <div class="btnn" style="margin-left: 0%; ">목록</div>
+          <% end %>
+        <% if current_user %>
+         <% if @user.id == @market.user_id %>
+          <%= link_to @market, method: :delete, data: { confirm: 'Are you sure?'}, :style=>'text-decoration:none;' do %>
+            <div class="btnn" style="margin-left:89%; margin-top:-43px">삭제</div>
+          <% end %>
+        <% end %>
+
+      </div>
       <% end %>
     <% end %>
 
     <br>
     <br>
-    <div class="pcomment">
-      <%= render @market.pcomments %>
-      <%= render "pcomments/form" %>
+    <div class="mcomment">
+      <%= render @market.mcomments %>
+      <% if current_user %>
+        <%= render "mcomments/form" %>
+      <% end %>
     </div>
 
-  <div class="right">
-  <%= link_to '[뒤로가기]', markets_path %>
-  <%= link_to '[홈]', root_path %>
-  </div>
-<% @market.pluids.each do |p| %>
-<% end %>
+
 </div>
-
-
-
-<!-- ************* Original Market Stuff -->
-
-<!-- <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @market.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @market.content %>
-</p>
-
-<%= link_to 'Edit', edit_market_path(@market) %> |
-<%= link_to 'Back', markets_path %> -->

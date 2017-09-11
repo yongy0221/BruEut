@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-  resources :markets
+  resources :markets do
+    resources :mcomments
+  end
   resources :pointlesses do
     resources :pcomments
   end
@@ -18,6 +20,11 @@ Rails.application.routes.draw do
   post 'pointlesses/like'
   post 'pointlesses/dislike'
   root "main#dashboard"
+
+  post 'markets/like'
+  post 'markets/dislike'
+  get 'main/mrindex'
+  get 'market/mrindex' => 'main#mrindex'
 
   get 'partypost' => 'partypost#index'
   get 'partylike' => 'partypost#partylike'
