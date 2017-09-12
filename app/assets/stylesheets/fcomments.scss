@@ -23,15 +23,22 @@ table.type06 th {
 }
 table.type06 td {
   font-size: 12px;
-  width: 350px;
+  width: 600px;
   padding: 10px;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
+}
+table.type06 .td-small{
+    width: 100px;
 }
 
 div.comment{
   width: 100%;
   text-align: right;
+}
+
+div.comment a{
+  text-decoration: none;
 }
 
 div.field{
@@ -40,6 +47,9 @@ div.field{
   font-size: 15px;
   // width: 80px;
   // border: 1px solid red;
+}
+.field.forComment{
+  display: flex;
 }
 
 div.fl{
@@ -51,7 +61,21 @@ div.fl{
 }
 
 div.actions{
-  margin-left:24% ;
+  margin-left:2% ;
+}
+
+.button-submit{
+  background-color: #edbe02;
+  border-color: #edbe02;
+  // -webkit-box-shadow: 0 3px 0 #659c3d;
+  // box-shadow: 0 3px 0 #659c3d;
+  color: #fff;
+  padding: 0.2em 0.5em;
+
+}
+input[type=submit]{
+  -webkit-appearance: none;
+
 }
 
 .fl-comment{
@@ -62,4 +86,10 @@ div.actions{
 }
 .fl>label{
   width: 100px;
+}
+
+.if-link:hover{
+  text-decoration: none;
+  background-color: white;
+  color: #de4b4b;
 }

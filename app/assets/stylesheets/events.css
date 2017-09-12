@@ -140,6 +140,18 @@
   width: 30%;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
   margin: 1%;
-  border-top: 5px solid rgba(232,30,102,0.90);;
+  border-top: 5px solid rgba(232,30,102,0.90);
+}
 
+/*----event create button----*/
+.ecreatebutn{
+  width: 95%;
+  height: auto;
+  margin: 5% 0%;
+}
+.colu.four{
+  float: left;
+  width: 8%;
+  font-size: 14px;
+  margin-left: 5%;
 }

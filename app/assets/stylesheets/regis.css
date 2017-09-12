@@ -1,9 +1,131 @@
+/*register button*/
+.regisbutton{
+  background:#1d75d9;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:30px;
+  width: 100%;
+  margin-left: 13%;
+  font-size:1.0em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.regisbutton:hover{
+  background:rgba(255,255,255,0.3);
+  color:#1d75d9;
+}
+.regisbutton:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1d75d9;
+  transition:400ms ease all;
+}
+.regisbutton:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.regisbutton:hover:before,.regisbutton:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/*cancelbtn*/
+
+.cancelbtn{
+  background:#1d75d9;
+  color:#fff;
+  border-radius:0;
+  position:relative;
+  height:30px;
+  font-size:1.0em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  width:90px;
+}
+.cancelbtn:hover{
+  background:rgba(255,255,255,0.3);
+  color:#1d75d9;
+}
+.cancelbtn:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1d75d9;
+  transition:400ms ease all;
+}
+.cancelbtn:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.cancelbtn:hover:before,.cancelbtn:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/*edit my info button*/
+.editmybutton{
+  background:#1d75d9;
+  color:#fff;
+  width: 52%;
+  border:none;
+  position:relative;
+  height:30px;
+  font-size:1.0em;
+  padding:0 1em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  margin-left: 12%;
+}
+.editmybutton:hover{
+  background:rgba(255,255,255,0.3);
+  color:#1d75d9;
+}
+.editmybutton:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1d75d9;
+  transition:400ms ease all;
+}
+.editmybutton:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.editmybutton:hover:before,.editmybutton:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+/*..*/
+
 .slightleftregis{
-  margin-right: 29px;
+  margin-right: 27px;
 }
 
 .slightleftpass{
-  margin-left: 47px;
+  margin-right: 55px;
 }
 
 .slightleftedit{
@@ -11,11 +133,12 @@
 }
 
 .vdl{
-  margin-right: 200px;
+  margin-right: 220px;
 }
 
 .bady{
   background-image: url("picnic.jpeg");
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   -webkit-background-size: cover;
@@ -77,4 +200,5 @@
           box-shadow: 0 1px 2px rgba(0,0,0,.25);
   z-index: 10;
   vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light'
 }
