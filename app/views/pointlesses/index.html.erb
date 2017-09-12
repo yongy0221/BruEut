@@ -1,3 +1,7 @@
+<head>
+  <script src="https://use.fontawesome.com/8a1c7ad851.js"></script>
+</head>
+
 
 <p id="notice"><%= notice %></p>
 
@@ -50,7 +54,7 @@
 <div class="right">
 <% if current_user%>
   <%= link_to new_pointless_path, {:style=>'text-decoration:none;'} do %>
-    <div class="btnn">글쓰기</div>
+    <a href="<%= new_pointless_path%>" class="butn butn-dark-blue"><i class="fa fa-pencil"></i>글쓰기</a>
   <% end %>
 <% end %>
 <br>

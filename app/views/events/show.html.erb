@@ -1,34 +1,48 @@
 <p id="notice"><%= notice %></p>
+<%=render 'layouts/blackbar'%>
 
-<p>
-  <strong>제목:</strong>
-  <%= @event.title %>
-</p>
+<div class="new">
+      <br>
+      <br>
 
-<p>
-  <strong>내용:</strong>
-  <%= @event.description %>
-</p>
+    <table class="newtable">
+        <tr>
+          <th scope="row"><strong>제목</strong></th>
+          <td><%= @event.description %></td>
+        </tr>
+        <tr>
+          <th scope="row"><strong>내용</strong></th>
+          <td><%= @event.description %></td>
+        </tr>
+        <tr>
+          <th scope="row"><strong>장소</strong></th>
+          <td><%= @event.location %></td>
+        </tr>
+        <tr>
+          <th scope="row"><strong>시작시간</strong></th>
+          <td><%= @event.start_time %></td>
+        </tr>
+        <tr>
+          <th scope="row"><strong>종료시간</strong></th>
+          <td><%= @event.end_time %></td>
+        </tr>
+        <tr>
+          <th scope="row"><strong>이벤트 종류</strong></th>
+          <td><%= @event.event_type %></td>
+        </tr>
+    </table>
 
-<p>
-  <strong>장소:</strong>
-  <%= @event.location %>
-</p>
+    <br>
 
-<p>
-  <strong>시작시간:</strong>
-  <%= @event.start_time %>
-</p>
 
-<p>
-  <strong>종료시간:</strong>
-  <%= @event.end_time %>
-</p>
+    <div class="butns">
+      <div class="colu three">
+          <a href="<%= events_path%>" class="butn butn-grey">뒤로가기</a>
+      </div>
 
-<p>
-  <strong>이벤트 종류:</strong>
-  <%= @event.event_type %>
-</p>
+      <div class="colu three">
+          <a href="<%= edit_event_path(@event)%>" class="butn butn-dark-blue">수정</a>
+      </div>
+    </div>
 
-<%= link_to '[수정]', edit_event_path(@event) %> |
-<%= link_to '[뒤로가기]', events_path %>
+</div>
