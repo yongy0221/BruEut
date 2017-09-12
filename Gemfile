@@ -34,6 +34,7 @@ gem 'will_paginate'
 gem 'bcrypt', platforms: :ruby
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem "omniauth-google-oauth2", "~> 0.2.1"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

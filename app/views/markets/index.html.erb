@@ -1,0 +1,60 @@
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'layouts/blackbar'%>
+
+<div id="menuimage">
+  <div class = "titlebox" >
+    <h5 class="ptitle">중고장터</h5><br>
+  </div>
+  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+</div>
+<!-- ///////////////게시글//////////////////////////// -->
+
+<div class="main">
+<table class="Eut">
+  <thead>
+    <tr>
+      <th scope ="row">글쓴이</th>
+      <th class="Eut-title-header">제목</th>
+      <!-- <th colspan="3"></th> -->
+      <th>작성시간</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @markets.each do |market| %>
+      <tr class="Eut-body">
+            <div>
+            <td scope="row"><%=market.user.name%>
+            </td>
+            <td>
+              <a href="/markets/<%=market.id%>">
+              <div class="Eut-title-body" style="text-align:left;">
+                <%=market.title%>
+              </div>
+              </a>
+            </td>
+            <td >
+              <%=market.created_at.strftime('%I:%M%p, %b %e')%>
+            </td>
+        </div>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="right">
+<% if current_user%>
+  <%= link_to new_market_path, {:style=>'text-decoration:none;'} do %>
+    <div class="btnn">글쓰기</div>
+  <% end %>
+<% end %>
+<br>
+<%= link_to "추천글", market_mrindex_path %>
+<%= will_paginate @markets %>
+</div>
+</div>

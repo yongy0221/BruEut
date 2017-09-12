@@ -93,6 +93,42 @@ input:checked + .slider:before {
  font-size: 10px;
  font-family: arial;
 }
+.btns {
+  border: none;
+  color: white;
+  background-color: #2e7996;
+  width: 100px;
+  height: 43px;
+  font-size: 21px;
+  text-align: center;
+  margin: auto;
+  margin-left: 93%;
+  line-height: 43px;
+  text-decoration: none !important;
+}
+.btns:hover {
+  color: white;
+  background-color: #2198c6;
+  text-decoration: none !important;
+}
+.btnn {
+  border: none;
+  color: white;
+  background-color: #2e7996;
+  width: 100px;
+  height: 43px;
+  font-size: 21px;
+  text-align: center;
+  margin: auto;
+  margin-left: 93%;
+  line-height: 43px;
+  text-decoration: none !important;
+}
+.btnn:hover {
+  color: white;
+  background-color: #2198c6;
+  text-decoration: none !important;
+}
 
 input:checked + .slider:after
 {

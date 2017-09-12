@@ -1,0 +1,60 @@
+
+<p id="notice"><%= notice %></p>
+
+<%= render 'layouts/blackbar'%>
+
+<div id="menuimage">
+  <div class = "titlebox" >
+    <h5 class="ptitle">브루인생</h5><br>
+  </div>
+  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+</div>
+<!-- ///////////////게시글//////////////////////////// -->
+
+<div class="main">
+<table class="Eut">
+  <thead>
+    <tr>
+      <th scope ="row">글쓴이</th>
+      <th class="Eut-title-header">제목</th>
+      <!-- <th colspan="3"></th> -->
+      <th>작성시간</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pointlesses.each do |pointless| %>
+      <tr class="Eut-body">
+            <div>
+            <td scope="row"><%=pointless.user.name%>
+            </td>
+            <td>
+              <a href="/pointlesses/<%=pointless.id%>">
+              <div class="Eut-title-body" style="text-align:left;">
+                <%=pointless.title%>
+              </div>
+              </a>
+            </td>
+            <td >
+              <%=pointless.created_at.strftime('%I:%M%p, %b %e')%>
+            </td>
+        </div>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="right">
+<% if current_user%>
+  <%= link_to new_pointless_path, {:style=>'text-decoration:none;'} do %>
+    <div class="btnn">글쓰기</div>
+  <% end %>
+<% end %>
+<br>
+<%= link_to "목록", pointlesses_path %>
+<%= will_paginate @pointlesses %>
+</div>
+</div>

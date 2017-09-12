@@ -35,6 +35,37 @@ body .fc { /* extra precedence to overcome jqui */
 	border-color: #ddd;
 }
 
+table tr td div.fc-content{
+	text-align: center;
+	height: 50px;
+	font-size: 13px;
+}
+
+table tr td div.fc-content span.fc-time{
+	padding-top: 2%;
+	display: block;
+}
+table tr td div.fc-content span.fc-title{
+	display:block;
+
+}
+
+.fc-unthemed thead tr td.fc-head-container{
+	border-color: #357ebd;
+	border-bottom: 5px solid #428bca;
+	height: 10vh;
+	background-color:#428bca;
+	border-right-color: #357ebd;
+	border-left-color: #357ebd;
+}
+
+.fc-unthemed thead tr td.fc-head-container th{
+	font-size: 25px;
+	padding-top: 2%;
+	color: white;
+}
+
+
 .fc-unthemed .fc-popover {
 	background-color: #fff;
 }
@@ -189,14 +220,22 @@ NOTE: use percentage font sizes or else old IE chokes
 	border: 1px solid;
 }
 
+.fc-prev-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
 .fc-state-default.fc-corner-left { /* non-theme */
 	border-top-left-radius: 4px;
 	border-bottom-left-radius: 4px;
+	display: inline;
 }
 
 .fc-state-default.fc-corner-right { /* non-theme */
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
+	display: inline;
+	margin-left: 10%;
 }
 
 /* icons in buttons */
@@ -790,7 +829,6 @@ a.fc-more:hover {
 	padding: 10px;
 }
 
-
 /* Now Indicator
 --------------------------------------------------------------------------------------------------*/
 
@@ -831,7 +869,8 @@ a.fc-more:hover {
 }
 
 .fc-toolbar .fc-left {
-	float: left;
+	margin-left: 10%;
+	width: 70%;
 }
 
 .fc-toolbar .fc-right {
@@ -1416,12 +1455,13 @@ be a descendant of the grid when it is being dragged.
 .fc-left{
 	width: 100%;
 	z-index: 3;
+
 }
 .fc-prev-button{
-	left: 35.5%;
+	left: 10%;
 }
 .fc-next-button{
-	left: 55%;
+	left: 65%;
 }
 .fc-unthemed{
 	width: 90%;
@@ -1433,13 +1473,14 @@ be a descendant of the grid when it is being dragged.
 }
 .fc-center{
 	position: absolute;
-	width: 57.5%;
+	width: 50%;
 	left: 41%;
 	z-index: -1;
 }
-th.fc-day-header.fc-widget-header.fc-sun{
+/*th.fc-day-header.fc-widget-header.fc-sun{
 	background-color: rgba(255,86,115,0.30);
+	height: 100px;
 }
 th.fc-day-header.fc-widget-header.fc-sat{
 	background-color: rgba(29,117,217,0.30);
-}
+}*/

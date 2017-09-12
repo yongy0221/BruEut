@@ -1,0 +1,31 @@
+<%= form_for(@market) do |f| %>
+  <% if @market.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@market.errors.count, "error") %> prohibited this market from being saved:</h2>
+
+      <ul>
+      <% @market.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="newtable">
+    <tr>
+      <th scope="row"><%= f.label :제목 %></th>
+      <td><%= f.text_field :title, :id => "title_area", :required=> true %></td>
+    </tr>
+    <tr>
+      <th scope="row"><%= f.label :내용 %></th>
+      <td><%= f.cktext_area :content, :id => "message_area", :required=> true %></td>
+    </tr>
+  </table>
+
+  <br>
+  <div class="actions">
+    <%= button_tag(type: 'submit', class: "btns", style: "margin-left: 93%") do %>
+     작성
+    <% end %>
+  </div>
+<% end %>

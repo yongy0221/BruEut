@@ -1,5 +1,13 @@
 class MainController < ApplicationController
   def dashboard
-    redirect_to "/users/sign_in" unless user_signed_in?
   end
+
+  def rindex
+    @pointlesses = Pointless.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
+  end
+
+  def mrindex
+    @markets = Market.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
+  end
+
 end

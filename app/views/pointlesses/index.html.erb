@@ -30,12 +30,12 @@
             </td>
             <td>
               <a href="/pointlesses/<%=pointless.id%>">
-              <div class="Eut-title-body">
+              <div class="Eut-title-body" style="text-align:left;">
                 <%=pointless.title%>
               </div>
               </a>
             </td>
-            <td>
+            <td >
               <%=pointless.created_at.strftime('%I:%M%p, %b %e')%>
             </td>
         </div>
@@ -48,12 +48,13 @@
 <br>
 
 <div class="right">
-<% if user_signed_in? %>
-  <%= link_to '[글쓰기]', new_pointless_path %>
+<% if current_user%>
+  <%= link_to new_pointless_path, {:style=>'text-decoration:none;'} do %>
+    <div class="btnn">글쓰기</div>
+  <% end %>
 <% end %>
-
-<%= link_to '[홈]', root_path %> <br>
-
+<br>
+<%= link_to "추천글", pointless_rindex_path %>
 <%= will_paginate @pointlesses %>
 </div>
 </div>

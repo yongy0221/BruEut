@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="stylesheets/forests.css">
+
+
+
+<p id="notice"><%= notice %></p>
+
+<%=render 'layouts/blackbar'%>
+
+<div id="menuimage">
+  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+</div>
+<!-- ///////////////게시글//////////////////////////// -->
+<div class="main">
+  <table class="boardtable">
+    <thead>
+      <tr class="pcontitle">
+        <th scope="cols"><%= @market.title.html_safe %></th>
+        <th scope = "cols"> <%= @market.user.name %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class ="pcontitle">
+        <th scope="row"><%= @market.content.html_safe %></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+
+    <% if current_user%>
+
+      <form action='like' method=post %>
+          <input type=hidden name=market_id value = <%= @market.id %> >
+          <input type=Submit value="Like <%= @market.like %>">
+        </form> <form action='dislike' method=post %>
+          <input type=hidden name=market_id value = <%= @market.id %> >
+          <input type=Submit value="DisLike <%= @market.dislike %>">
+        </form>
+        <div>
+        <%= link_to markets_path, {:style=>'text-decoration:none;'} do%>
+            <div class="btnn" style="margin-left: 0%; ">목록</div>
+          <% end %>
+        <% if current_user %>
+         <% if @user.id == @market.user_id %>
+          <%= link_to @market, method: :delete, data: { confirm: 'Are you sure?'}, :style=>'text-decoration:none;' do %>
+            <div class="btnn" style="margin-left:89%; margin-top:-43px">삭제</div>
+          <% end %>
+        <% end %>
+
+      </div>
+      <% end %>
+    <% end %>
+
+    <br>
+    <br>
+    <div class="mcomment">
+      <%= render @market.mcomments %>
+      <% if current_user %>
+        <%= render "mcomments/form" %>
+      <% end %>
+    </div>
+
+
+</div>

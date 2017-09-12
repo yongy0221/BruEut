@@ -1,5 +1,5 @@
 class PartypostController < ApplicationController
-  before_action :login_check
+  before_action :current_user
   def index
     @partyposts = Partypost.all
   end

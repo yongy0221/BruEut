@@ -1,0 +1,21 @@
+<script src="https://use.fontawesome.com/8a1c7ad851.js"></script>
+
+<table class="type05">
+  <tr>
+    <th scope="row"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<b><%= mcomment.commenter %></th>
+    <td><%= mcomment.body %></td>
+    <td>
+      <div class="comment">
+        <% if current_user %>
+          <% if mcomment.user_id == current_user.id %>
+
+          <%= link_to '[댓글삭제]', [mcomment.market, mcomment],
+            :confirm => 'Are you Sure?',
+            :method => :delete %>
+        <% end %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>
+<br>

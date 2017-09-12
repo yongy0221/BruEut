@@ -21,6 +21,11 @@ class PointlessesController < ApplicationController
     else
       @pointless.like = @pointless.like - 1
     end
+    if @pointless.like > 9
+      @pointless.rec = true
+    else
+      @pointless.rec = false
+    end
     @pointless.save
     redirect_to :back
 
@@ -48,7 +53,7 @@ class PointlessesController < ApplicationController
 
     end
   def index
-    @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 4).reverse_order
+    @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 20).reverse_order
   end
 
   # GET /pointlesses/1
@@ -76,7 +81,7 @@ class PointlessesController < ApplicationController
     @pointless.dislike = 0
     respond_to do |format|
       if @pointless.save
-        format.html { redirect_to @pointless, notice: 'Pointless was successfully created.' }
+        format.html { redirect_to @pointless}
         format.json { render :show, status: :created, location: @pointless }
       else
         format.html { render :new }
@@ -91,7 +96,7 @@ class PointlessesController < ApplicationController
   def update
     respond_to do |format|
       if @pointless.update(pointless_params)
-        format.html { redirect_to @pointless, notice: 'Pointless was successfully updated.' }
+        format.html { redirect_to @pointless}
         format.json { render :show, status: :ok, location: @pointless }
       else
         format.html { render :edit }
@@ -105,7 +110,7 @@ class PointlessesController < ApplicationController
   def destroy
     @pointless.destroy
     respond_to do |format|
-      format.html { redirect_to pointlesses_url, notice: 'Pointless was successfully destroyed.' }
+      format.html { redirect_to pointlesses_path}
       format.json { head :no_content }
     end
   end

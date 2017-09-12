@@ -8,14 +8,16 @@ http://localhost:3000/home/index >> 검색 bar & 샘플 게시판(승환)
 
 http://localhost:3000/ >> 파티원구함(승환)
 
-http://localhost:3000/events >> 달력있는 이벤트 페이지()
+http://localhost:3000/events >> 달력있는 이벤트 페이지(용범)
+
+http://localhost:3000/markets >> 중고장터(용범)
 
      ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
     '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
+    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--,
     '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+    -----------------------------------------------------------------
 
 
 Welcome to your Rails project on Cloud9 IDE!
@@ -31,5 +33,5 @@ The Cloud9 IDE team
 
 ## Support & Documentation
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
+Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE.
 To watch some training videos, visit http://www.youtube.com/user/c9ide
