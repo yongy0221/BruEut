@@ -143,3 +143,16 @@
   border-top: 5px solid rgba(232,30,102,0.90);;
 
 }
+
+/*----event create button----*/
+.ecreatebutn{
+  width: 95%;
+  height: auto;
+  margin: 5% 0%;
+}
+.colu.four{
+  float: left;
+  width: 8%;
+  font-size: 14px;
+  margin-left: 5%;
+}

@@ -26,9 +26,10 @@
         <ul class="dropdown-menu">
            <% if current_user %>
             <li id="profile-link"><%= link_to "내정보", root_path %></li>
-            <li><%= link_to "로그아웃", signout_path, id: "sign_out" %><span class="glyphicon glyphicon-log-in"></span></li>
+            <li><a href = <%= signout_path%> id="sign_out"><span class="glyphicon glyphicon-log-in">Log Out</span></a></li>
+
           <% else %>
-            <li><%= link_to "로그인", "/auth/google_oauth2", id: "sign_in" %><span class="glyphicon glyphicon-log-in"></span></li>
+            <li><a href =  "/auth/google_oauth2" id: "sign_in" ><span class="glyphicon glyphicon-log-in">Sign In</span></a></li>
           <% end %>
         </ul>
       </li>

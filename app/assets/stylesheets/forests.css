@@ -1,3 +1,7 @@
+.background{
+  height: auto;
+}
+
 .main{
   /*margin: 50px;*/
   margin-left: 10%;
@@ -77,4 +81,19 @@ table.fcontent td {
   width: 80%;
   margin: auto;
   border-top: 3px solid #369;
+}
+
+/*----button----*/
+.divposition{
+  text-align: right;
+  width: 95%;
+}
+
+.colu.three{
+  margin-right: 2%;
+}
+
+/*----footer----*/
+footer.text-center{
+  margin-top: 7%;
 }

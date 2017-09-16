@@ -23,9 +23,16 @@
   </table>
 
   <br>
-  <div class="actions">
-    <%= button_tag(type: 'submit', class: "btns", style: "margin-left: 93%") do %>
-     작성
-    <% end %>
+  <div class="butns">
+    <div class="colu three">
+      <a href="<%=url_for(:back)%>" class="butn butn-grey">뒤로가기</a>
+    </div>
+
+    <div class="colu three">
+      <%= button_tag(type: 'submit', class: "butn butn-dark-blue") do %>
+      글쓰기
+      <% end %>
+    </div>
+
   </div>
 <% end %>

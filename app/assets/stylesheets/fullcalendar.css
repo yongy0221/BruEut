@@ -1477,10 +1477,11 @@ be a descendant of the grid when it is being dragged.
 	left: 41%;
 	z-index: -1;
 }
-/*th.fc-day-header.fc-widget-header.fc-sun{
-	background-color: rgba(255,86,115,0.30);
-	height: 100px;
+.fc-center h2{
+	font-family: 'eurof35';
+	font-size: 36px;
+	font-weight: bold;
 }
-th.fc-day-header.fc-widget-header.fc-sat{
-	background-color: rgba(29,117,217,0.30);
-}*/
+th.fc-day-header.fc-widget-header{
+	font-family: 'eurof35'
+}

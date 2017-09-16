@@ -21,14 +21,15 @@
     <tr>
         <th scope="row"><b>이름:<%= fcomment.commenter %></b></th>
         <td>댓글:<%= fcomment.body %></td>
-        <td>
+        <td class = "td-small">
           <div class="comment">
-            <% if user_signed_in? %>
+            <% if current_user %>
             <% if fcomment.user_id == current_user.id %>
-
-            <%= link_to '[댓글삭제]', [fcomment.forest, fcomment],
-                :confirm => 'Are you Sure?',
-                :method => :delete %>
+            <%= link_to '[삭제]', [fcomment.forest, fcomment],
+                method: :delete,
+                data: {
+                  confirm: 'Are you Sure?'
+                }, class:"if-link" %>
 
             <% end %>
             <% end %>
