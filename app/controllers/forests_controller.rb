@@ -12,6 +12,11 @@ class ForestsController < ApplicationController
   # GET /forests
   # GET /forests.json
   def index
+    if current_user
+      unless current_user.create_name
+        redirect_to main_firstlogin_path
+      end
+    end
     @user=current_user
     @forests = Forest.all.reverse_order
   end

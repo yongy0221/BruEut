@@ -53,6 +53,11 @@ class PointlessesController < ApplicationController
 
     end
   def index
+    if current_user
+      unless current_user.create_name
+        redirect_to main_firstlogin_path
+      end
+    end
     @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 20).reverse_order
   end
 

@@ -2,7 +2,7 @@ class MainController < ApplicationController
   def dashboard
     if current_user
       unless current_user.create_name
-        redirect_to signout_path
+        redirect_to main_firstlogin_path
       end
     end
   end
@@ -11,13 +11,18 @@ class MainController < ApplicationController
     @user=current_user
   end
   def make
-    user=current_user
-    user.bname = params[:user]["bname"]
-    if user.bname
-      user.create_name = true
+    unless User.where(bname: params[:user]["bname"].delete(' ')).empty?
+      flash[:notice] = "이미 존재하는 닉네임입니다."
+      redirect_to :back
+    else
+      user=current_user
+      user.bname = params[:user]["bname"].delete(' ')
+      if user.bname
+        user.create_name = true
+      end
+      user.save
+      redirect_to root_path
     end
-    user.save
-    redirect_to root_path
   end
   def rindex
     @pointlesses = Pointless.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order

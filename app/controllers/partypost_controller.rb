@@ -1,6 +1,11 @@
 class PartypostController < ApplicationController
   before_action :current_user
   def index
+    if current_user
+      unless current_user.create_name
+        redirect_to main_firstlogin_path
+      end
+    end
     @partyposts = Partypost.all
   end
 
