@@ -21,6 +21,9 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    unless current_user.tier < 5
+      redirect_to events_path
+    end
     @event = Event.new
   end
 
