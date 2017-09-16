@@ -1,0 +1,6 @@
+닉네임 설정
+<%= form_for @user, url: {action: "make"}, method: "post" do |f| %>
+<%= f.text_field :bname, :required => true %>
+<%= f.submit %>
+<% end %>
+*설정한 닉네임은 변경이 불가능합니다. 신중하게 결정해주세요

@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :bname
       t.integer :tier, default: 10
-
+      t.boolean :create_name, default: false
       t.timestamps null: false
     end
   end

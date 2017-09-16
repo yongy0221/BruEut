@@ -87,8 +87,9 @@ ActiveRecord::Schema.define(version: 20170911081031) do
     t.integer  "hit",        default: 0
     t.integer  "like",       default: 0
     t.integer  "dislike",    default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.boolean  "rec",        default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "mcomments", force: :cascade do |t|
@@ -200,9 +201,10 @@ ActiveRecord::Schema.define(version: 20170911081031) do
     t.datetime "oauth_expires_at"
     t.string   "email"
     t.string   "bname"
-    t.integer  "tier"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "tier",             default: 10
+    t.boolean  "create_name",      default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
 end

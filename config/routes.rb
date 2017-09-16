@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :forests do
     resources :fcomments
   end
+  get 'main/firstlogin'
+  post 'main/make'
   get 'main/rindex'
   get 'pointless/rindex' => 'main#rindex'
   post 'pointlesses/like'
