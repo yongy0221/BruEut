@@ -5,9 +5,9 @@
 
 <div id="menuimage">
   <div class = "titlebox" >
-    <h5 class="ptitle">중고장터</h5><br>
+    <h5 class="mtitle">사고팔고</h5><br>
   </div>
-  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+  <%= image_tag 'IMG_5012.JPG', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 
@@ -30,7 +30,7 @@
             </td>
             <td>
               <a href="/markets/<%=market.id%>">
-              <div class="Eut-title-body" style="text-align:left;">
+              <div class="Eut-title-body">
                 <%=market.title%>
               </div>
               </a>
@@ -48,13 +48,12 @@
 <br>
 
 <div class="right">
-<% if current_user%>
-  <%= link_to new_market_path, {:style=>'text-decoration:none;'} do %>
-    <div class="btnn">글쓰기</div>
-  <% end %>
-<% end %>
-<br>
-<%= link_to "추천글", market_mrindex_path %>
-<%= will_paginate @markets %>
+  <div class = "colu three">
+    <% if current_user%>
+      <%= link_to new_market_path, {:style=>'text-decoration:none;'} do %>
+        <div class="butn butn-dark-blue">글쓰기</div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 </div>

@@ -30,7 +30,7 @@
             </td>
             <td>
               <a href="/pointlesses/<%=pointless.id%>">
-              <div class="Eut-title-body" style="text-align:left;">
+              <div class="Eut-title-body">
                 <%=pointless.title%>
               </div>
               </a>
@@ -47,14 +47,11 @@
 
 <br>
 
-<div class="right">
-<% if current_user%>
-  <%= link_to new_pointless_path, {:style=>'text-decoration:none;'} do %>
-    <div class="btnn">글쓰기</div>
-  <% end %>
-<% end %>
-<br>
-<%= link_to "목록", pointlesses_path %>
-<%= will_paginate @pointlesses %>
-</div>
+  <div class="right">
+    <div class="colu three">
+      <%= link_to "목록", pointlesses_path, :class=>"butn butn-dark-blue" %>
+      <%= will_paginate @pointlesses %>
+
+    </div>
+  </div>
 </div>

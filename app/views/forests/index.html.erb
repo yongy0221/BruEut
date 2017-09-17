@@ -1,17 +1,22 @@
 
-
-
-
-<p id="notice"><%= notice %></p>
-
 <%= render 'layouts/blackbar'%>
+<div id="notice-real"><%=notice%></div>
+<div class="myModal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <p>
+              대숲에서 사연을 받았습니다
+              <span class="close">&times;</span>
+            </p>
+          </div>
 
+        </div>
 <div id="menuimage">
   <div class = "titlebox" >
     <h5 class="ftitle">대나무숲</h5><br>
     <h4 id="subt">익명보장해드립니다!</h4>
   </div>
-  <%= image_tag 'bamboo1.jpg', class: 'menuimage'%>
+  <%= image_tag 'forestimg2.jpg', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 
@@ -67,12 +72,9 @@
 
   <% end %>
 <% end %>
-<br>
-<div class="divposition">
   <div class="colu three">
     <a href="<%=new_forest_path %>" class="butn butn-dark-blue"><i class="fa fa-pencil"></i>비밀글쓰기</a>
   </div>
-</div>
 <% else %>
 
 
@@ -94,3 +96,28 @@
 <br>
 </div>
 </div>
+<script>
+
+          var letsmodal = document.getElementById('notice-real');
+          console.log(letsmodal.innerHTML);
+          var modal = document.getElementsByClassName("myModal")[0];
+          var btn = document.getElementById("myBtn");
+          var close = document.getElementsByClassName("close")[0];
+          if (letsmodal.innerHTML==="true"){
+          open = function() {
+              modal.style.display = "block";
+              console.log("lets modal");
+          }
+          open();
+          close.onclick = function() {
+              modal.style.display = "none";
+          }
+          window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+        }
+
+
+</script>

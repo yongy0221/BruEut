@@ -45,7 +45,7 @@ class ForestsController < ApplicationController
     @forest.censored=false
     respond_to do |format|
       if @forest.save
-        format.html { redirect_to forests_path, notice: '대숲에서 사연을 받았습니다.' }
+        format.html { redirect_to forests_path, notice:true }
         format.json { render :show, status: :created, location: @forest }
       else
         format.html { render :new }

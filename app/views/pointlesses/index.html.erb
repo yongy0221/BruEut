@@ -9,12 +9,15 @@
   <div class = "titlebox" >
     <h5 class="ptitle">브루인생</h5><br>
   </div>
-  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+  <%= image_tag 'picnic.jpg', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 
 <div class="main">
+  <%= link_to "추천글보기", pointless_rindex_path, :class => "button-rec" %>
+
 <table class="Eut">
+
   <thead>
     <tr>
       <th scope ="row">글쓴이</th>
@@ -58,7 +61,6 @@
 <% end %>
 </div>
 <br>
-<%= link_to "추천글", pointless_rindex_path %>
 <%= will_paginate @pointlesses %>
 </div>
 </div>
