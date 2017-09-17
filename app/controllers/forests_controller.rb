@@ -2,7 +2,7 @@ class ForestsController < ApplicationController
   before_action :set_forest, only: [:show, :edit, :update, :destroy]
 
   def maketrue
-    if current_user.teir == 1
+    if current_user.tier < 2
       @forest=Forest.find(params[:format])
       @forest.censored=true
       @forest.save
@@ -24,6 +24,10 @@ class ForestsController < ApplicationController
   # GET /forests/1
   # GET /forests/1.json
   def show
+    @forest=Forest.find(params[:id])
+      if current_user.tier > 1
+        redirect_to :back
+      end
   end
 
   # GET /forests/new
@@ -33,7 +37,7 @@ class ForestsController < ApplicationController
 
   # GET /forests/1/edit
   def edit
-    if current_user.tier != 1
+    if current_user.tier > 1
       redirect_to :back
     end
   end
@@ -45,7 +49,7 @@ class ForestsController < ApplicationController
     @forest.censored=false
     respond_to do |format|
       if @forest.save
-        format.html { redirect_to forests_path, notice: '대숲에서 사연을 받았습니다.' }
+        format.html { redirect_to forests_path }
         format.json { render :show, status: :created, location: @forest }
       else
         format.html { render :new }
@@ -71,13 +75,14 @@ class ForestsController < ApplicationController
   # DELETE /forests/1
   # DELETE /forests/1.json
   def destroy
-    if current_user != 1
+    if current_user.tier > 1
       redirect_to :back
-    end
-    @forest.destroy
-    respond_to do |format|
-      format.html { redirect_to forests_url, notice: 'Forest was successfully destroyed.' }
-      format.json { head :no_content }
+    else
+      @forest.destroy
+      respond_to do |format|
+        format.html { redirect_to forests_path }
+        format.json { head :no_content }
+      end
     end
   end
 

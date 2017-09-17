@@ -5,5 +5,12 @@
   <%= @forest.content.html_safe %>
 </p>
 
+  <% if @forest.censored == false %>
+
+  <%= link_to 'Trufefy', maketrue_path(@forest) %>
+  <% else %>
+  true
+  <% end %>
 <%= link_to 'Edit', edit_forest_path(@forest) %> |
 <%= link_to 'Back', forests_path %>
+<%= link_to 'Destroy', @forest, method: :delete, data: { confirm: 'Are you sure?' } %>

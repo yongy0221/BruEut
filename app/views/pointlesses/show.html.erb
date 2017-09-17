@@ -21,6 +21,8 @@
     </tbody>
   </table>
     <% if @user.id == @pointless.user_id %>
+    <%= link_to 'Edit', edit_pointless_path(@pointless) %>
+
     <%= link_to '[글 삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
     <% end %>
   <br>

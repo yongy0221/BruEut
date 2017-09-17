@@ -32,16 +32,18 @@
         <td>
           <% if forest.censored == false %>
 
-          <%= link_to 'Trufefy', maketrue_path(forest) %>
+          <%= link_to 'Trufefy    ', maketrue_path(forest) %>
           <% else %>
-          true
+          "true    " 
           <% end %>
        </td>
         <td>
-          <%= forest.content.html_safe %>
+
+          <%= forest.id %>
           <%= link_to 'Show', forest %>
           <%= link_to 'Edit', edit_forest_path(forest) %>
           <%= link_to 'Destroy', forest, method: :delete, data: { confirm: 'Are you sure?' } %>
+
         </td>
       </tr>
     <% end %>
