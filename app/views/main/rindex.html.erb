@@ -4,10 +4,7 @@
 <%= render 'layouts/blackbar'%>
 
 <div id="menuimage">
-  <div class = "titlebox" >
-    <h5 class="ptitle">브루인생</h5><br>
-  </div>
-  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+  <%= image_tag 'picnic.jpg', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 
@@ -30,7 +27,7 @@
             </td>
             <td>
               <a href="/pointlesses/<%=pointless.id%>">
-              <div class="Eut-title-body" style="text-align:left;">
+              <div class="Eut-title-body">
                 <%=pointless.title%>
               </div>
               </a>
@@ -47,14 +44,8 @@
 
 <br>
 
-<div class="right">
-<% if current_user%>
-  <%= link_to new_pointless_path, {:style=>'text-decoration:none;'} do %>
-    <div class="btnn">글쓰기</div>
-  <% end %>
-<% end %>
-<br>
-<%= link_to "목록", pointlesses_path %>
-<%= will_paginate @pointlesses %>
-</div>
+  <div class="right">
+      <%= link_to "전체 목록", pointlesses_path, :class=>"butn butn-grey" %>
+      <%= will_paginate @pointlesses %>
+  </div>
 </div>

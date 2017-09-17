@@ -4,7 +4,7 @@
 <%=render 'layouts/blackbar'%>
 
 <div id="menuimage">
-  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+  <%= image_tag 'picnic.jpg', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 <div class="main">
@@ -25,11 +25,9 @@
 
     <%= link_to '[글 삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
     <% end %>
-  <br>
-  <br>
 
     <% if current_user%>
-    <div style="display:flex;">
+    <div class = "like-holder">
       <form action='like' method=post %>
         <input type=hidden name=pointless_id value = <%= @pointless.id %> >
         <input class = "button-like" type=Submit value="공감 <%= @pointless.like %>">
@@ -41,8 +39,6 @@
     </div>
     <% end %>
 
-    <br>
-    <br>
     <div class="pcomment">
       <%= render @pointless.pcomments %>
       <%= render "pcomments/form" %>

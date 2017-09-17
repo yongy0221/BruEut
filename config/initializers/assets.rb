@@ -3,11 +3,6 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
-Rails.application.config.assets.precompile += %w( login.css )
-Rails.application.config.assets.precompile += %w( custom.css )
-Rails.application.config.assets.precompile += %w( regis.css )
-Rails.application.config.assets.precompile += %w( blue.css )
-
 
 
 
@@ -16,8 +11,8 @@ Rails.application.config.assets.precompile += %w( blue.css )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( login.css regis.css)
-Rails.application.config.assets.precompile += %w( events.css custom.css partypost.css forests.css pointlesses.css fcomments.css
+Rails.application.config.assets.precompile += %w( login.scss regis.scss)
+Rails.application.config.assets.precompile += %w( events.scss custom.scss partypost.scss forests.scss pointlesses.scss fcomments.css
   fullcalendar.js gcal.js moment.js
-  navbar.css
+  navbar.scss
 )

@@ -7,7 +7,7 @@
 <%=render 'layouts/blackbar'%>
 
 <div id="menuimage">
-  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+  <%= image_tag 'IMG_5012.JPG', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 <div class="main">
@@ -15,7 +15,6 @@
     <thead>
       <tr class="pcontitle">
         <th scope="cols"><%= @market.title.html_safe %></th>
-        <th scope = "cols"> <%= @market.user.bname %> </th>
       </tr>
     </thead>
     <tbody>
@@ -24,41 +23,28 @@
       </tr>
     </tbody>
   </table>
-  <br>
-  <br>
-
-    <% if current_user%>
-
-      <form action='like' method=post %>
-          <input type=hidden name=market_id value = <%= @market.id %> >
-          <input type=Submit value="Like <%= @market.like %>">
-        </form> <form action='dislike' method=post %>
-          <input type=hidden name=market_id value = <%= @market.id %> >
-          <input type=Submit value="DisLike <%= @market.dislike %>">
-        </form>
-        <div>
-        <%= link_to markets_path, {:style=>'text-decoration:none;'} do%>
-            <div class="btnn" style="margin-left: 0%; ">목록</div>
-          <% end %>
-        <% if current_user %>
-         <% if @user.id == @market.user_id %>
-          <%= link_to @market, method: :delete, data: { confirm: 'Are you sure?'}, :style=>'text-decoration:none;' do %>
-            <div class="btnn" style="margin-left:89%; margin-top:-43px">삭제</div>
-          <% end %>
-        <% end %>
-
-      </div>
-      <% end %>
+    <% if @user.id == @market.user_id %>
+    <%= link_to '[글 삭제]', @market, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
     <% end %>
 
-    <br>
-    <br>
-    <div class="mcomment">
-      <%= render @market.mcomments %>
-      <% if current_user %>
-        <%= render "mcomments/form" %>
-      <% end %>
+    <% if current_user%>
+    <div class = "like-holder">
+      <form action='like' method=post %>
+        <input type=hidden name=pointless_id value = <%= @market.id %> >
+        <input class = "button-like" type=Submit value="공감 <%= @market.like %>">
+      </form>
+      <form action='dislike' method=post %>
+        <input type=hidden name=pointless_id value = <%= @market.id %> >
+        <input class = "button-dislike" type=Submit value="비공감 <%= @market.dislike %>">
+      </form>
     </div>
+    <% end %>
 
-
+    <div class="pcomment">
+      <%= render @market.mcomments %>
+      <%= render "mcomments/form" %>
+    </div>
+  <div class="right">
+  <%= link_to '뒤로가기', markets_path, :class=>"butn butn-grey" %>
+  </div>
 </div>

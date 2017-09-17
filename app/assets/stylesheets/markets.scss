@@ -1,3 +1,31 @@
 // Place all the styles related to the Markets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.attach-holder{
+  vertical-align: middle;
+}
+.attach-button{
+  width: 100%;
+  height: auto;
+  // border: 1px solid red;
+  background-color: #dedede;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+}
+.attach-text{
+  font-size:14px;
+  margin-left: 2%;
+}
+.attach-button:hover{
+  padding: 0;
+  background-color: #dedede;
+
+}
+#cke_125_uiElement{
+  display: none;
+}
+.mtitle{
+  color: #f3b204;
+  font-size:100px;
+  text-align: center;
+  text-shadow: 2px 2px 3px White;
+}

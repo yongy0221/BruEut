@@ -41,13 +41,13 @@ div.comment a{
   text-decoration: none;
 }
 
-div.field{
-  margin-left: 12%;
-  float: inherit;
-  font-size: 15px;
-  // width: 80px;
-  // border: 1px solid red;
-}
+// div.field{
+//   margin-left: 12%;
+//   float: inherit;
+//   font-size: 15px;
+//   // width: 80px;
+//   // border: 1px solid red;
+// }
 .field.forComment{
   display: flex;
 }
@@ -80,16 +80,21 @@ input[type=submit]{
 
 .fl-comment{
   resize: horizontal;
-  width: 600px;
+  width: 80%;
   height: 30px;
-  margin-left:7%;
+  margin-left:5%;
+  margin-right: 2%;
 }
 .fl>label{
-  width: 100px;
+  width: auto;
 }
 
 .if-link:hover{
   text-decoration: none;
   background-color: white;
   color: #de4b4b;
+}
+.like-holder{
+  display: flex;
+  margin-top: 3%;
 }
