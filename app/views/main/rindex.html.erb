@@ -4,10 +4,7 @@
 <%= render 'layouts/blackbar'%>
 
 <div id="menuimage">
-  <div class = "titlebox" >
-    <h5 class="ptitle">브루인생</h5><br>
-  </div>
-  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+  <%= image_tag 'picnic.jpg', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 
@@ -48,10 +45,7 @@
 <br>
 
   <div class="right">
-    <div class="colu three">
-      <%= link_to "목록", pointlesses_path, :class=>"butn butn-dark-blue" %>
+      <%= link_to "전체 목록", pointlesses_path, :class=>"butn butn-grey" %>
       <%= will_paginate @pointlesses %>
-
-    </div>
   </div>
 </div>
