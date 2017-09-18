@@ -22,6 +22,8 @@
 
 <div class="background">
 <div class="main">
+  <text style="color:green">현재 <%=Forest.where(:censored => false).size %> 개의 사연이 처리 중입니다. </text>
+  <br><br>
   <% @forests.each do |forest| %>
   <% @f=forest%>
       <% if forest.censored == true %>
