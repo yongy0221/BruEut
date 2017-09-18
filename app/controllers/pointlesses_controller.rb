@@ -4,22 +4,15 @@ class PointlessesController < ApplicationController
   # GET /pointlesses
   # GET /pointlesses.json
   def like
+    @user=current_user
     @pointless = Pointless.find(params[:pointless_id])
-    iorn = true
-    @pointless.pluids.each do |p|
-      puts p.user_id
-      if current_user.id == p.user_id
-        p.destroy
-        iorn = false
-        break
-      end
-    end
-    if iorn == true
+    if @pointless.pluids.where(user_id: @user.id).present?
+      @pointless.pluids.where(user_id: @user.id).first.destroy
+      @pointless.like = @pointless.like - 1
+    else
       @pluid = Pluid.new(user_id: current_user.id, pointless_id: @pointless.id)
       @pluid.save
       @pointless.like = @pointless.like + 1
-    else
-      @pointless.like = @pointless.like - 1
     end
     if @pointless.like > 9
       @pointless.rec = true
@@ -28,30 +21,21 @@ class PointlessesController < ApplicationController
     end
     @pointless.save
     redirect_to :back
-
   end
   def dislike
-      @pointless = Pointless.find(params[:pointless_id])
-      iorn = true
-      @pointless.pdluids.each do |p|
-        puts p.user_id
-        if current_user.id == p.user_id
-          p.destroy
-          iorn = false
-          break
-        end
-      end
-      if iorn == true
-        @pdluid = Pdluid.new(user_id: current_user.id, pointless_id: @pointless.id)
-        @pdluid.save
-        @pointless.dislike = @pointless.dislike + 1
-      else
-        @pointless.dislike = @pointless.dislike - 1
-      end
+    @user=current_user
+    @pointless = Pointless.find(params[:pointless_id])
+    if @pointless.pdluids.where(user_id: @user.id).present?
+      pl=@pointless.pdluids.where(user_id: @user.id).first.destroy
+      @pointless.dislike = @pointless.dislike - 1
+    else
+      @pdluid = Pdluid.new(user_id: current_user.id, pointless_id: @pointless.id)
+      @pdluid.save
+      @pointless.dislike = @pointless.dislike + 1
+    end
       @pointless.save
       redirect_to :back
-
-    end
+  end
   def index
     if current_user
       unless current_user.create_name

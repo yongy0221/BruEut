@@ -11,51 +11,30 @@ class MarketsController < ApplicationController
   end
   def like
     @market = Market.find(params[:market_id])
-    iorn = true
-    @market.mluids.each do |p|
-      puts p.user_id
-      if current_user.id == p.user_id
-        p.destroy
-        iorn = false
-        break
-      end
-    end
-    if iorn == true
-      @mluid = Mluid.new(user_id: current_user.id, market_id: @market.id)
+    if @market.mluids.where(user_id: current_user.id).present?
+      @market.mluids.where(user_id: current_user.id).first.destroy
+      @market.like = @market.like - 1
+    else
+      @mluid  = Mluid.new(user_id: current_user.id, market_id: @market.id)
       @mluid.save
       @market.like = @market.like + 1
-    else
-      @market.like = @market.like - 1
-    end
-    if @market.like > 9
-      @market.rec = true
-    else
-      @market.rec = false
     end
     @market.save
     redirect_to :back
 
   end
   def dislike
-      @market = Market.find(params[:market_id])
-      iorn = true
-      @market.mdluids.each do |p|
-        puts p.user_id
-        if current_user.id == p.user_id
-          p.destroy
-          iorn = false
-          break
-        end
-      end
-      if iorn == true
-        @mdluid = Mdluid.new(user_id: current_user.id, market_id: @market.id)
-        @mdluid.save
-        @market.dislike = @market.dislike + 1
-      else
-        @market.dislike = @market.dislike - 1
-      end
-      @market.save
-      redirect_to :back
+    @market = Market.find(params[:market_id])
+    if @market.mdluids.where(user_id: current_user.id).present?
+      @market.mdluids.where(user_id: current_user.id).first.destroy
+      @market.dislike = @market.dislike - 1
+    else
+      @mdluid  = Mdluid.new(user_id: current_user.id, market_id: @market.id)
+      @mdluid.save
+      @market.dislike = @market.dislike + 1
+    end
+    @market.save
+    redirect_to :back
 
     end
   def index
