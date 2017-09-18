@@ -4,6 +4,11 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    if current_user
+      unless current_user.create_name
+        redirect_to main_firstlogin_path
+      end
+    end
     @events = Event.all
     @events = @events.sort_by { |event| event.start_time }
     @cur = DateTime.now.strftime("%Y%m%d%H%M")
@@ -16,6 +21,9 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    unless current_user.tier < 5
+      redirect_to events_path
+    end
     @event = Event.new
   end
 

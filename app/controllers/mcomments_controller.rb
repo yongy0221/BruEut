@@ -9,7 +9,9 @@ class McommentsController < ApplicationController
   def destroy
     @market = Market.find(params[:market_id])
     @mcomment = @market.mcomments.find(params[:id])
-    @mcomment.destroy
+    if current_user.id == @mcomment.user_id || current_user.tier < 4
+      @mcomment.destroy
+    end 
     redirect_to market_path(@market)
   end
 

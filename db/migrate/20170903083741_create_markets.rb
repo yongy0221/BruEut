@@ -10,6 +10,7 @@ class CreateMarkets < ActiveRecord::Migration
       t.integer :dislike, default: 0
       t.boolean :rec, default: false
       t.timestamps null: false
+      t.boolean :sold, default: false
     end
   end
 end

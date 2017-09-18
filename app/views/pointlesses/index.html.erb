@@ -1,5 +1,7 @@
 
-<p id="notice"><%= notice %></p>
+<head>
+  <script src="https://use.fontawesome.com/8a1c7ad851.js"></script>
+</head>
 
 <%= render 'layouts/blackbar'%>
 
@@ -7,17 +9,21 @@
   <div class = "titlebox" >
     <h5 class="ptitle">브루인생</h5><br>
   </div>
-  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+  <%= image_tag 'picnic.jpg', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 
 <div class="main">
+  <%= link_to "추천글보기", pointless_rindex_path, :class => "button-rec" %>
+
 <table class="Eut">
+
   <thead>
     <tr>
       <th scope ="row">글쓴이</th>
       <th class="Eut-title-header">제목</th>
       <!-- <th colspan="3"></th> -->
+      <th>추천</th>
       <th>작성시간</th>
     </tr>
   </thead>
@@ -26,15 +32,19 @@
     <% @pointlesses.each do |pointless| %>
       <tr class="Eut-body">
             <div>
-            <td scope="row"><%=pointless.user.name%>
+            <td scope="row"><%=pointless.user.bname%>
             </td>
             <td>
               <a href="/pointlesses/<%=pointless.id%>">
-              <div class="Eut-title-body" style="text-align:left;">
+              <div class="Eut-title-body">
                 <%=pointless.title%>
+                <% if pointless.pcomments.size > 0 %>
+                 [<%=pointless.pcomments.size%>]
+                 <% end %>
               </div>
               </a>
             </td>
+            <td><%=pointless.like%></td>
             <td >
               <%=pointless.created_at.strftime('%I:%M%p, %b %e')%>
             </td>
@@ -48,13 +58,14 @@
 <br>
 
 <div class="right">
+  <div class="colu three">
 <% if current_user%>
   <%= link_to new_pointless_path, {:style=>'text-decoration:none;'} do %>
-    <div class="btnn">글쓰기</div>
+    <div class="butn butn-dark-blue"><i class="fa fa-pencil"></i>글쓰기</div>
   <% end %>
 <% end %>
+</div>
 <br>
-<%= link_to "추천글", pointless_rindex_path %>
 <%= will_paginate @pointlesses %>
 </div>
 </div>

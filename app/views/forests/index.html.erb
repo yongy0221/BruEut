@@ -1,91 +1,73 @@
 
-
-
-
-<p id="notice"><%= notice %></p>
-
 <%= render 'layouts/blackbar'%>
+<div id="notice-real"><%=notice%></div>
+<div class="myModal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <p>
+              사연 감사합니다 !
+              <span class="close">&times;</span>
+            </p>
+          </div>
 
+        </div>
 <div id="menuimage">
   <div class = "titlebox" >
     <h5 class="ftitle">대나무숲</h5><br>
     <h4 id="subt">익명보장해드립니다!</h4>
   </div>
-  <%= image_tag 'bamboo1.jpg', class: 'menuimage'%>
+  <%= image_tag 'forestimg2.jpg', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 
 <div class="background">
-<% if current_user %>
-<% if @user.tier== 1 %>
 <div class="main">
-<table>
-  <!-- <thead>
-    <tr>
-      게시글
-    </tr>
-  </thead> -->
-
-  <tbody>
-    <% @forests.each do |forest| %>
-      <tr>
-        <td>
-          <% if forest.censored == false %>
-
-            <%= link_to 'Trufefy', maketrue_path(forest) %>
-          <% else %>
-          true
-          <% end %>
-       </td>
-        <td>
-          <%= forest.content.html_safe %>
-          <%= link_to 'Show', forest %>
-          <%= link_to 'Edit', edit_forest_path(forest) %>
-          <%= link_to 'Destroy', forest, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-</div>
-<% else %>
-<div class="main">
+  <text style="color:green">현재 <%=Forest.where(:censored => false).size %> 개의 사연이 처리 중입니다. </text>
+  <br><br>
   <% @forests.each do |forest| %>
   <% @f=forest%>
       <% if forest.censored == true %>
       <table class="fcontent">
           <tr>
               <td><%= forest.content.html_safe %><br></td>
-              <!-- <%= link_to 'Show', forest %><br> -->
-          </tr>
+            </tr>
       </table>
 
            <%= render forest.fcomments %>
-           <%= render "fcomments/form" %><br>
+           <% if current_user %>
+             <%= render "fcomments/form" %><br>
+           <% end %>
       <% end %>
 
   <% end %>
-<% end %>
+<div class="colu three">
+  <a href="<%=new_forest_path %>" class="butn butn-dark-blue"><i class="fa fa-pencil"></i>비밀글쓰기</a>
+</div>
 <br>
-<%= link_to 'New Forest', new_forest_path %>
-<% else %>
+</div>
+</div>
+<script>
 
-   <br>게시글
-<br><br>
-    <% @forests.each do |forest| %>
-    <% @f=forest%>
-        <% if forest.censored == true %>
-            <%= forest.content.html_safe %>   <%= link_to 'Show', forest %><br>
-            <br>Comments
-             <%= render forest.fcomments %>
-             Add a comment:
-             <%= render "fcomments/form" %><br>
-             <br>
-        <% end %>
-        <!-- <h2 class="line"><span></span></h2> -->
-    <% end %>
-<% end %>
-<br>
-</div>
-</div>
+          var letsmodal = document.getElementById('notice-real');
+          console.log(letsmodal.innerHTML);
+          var modal = document.getElementsByClassName("myModal")[0];
+          var btn = document.getElementById("myBtn");
+          var close = document.getElementsByClassName("close")[0];
+          if (letsmodal.innerHTML==="true"){
+          open = function() {
+              modal.style.display = "block";
+              console.log("lets modal");
+          }
+          open();
+          close.onclick = function() {
+              modal.style.display = "none";
+          }
+          window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+        }
+
+
+</script>

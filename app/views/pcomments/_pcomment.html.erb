@@ -4,14 +4,15 @@
   <tr>
     <th scope="row"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<b><%= pcomment.commenter %></th>
     <td><%= pcomment.body %></td>
-    <td>
+    <td class="td-small">
       <div class="comment">
         <% if current_user %>
-          <% if pcomment.user_id == current_user.id %>
-
-          <%= link_to '[댓글삭제]', [pcomment.pointless, pcomment],
-            :confirm => 'Are you Sure?',
-            :method => :delete %>
+          <% if pcomment.user_id == current_user.id || current_user.tier < 4 %>
+        <%= link_to '[삭제]', [pcomment.pointless, pcomment],
+            method: :delete,
+            data: {
+              confirm:'Are you Sure?'
+              }, :class=>"if-link" %>
         <% end %>
         <% end %>
       </div>

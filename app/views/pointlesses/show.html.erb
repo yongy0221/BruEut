@@ -1,13 +1,8 @@
-<link rel="stylesheet" href="stylesheets/forests.css">
-
-
-
-<p id="notice"><%= notice %></p>
 
 <%=render 'layouts/blackbar'%>
 
 <div id="menuimage">
-  <%= image_tag 'ucla-re.jpg', class: 'menuimage'%>
+  <%= image_tag 'picnic.jpg', class: 'menuimage'%>
 </div>
 <!-- ///////////////게시글//////////////////////////// -->
 <div class="main">
@@ -15,7 +10,6 @@
     <thead>
       <tr class="pcontitle">
         <th scope="cols"><%= @pointless.title.html_safe %></th>
-        <th scope = "cols"> <%= @pointless.user.name %> </th>
       </tr>
     </thead>
     <tbody>
@@ -24,42 +18,37 @@
       </tr>
     </tbody>
   </table>
-  <br>
-  <br>
+  <% if current_user %>
+      <% if @user.id == @pointless.user_id %>
+        <%= link_to '[글 수정]', edit_pointless_path(@pointless), class:"if-link" %>
+      <% end %>
+      <% if @user.id == @pointless.user_id || current_user.tier < 4 %>
+        <%= link_to '[글 삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
+      <% end %>
+  <% end %>
 
     <% if current_user%>
-
+    <div class = "like-holder">
       <form action='like' method=post %>
-          <input type=hidden name=pointless_id value = <%= @pointless.id %> >
-          <input type=Submit value="Like <%= @pointless.like %>">
-        </form> <form action='dislike' method=post %>
-          <input type=hidden name=pointless_id value = <%= @pointless.id %> >
-          <input type=Submit value="DisLike <%= @pointless.dislike %>">
-        </form>
-        <div>
-        <%= link_to pointlesses_path, {:style=>'text-decoration:none;'} do%>
-            <div class="btnn" style="margin-left: 0%; ">목록</div>
-          <% end %>
-        <% if current_user %>
-         <% if @user.id == @pointless.user_id %>
-          <%= link_to @pointless, method: :delete, data: { confirm: 'Are you sure?'}, :style=>'text-decoration:none;' do %>
-            <div class="btnn" style="margin-left:89%; margin-top:-43px">삭제</div>
-          <% end %>
-        <% end %>
-
-      </div>
-      <% end %>
+        <input type=hidden name=pointless_id value = <%= @pointless.id %> >
+        <input class = "button-like" type=Submit value="공감 <%= @pointless.like %>">
+      </form>
+      <form action='dislike' method=post %>
+        <input type=hidden name=pointless_id value = <%= @pointless.id %> >
+        <input class = "button-dislike" type=Submit value="비공감 <%= @pointless.dislike %>">
+      </form>
+    </div>
     <% end %>
 
-    <br>
-    <br>
     <div class="pcomment">
       <%= render @pointless.pcomments %>
       <% if current_user %>
         <%= render "pcomments/form" %>
       <% end %>
     </div>
-
+  <div class="right">
+  <%= link_to '뒤로가기', pointlesses_path, :class=>"butn butn-grey" %>
+  </div>
 <% @pointless.pluids.each do |p| %>
 <% end %>
 </div>

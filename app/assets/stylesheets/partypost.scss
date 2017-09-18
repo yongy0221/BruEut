@@ -1,0 +1,98 @@
+.ppost-form {
+  border: solid 3px #1d75d9;
+  width: 80%;
+  position: relative;
+  left: 10%;
+  padding: 1% 1%;
+  font-family: 'AppleSDGothicNeo-Light'
+}
+
+.article{
+  width: 600px;
+}
+.blankspace{
+  position:relative;
+  left:10%;
+}
+.ppost-content-container{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ppost-content{
+  border-collapse: collapse;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 18px;
+  text-align: left;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    margin : 20px 10px;
+    padding: 5px 15px;
+    float: none;
+    position: static;
+    width:45%;
+    /*height: 45%;*/
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+}
+
+.sgreen {
+  border-left: 5px solid #0a9117;
+}
+.syellow{
+  border-left: 5px solid #f6c83a;
+}
+.sred {
+  border-left: 5px solid #c8331f;
+}
+.button-favorite{
+  border: 1px solid #dc385f;
+  border-radius: 3%;
+  margin-left: 3%;
+  padding: 20px 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 14px;
+}
+.button-favorite:hover{
+  text-decoration: none;
+  background-color: #dc385f;
+}
+
+.button-join{
+  border: 1px solid #1d75d9;
+  border-radius: 3%;
+  margin-left: 15%;
+  padding: 20px 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 14px;
+  background-color: white;
+}
+.button-join:hover{
+  text-decoration: none;
+  background-color: #1d75d9;
+}
+.button-container{
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.button-post{
+  border: 1px solid #1d75d9;
+  border-radius: 3%;
+  margin-left: 2%;
+  padding: 15px 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: 'AppleSDGothicNeo-Light';
+  font-size: 14px;
+  background-color: white;
+  position: static;
+}
+.button-post:hover{
+  color: white;
+  text-decoration: none;
+  background-color: #1d75d9;
+}

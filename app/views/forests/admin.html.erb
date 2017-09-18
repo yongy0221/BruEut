@@ -1,0 +1,39 @@
+
+</body>
+<%= link_to "비공개사연 보기", forests_admin_part_path %>
+<% if @forests.present? %>>
+<text> 현재까지 <%=Forest.all.reverse_order.first.id%> 개의 사연이 있습니다.<br>
+현재 <%=Forest.where(:censored => false).size %> 개의 사연이 처리 중입니다.
+현재까지 <%=Forest.where(:censored => true).size %> 개의 사연을 공개했습니다.<br>
+다음 사연 번호는 <%=(Forest.where(:censored => true).size)+1 %> 입니다.</text>
+<br><br>
+
+<table>
+  <tbody>
+    <% @forests.each do |forest| %>
+      <tr>
+        <td>
+          <% if forest.censored == false %>
+
+          <%= link_to '[공개하기]', maketrue_path(forest) %>
+          <% else %>
+          <%= link_to '[블라인드 처리]', blind_path(forest) %>
+          <% end %>
+       </td>
+        <td>
+
+          <text>  <%= forest.id %> 번째 사연 </text>
+          <%= link_to 'Show', forest %>
+          <%= link_to 'Edit', edit_forest_path(forest) %>
+          <%= link_to 'Destroy', forest, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% else %>
+<br>
+  더 이상 사연이 없습니다.
+<% end %>
+</body>

@@ -32,6 +32,9 @@
               <a href="/markets/<%=market.id%>">
               <div class="Eut-title-body" style="text-align:left;">
                 <%=market.title%>
+                <% if market.mcomments.size > 0%>
+                 [<%=market.mcomments.size%>]
+                 <%end %>
               </div>
               </a>
             </td>

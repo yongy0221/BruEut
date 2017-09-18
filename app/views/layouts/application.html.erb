@@ -13,12 +13,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'custom', 'partypost', 'forest', 'pointlesses', 'fcomments', 'menubar' %>
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'custom', 'partypost', 'forests', 'pointlesses', 'fcomments', 'login', 'events' %>
+  <%= stylesheet_link_tag 'custom', 'partypost', 'forests', 'pointlesses', 'fcomments', 'login', 'events'%>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
@@ -26,11 +24,6 @@
 </head>
 <body>
 
-    <div class="row">
-        <% flash.each do |key, value| %>
-            <div class=" col-md-4 col-md-offset-4 alert alert-<%= key %>" style="margin-bottom: 20px"><%= value %></div>
-        <% end %>
-    </div>
 <%= yield %>
 
 <footer class="text-center">

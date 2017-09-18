@@ -1,5 +1,4 @@
 <body>
-  <p id="notice"><% notice %></p>
   <%= render 'layouts/blackbar' %>
   <div id="menuimage">
     <div class = "titlebox" >
@@ -85,9 +84,15 @@
 
 
   <br>
-
-  <%= link_to '[이벤트 추가]', new_event_path %>
-
+  <% if current_user %>
+    <% if current_user.tier < 5 %>
+      <div class="ecreatebutn">
+        <div class="colu four">
+            <a href="<%= new_event_path%>" class="butn butn-dark-blue">이벤트 추가</a>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
   <br />
   <br />
   <br />

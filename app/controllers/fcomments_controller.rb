@@ -9,7 +9,9 @@ class FcommentsController < ApplicationController
   def destroy
     @forest = Forest.find(params[:forest_id])
     @fcomment = @forest.fcomments.find(params[:id])
-    @fcomment.destroy
+    if @fcomment.user_id == current_user.id || current_user.tier < 4
+      @fcomment.destroy
+    end
     redirect_to forests_path
   end
 
