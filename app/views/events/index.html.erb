@@ -84,15 +84,15 @@
 
 
   <br>
-
-  <% if current_user.tier < 5 %>
-    <div class="ecreatebutn">
-      <div class="colu four">
-          <a href="<%= new_event_path%>" class="butn butn-dark-blue">이벤트 추가</a>
+  <% if current_user %>
+    <% if current_user.tier < 5 %>
+      <div class="ecreatebutn">
+        <div class="colu four">
+            <a href="<%= new_event_path%>" class="butn butn-dark-blue">이벤트 추가</a>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-
   <br />
   <br />
   <br />
