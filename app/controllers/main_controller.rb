@@ -1,12 +1,11 @@
 class MainController < ApplicationController
+  #-----rdiex,mrindex,msindex,dashboard 액션 전 유저 닉네임 설정 체크
+  before_action :user_name_done, only: [:rindex, :mrindex, :msindex, :dashboard]
+
   def dashboard
-    if current_user
-      unless current_user.create_name
-        redirect_to main_firstlogin_path
-      end
-    end
   end
 
+  #----닉네임 설정
   def firstlogin
     @user=current_user
   end

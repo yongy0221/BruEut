@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  before_action :user_name_done
     def index
         term = params[:term].strip
         term = term.gsub("  ", " ").gsub(" ", "%")

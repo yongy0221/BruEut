@@ -1,68 +1,16 @@
 class ForestsController < ApplicationController
+  #-----모든 action 전 닉네임 완료 체크/forest params 받아오기
   before_action :set_forest, only: [:show, :edit, :update, :destroy]
-
-  def maketrue
-    if current_user.tier < 4
-      @forest=Forest.find(params[:format])
-      @forest.censored=true
-      @forest.save
-    end
-    redirect_to :back
-  end
-  def blind
-    if current_user.tier < 4
-      @forest=Forest.find(params[:format])
-      @forest.censored=false
-      @forest.save
-    end
-    redirect_to :back
-  end
-  # GET /forests
-  # GET /forests.json
+  before_action :user_name_done
+  before_action :tiercheck, only: [:maketrue, :blind, :admin, :admin_part, :edit, :destroy, :show]
+  #------목록/유저대숲랜딩
   def index
-    if current_user
-      unless current_user.create_name
-        redirect_to main_firstlogin_path
-      end
-    end
-    @user=current_user
     @forests = Forest.all.reverse_order
   end
-  def admin
-    if current_user.tier > 3
-      redirect_to :back
-    end
-    @forests = Forest.all.reverse_order
-  end
-  def admin_part
-    if current_user.tier > 3
-      redirect_to :back
-    end
-    @forests = Forest.where(:censored => false).reverse_order
-  end
-  # GET /forests/1
-  # GET /forests/1.json
-  def show
-    @forest=Forest.find(params[:id])
-      if current_user.tier > 3
-        redirect_to :back
-      end
-  end
-
-  # GET /forests/new
+  #-----새 사연 생성
   def new
     @forest = Forest.new
   end
-
-  # GET /forests/1/edit
-  def edit
-    if current_user.tier > 3
-      redirect_to :back
-    end
-  end
-
-  # POST /forests
-  # POST /forests.json
   def create
     @forest = Forest.new(forest_params)
     @forest.censored=false
@@ -76,9 +24,24 @@ class ForestsController < ApplicationController
       end
     end
   end
-
-  # PATCH/PUT /forests/1
-  # PATCH/PUT /forests/1.json
+  #-------관리용 권한 체크
+  def tiercheck
+    if current_user.tier > 3
+      redirect_to forests_path
+    end
+  end
+  #------관리용 페이지
+  def admin
+    @forests = Forest.all.reverse_order
+  end
+  def admin_part
+    @forests = Forest.where(:censored => false).reverse_order
+  end
+  def show
+    @forest=Forest.find(params[:id])
+  end
+  def edit
+  end
   def update
     respond_to do |format|
       if @forest.update(forest_params)
@@ -90,21 +53,26 @@ class ForestsController < ApplicationController
       end
     end
   end
-
-  # DELETE /forests/1
-  # DELETE /forests/1.json
   def destroy
-    if current_user.tier > 3
-      redirect_to :back
-    else
-      @forest.destroy
-      respond_to do |format|
-        format.html { redirect_to forests_path }
-        format.json { head :no_content }
-      end
+    @forest.destroy
+    respond_to do |format|
+      format.html { redirect_to forests_path }
+      format.json { head :no_content }
     end
   end
-
+  #------사연 공개/비공개 설정
+  def maketrue
+     @forest=Forest.find(params[:format])
+     @forest.censored=true
+     @forest.save
+     redirect_to :back
+  end
+  def blind
+     @forest=Forest.find(params[:format])
+     @forest.censored=false
+     @forest.save
+     redirect_to :back
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_forest

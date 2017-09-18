@@ -1,4 +1,8 @@
 class FcommentsController < ApplicationController
+  #------모든 action 전 닉네임 설정 완료 체크
+  before_action :user_name_done
+
+  #------대숲 댓글 생성
   def create
     @forest = Forest.find(params[:forest_id])
     @fcomment = @forest.fcomments.create(fcomment_params)
@@ -6,6 +10,7 @@ class FcommentsController < ApplicationController
     redirect_to forests_path
   end
 
+  #------대숲 댓글 삭제
   def destroy
     @forest = Forest.find(params[:forest_id])
     @fcomment = @forest.fcomments.find(params[:id])

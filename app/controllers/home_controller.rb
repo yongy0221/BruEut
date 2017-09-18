@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   before_action :login_check
-
+  
   def logged_in
   end
 
