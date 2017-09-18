@@ -18,11 +18,13 @@
       </tr>
     </tbody>
   </table>
-    <% if @user.id == @pointless.user_id %>
-    <%= link_to '[글 수정]', edit_pointless_path(@pointless), class:"if-link" %>
+  <% if current_user %>
+      <% if @user.id == @pointless.user_id %>
+      <%= link_to '[글 수정]', edit_pointless_path(@pointless), class:"if-link" %>
 
-    <%= link_to '[글 삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
-    <% end %>
+      <%= link_to '[글 삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
+      <% end %>
+  <% end %>
 
     <% if current_user%>
     <div class = "like-holder">
@@ -39,7 +41,9 @@
 
     <div class="pcomment">
       <%= render @pointless.pcomments %>
-      <%= render "pcomments/form" %>
+      <% if current_user %>
+        <%= render "pcomments/form" %>
+      <% end %>
     </div>
   <div class="right">
   <%= link_to '뒤로가기', pointlesses_path, :class=>"butn butn-grey" %>

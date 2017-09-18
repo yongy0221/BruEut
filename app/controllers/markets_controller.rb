@@ -3,6 +3,12 @@ class MarketsController < ApplicationController
 
   # GET /markets
   # GET /markets.json
+  def sold
+    market = Market.find(params[:mid])
+    market.sold = true
+    market.save
+    redirect_to :back
+  end
   def like
     @market = Market.find(params[:market_id])
     iorn = true

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post 'pointlesses/dislike'
   root "main#dashboard"
 
+  post 'markets/sold'
   post 'markets/like'
   post 'markets/dislike'
   get 'main/mrindex'

@@ -39,7 +39,7 @@
 
           <%= link_to 'Trufefy    ', maketrue_path(forest) %>
           <% else %>
-          "true    " 
+          "true    "
           <% end %>
        </td>
         <td>
@@ -88,10 +88,12 @@
             <%= forest.content.html_safe %>   <%= link_to 'Show', forest %><br>
             <br>Comments
              <%= render forest.fcomments %>
-             Add a comment:
-             <%= render "fcomments/form" %><br>
-             <br>
-        <% end %>
+             <% if current_user %>
+               Add a comment:
+               <%= render "fcomments/form" %><br>
+               <br>
+             <% end %>
+          <% end %>
         <!-- <h2 class="line"><span></span></h2> -->
     <% end %>
 <% end %>

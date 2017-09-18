@@ -14,7 +14,13 @@
   <table class="boardtable">
     <thead>
       <tr class="pcontitle">
-        <th scope="cols"><%= @market.title.html_safe %></th>
+        <th scope="cols" style="text-align:left">
+          <% if @market.sold %>
+          <text style="color:red; font-size:18px;">[판매완료]</text>
+          <% else %>
+          <text style="color:green; font-size:18px;">[판매중]</text>
+          <% end %>
+        <%= @market.title.html_safe %></th>
       </tr>
     </thead>
     <tbody>
@@ -23,18 +29,23 @@
       </tr>
     </tbody>
   </table>
+  <% if current_user %>
     <% if @user.id == @market.user_id %>
+        <% if @market.sold == false %>
+        <%= link_to '[판매 완료 하기]', markets_sold_path(:mid => @market.id), method: :post, style: "color:green" %>
+      <% end %>
+    <% end %>
     <%= link_to '[글 수정]', edit_market_path(@market), class:"if-link" %>
     <%= link_to '[글 삭제]', @market, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
-    <% end %>
+  <% end %>
 
     <% if current_user%>
     <div class = "like-holder">
-      <form action='like' method=post %>
+      <form action='like' method=post>
         <input type=hidden name=pointless_id value = <%= @market.id %> >
         <input class = "button-like" type=Submit value="공감 <%= @market.like %>">
       </form>
-      <form action='dislike' method=post %>
+      <form action='dislike' method=post>
         <input type=hidden name=pointless_id value = <%= @market.id %> >
         <input class = "button-dislike" type=Submit value="비공감 <%= @market.dislike %>">
       </form>
@@ -43,7 +54,9 @@
 
     <div class="pcomment">
       <%= render @market.mcomments %>
-      <%= render "mcomments/form" %>
+      <% if current_user%>
+        <%= render "mcomments/form" %>
+      <% end %>
     </div>
   <div class="right">
   <%= link_to '뒤로가기', markets_path, :class=>"butn butn-grey" %>

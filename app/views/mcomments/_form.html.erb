@@ -1,6 +1,7 @@
 <%=stylesheet_link_tag 'fcomment'%>
 
 <%= form_for([@market, @market.mcomments.build]) do |f| %>
+
 <div class="field">
   <%= f.hidden_field :user_id, :value => @user.id %>
 <!-- </div>

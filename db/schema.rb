@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20170911081031) do
     t.boolean  "rec",        default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.boolean  "sold",       default: false
   end
 
   create_table "mcomments", force: :cascade do |t|
