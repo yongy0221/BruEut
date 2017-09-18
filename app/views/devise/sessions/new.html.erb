@@ -5,15 +5,13 @@
     }
   </style>
 </head>
-<%= stylesheet_link_tag "login.css" %>
-<%= stylesheet_link_tag "navbar" %>
 <%=render 'layouts/navbar'%>
 
 <body class = "back">
         <div class="box">
           <div class="border-form-div-1">
             <h2 style="text-align:center">로그인</h2>
-              
+
               <div class="slightleft" style="text-align:center">
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="field" style="text-align:center">

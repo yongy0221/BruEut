@@ -46,5 +46,10 @@ class PartypostController < ApplicationController
     redirect_to "/partypost"
   end
 
-
+  puts "Test"
+  us = User.all
+  us.each do |u|
+    puts u.id
+    puts u.bname
+  end
 end
