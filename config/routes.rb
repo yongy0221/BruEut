@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   post 'markets/like'
   post 'markets/dislike'
   get 'main/mrindex'
+  get 'main/sindex'
+  get 'market/msindex' => 'main#msindex'
   get 'market/mrindex' => 'main#mrindex'
 
   get 'partypost' => 'partypost#index'

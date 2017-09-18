@@ -31,6 +31,9 @@ class MainController < ApplicationController
   def mrindex
     @markets = Market.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
   end
+  def msindex
+    @markets = Market.where(:sold => false).paginate(:page => params[:page], :per_page => 20).reverse_order
+  end
   private
   def user_params
     params.require(:user).permit(:bname)
