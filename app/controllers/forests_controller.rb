@@ -49,7 +49,7 @@ class ForestsController < ApplicationController
     @forest.censored=false
     respond_to do |format|
       if @forest.save
-        format.html { redirect_to forests_path }
+        format.html { redirect_to forests_path, notice: true }
         format.json { render :show, status: :created, location: @forest }
       else
         format.html { render :new }

@@ -1,6 +1,4 @@
 
-<p id="notice"><%= notice %></p>
-
 <%=render 'layouts/blackbar'%>
 
 <div id="menuimage">
@@ -21,7 +19,7 @@
     </tbody>
   </table>
     <% if @user.id == @pointless.user_id %>
-    <%= link_to 'Edit', edit_pointless_path(@pointless) %>
+    <%= link_to '[글 수정]', edit_pointless_path(@pointless), class:"if-link" %>
 
     <%= link_to '[글 삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
     <% end %>

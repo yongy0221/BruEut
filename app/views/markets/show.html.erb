@@ -24,6 +24,7 @@
     </tbody>
   </table>
     <% if @user.id == @market.user_id %>
+    <%= link_to '[글 수정]', edit_market_path(@market), class:"if-link" %>
     <%= link_to '[글 삭제]', @market, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
     <% end %>
 
