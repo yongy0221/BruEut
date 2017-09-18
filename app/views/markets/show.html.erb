@@ -34,9 +34,11 @@
         <% if @market.sold == false %>
         <%= link_to '[판매 완료 하기]', markets_sold_path(:mid => @market.id), method: :post, data: {confirm: '판매를 완료하시겠습니까?'}, style: "color:green" %>
       <% end %>
-    <% end %>
     <%= link_to '[글 수정]', edit_market_path(@market), class:"if-link" %>
-    <%= link_to '[글 삭제]', @market, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
+    <% end %>
+    <% if @user.id == @market.user_id || current_user.tier < 4 %>
+      <%= link_to '[글 삭제]', @market, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
+    <% end %> 
   <% end %>
 
     <!-- <% if current_user%>

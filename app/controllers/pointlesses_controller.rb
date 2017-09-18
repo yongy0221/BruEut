@@ -58,6 +58,9 @@ class PointlessesController < ApplicationController
 
   # GET /pointlesses/1/edit
   def edit
+    unless current_user==@pointless.user
+      redirect_to pointlesses_path
+    end
   end
 
   # POST /pointlesses
@@ -97,10 +100,14 @@ class PointlessesController < ApplicationController
   # DELETE /pointlesses/1
   # DELETE /pointlesses/1.json
   def destroy
-    @pointless.destroy
-    respond_to do |format|
-      format.html { redirect_to pointlesses_path}
-      format.json { head :no_content }
+    if current_user.id == @pointless.user.id  || current_user.tier < 4
+      @pointless.destroy
+      respond_to do |format|
+        format.html { redirect_to pointlesses_path}
+        format.json { head :no_content }
+      end
+    else
+      redirect_to pointlesses_path
     end
   end
 

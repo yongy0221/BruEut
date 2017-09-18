@@ -6,7 +6,7 @@
         <td class = "td-small">
           <div class="comment">
             <% if current_user %>
-            <% if fcomment.user_id == current_user.id %>
+            <% if fcomment.user_id == current_user.id  || current_user.tier < 4 %>
             <%= link_to '[삭제]', [fcomment.forest, fcomment],
                 method: :delete,
                 data: {

@@ -2,9 +2,17 @@ class ForestsController < ApplicationController
   before_action :set_forest, only: [:show, :edit, :update, :destroy]
 
   def maketrue
-    if current_user.tier < 2
+    if current_user.tier < 4
       @forest=Forest.find(params[:format])
       @forest.censored=true
+      @forest.save
+    end
+    redirect_to :back
+  end
+  def blind
+    if current_user.tier < 4
+      @forest=Forest.find(params[:format])
+      @forest.censored=false
       @forest.save
     end
     redirect_to :back
@@ -20,12 +28,23 @@ class ForestsController < ApplicationController
     @user=current_user
     @forests = Forest.all.reverse_order
   end
-
+  def admin
+    if current_user.tier > 3
+      redirect_to :back
+    end
+    @forests = Forest.all.reverse_order
+  end
+  def admin_part
+    if current_user.tier > 3
+      redirect_to :back
+    end
+    @forests = Forest.where(:censored => false).reverse_order
+  end
   # GET /forests/1
   # GET /forests/1.json
   def show
     @forest=Forest.find(params[:id])
-      if current_user.tier > 1
+      if current_user.tier > 3
         redirect_to :back
       end
   end
@@ -37,7 +56,7 @@ class ForestsController < ApplicationController
 
   # GET /forests/1/edit
   def edit
-    if current_user.tier > 1
+    if current_user.tier > 3
       redirect_to :back
     end
   end
@@ -75,7 +94,7 @@ class ForestsController < ApplicationController
   # DELETE /forests/1
   # DELETE /forests/1.json
   def destroy
-    if current_user.tier > 1
+    if current_user.tier > 3
       redirect_to :back
     else
       @forest.destroy

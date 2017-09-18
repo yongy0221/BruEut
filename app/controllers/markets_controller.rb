@@ -54,6 +54,9 @@ class MarketsController < ApplicationController
 
   # GET /markets/1/edit
   def edit
+    unless current_user == @market.user
+      redirect_to markets_path
+    end
   end
 
   # POST /markets
@@ -93,10 +96,12 @@ class MarketsController < ApplicationController
   # DELETE /markets/1
   # DELETE /markets/1.json
   def destroy
-    @market.destroy
-    respond_to do |format|
-      format.html { redirect_to markets_path}
-      format.json { head :no_content }
+    if current_user==@market.user || current_user.tier < 4
+      @market.destroy
+      respond_to do |format|
+        format.html { redirect_to markets_path}
+        format.json { head :no_content }
+      end
     end
   end
 

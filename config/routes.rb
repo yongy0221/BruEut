@@ -1,28 +1,23 @@
 Rails.application.routes.draw do
+  #-----routes for Ckeditor
+  mount Ckeditor::Engine => '/ckeditor'
+
+  #-----main routes
+  get 'main/firstlogin'
+  post 'main/make'
+  get 'main/dashboard'
+  root "main#dashboard"
+
+  #-------google login routes
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
-
   resources :sessions, only: [:create, :destroy]
+
+ #--------market routes
   resources :markets do
     resources :mcomments
   end
-  resources :pointlesses do
-    resources :pcomments
-  end
-  mount Ckeditor::Engine => '/ckeditor'
-  resources :events
-  resources :forests do
-    resources :fcomments
-  end
-  get 'main/firstlogin'
-  post 'main/make'
-  get 'main/rindex'
-  get 'pointless/rindex' => 'main#rindex'
-  post 'pointlesses/like'
-  post 'pointlesses/dislike'
-  root "main#dashboard"
-
   post 'markets/sold'
   post 'markets/like'
   post 'markets/dislike'
@@ -31,29 +26,45 @@ Rails.application.routes.draw do
   get 'market/msindex' => 'main#msindex'
   get 'market/mrindex' => 'main#mrindex'
 
+  #-----pointless routes
+  resources :pointlesses do
+    resources :pcomments
+  end
+  get 'main/rindex'
+  get 'pointless/rindex' => 'main#rindex'
+  post 'pointlesses/like'
+  post 'pointlesses/dislike'
+
+  #------event routes
+  resources :events
+
+  #-----forest routes
+  get 'forests/admin'
+  get 'forests/admin_part'
+  resources :forests do
+    resources :fcomments
+  end
+  get 'forests/maketrue'
+  get 'forests/blind'
+  get 'maketrue' => 'forests#maketrue'
+  get 'blind' => 'forests#blind'
+
+#-------partypost routes
   get 'partypost' => 'partypost#index'
   get 'partylike' => 'partypost#partylike'
-
   post 'partycreate' => 'partypost#partycreate'
-
   get "partylike/:post_id" => "partypost#partylike"
   get "partyunlike/:post_id" => "partypost#partyunlike"
-
   get "partyjoin/:post_id" => "partypost#partyjoin"
   get "partydisjoin/:post_id" => "partypost#partydisjoin"
 
-
+#------search routes
   get 'search/index'
-
   get 'home/index'
   post'upload' => "home#upload_post"
   post'comment' => "home#comment"
   get 'search', to: "search#index"
 
-
-  get 'main/dashboard'
-  get 'forests/maketrue'
-  get'maketrue' => 'forests#maketrue'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
