@@ -38,6 +38,9 @@
               <a href="/pointlesses/<%=pointless.id%>">
               <div class="Eut-title-body">
                 <%=pointless.title%>
+                <% if pointless.pcomments.size > 0 %>
+                 [<%=pointless.pcomments.size%>]
+                 <% end %>
               </div>
               </a>
             </td>

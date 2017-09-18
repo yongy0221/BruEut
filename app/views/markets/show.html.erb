@@ -32,7 +32,7 @@
   <% if current_user %>
     <% if @user.id == @market.user_id %>
         <% if @market.sold == false %>
-        <%= link_to '[판매 완료 하기]', markets_sold_path(:mid => @market.id), method: :post, style: "color:green" %>
+        <%= link_to '[판매 완료 하기]', markets_sold_path(:mid => @market.id), method: :post, data: {confirm: '판매를 완료하시겠습니까?'}, style: "color:green" %>
       <% end %>
     <% end %>
     <%= link_to '[글 수정]', edit_market_path(@market), class:"if-link" %>
