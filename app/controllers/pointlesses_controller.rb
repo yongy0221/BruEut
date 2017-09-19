@@ -34,9 +34,12 @@ class PointlessesController < ApplicationController
     @pointless.save
     redirect_to :back
   end
-  #------목록
+  #------기본/추천글 목록
   def index
     @pointlesses = Pointless.paginate(:page => params[:page], :per_page => 20).reverse_order
+  end
+  def rindex
+    @pointlesses = Pointless.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
   end
   #------게시글 보기
   def show

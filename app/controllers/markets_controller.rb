@@ -26,6 +26,12 @@ class MarketsController < ApplicationController
   def index
     @markets = Market.paginate(:page => params[:page], :per_page => 20).reverse_order
   end
+  def mrindex
+    @markets = Market.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
+  end
+  def msindex
+    @markets = Market.where(:sold => false).paginate(:page => params[:page], :per_page => 20).reverse_order
+  end
   #------판매글 보기
   def show
     @user=current_user

@@ -23,16 +23,6 @@ class MainController < ApplicationController
       redirect_to root_path
     end
   end
-  def rindex
-    @pointlesses = Pointless.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
-  end
-
-  def mrindex
-    @markets = Market.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
-  end
-  def msindex
-    @markets = Market.where(:sold => false).paginate(:page => params[:page], :per_page => 20).reverse_order
-  end
   private
   def user_params
     params.require(:user).permit(:bname)
