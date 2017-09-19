@@ -1,7 +1,8 @@
 class PointlessesController < ApplicationController
   #------모든 action전 닉네임 생성 체크/params
-  before_action :set_pointless, only: [:show, :edit, :update, :destroy, :like, :dislike]
+  before_action :set_pointless, only: [:show, :edit, :update, :destroy, :like, :dislike, :checklength]
   before_action :user_name_done
+  before_action :checklength, only: [:create, :update]
   #------like/dislike
   def like
     @user=current_user
@@ -46,8 +47,30 @@ class PointlessesController < ApplicationController
     @user=current_user
   end
   #------게시글 생성
+  def checklength
+    if params[:pointless]["title"].delete(' ').length < 2 || params[:pointless]["content"].delete(' ').delete('<p>').delete('</p>').delete("\n").delete("\r").delete( '&nbsp;').length < 2
+      session[:notice]="1"
+      session[:title]=params[:pointless]["title"]
+      session[:content]=params[:pointless]["content"]
+      redirect_to :back
+    end
+  end
   def new
-    @pointless = Pointless.new
+    unless session[:notice].nil?
+      @notice = "제목과 내용은 두글자 이상 입력해주세요"
+    end
+    if session[:title].present? && session[:content].present?
+      @pointless = Pointless.new(:title => session[:title], :content => session[:content])
+    elsif session[:title].present?
+       @pointless = Pointless.new(:title => session[:title])
+    elsif session[:content].present?
+       @pointless = Pointless.new(:content => session[:content])
+    else
+       @pointless = Pointless.new
+    end
+    session[:notice]=@nil
+    session[:title]=@nil
+    session[:content]=@nil
   end
   def create
     @pointless = Pointless.new(pointless_params)
@@ -70,6 +93,19 @@ class PointlessesController < ApplicationController
     unless current_user==@pointless.user
       redirect_to pointlesses_path
     end
+    unless session[:notice].nil?
+      @notice = "제목과 내용은 두글자 이상 입력해주세요"
+    end
+    if session[:title].present? && session[:content].present?
+      @pointless = Pointless.new(:title => session[:title], :content => session[:content])
+    elsif session[:title].present?
+       @pointless = Pointless.new(:title => session[:title])
+    elsif session[:content].present?
+       @pointless = Pointless.new(:content => session[:content])
+    end
+    session[:notice]=@nil
+    session[:title]=@nil
+    session[:content]=@nil
   end
   def update
     respond_to do |format|

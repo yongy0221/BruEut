@@ -4,6 +4,7 @@ class MarketsController < ApplicationController
   before_action :user_name_done
   before_action :samecheck, only: [:sold, :edit]
   before_action :tiercheck, only: [:destroy]
+  before_action :checklength, only: [:create, :update]
   #------동일 유저 체크
   def samecheck
     unless @market.user==current_user
@@ -37,8 +38,30 @@ class MarketsController < ApplicationController
     @user=current_user
   end
   #------새 판매글 생성
+  def checklength
+    if params[:market]["title"].delete(' ').length < 2 || params[:market]["content"].delete(' ').delete('<p>').delete('</p>').delete("\n").delete("\r").delete( '&nbsp;').length < 2
+      session[:notice]="1"
+      session[:title]=params[:market]["title"]
+      session[:content]=params[:market]["content"]
+      redirect_to :back
+    end
+  end
   def new
-    @market = Market.new
+    unless session[:notice].nil?
+      @notice = "제목과 내용은 두 글자 이상 입력해주세요"
+    end
+    if session[:title].present? && session[:content].present?
+      @market = Market.new(:title => session[:title], :content => session[:content])
+    elsif session[:title].present?
+      @market = Market.new(:title => session[:title])
+    elsif session[:content].present?
+      @market = Market.new(:content => session[:content])
+    else
+      @market = Market.new
+    end
+    session[:notice]=@nil
+    session[:title]=@nil
+    session[:content]=@nil
   end
   def create
     @market = Market.new(market_params)
@@ -58,6 +81,19 @@ class MarketsController < ApplicationController
   end
   #------판매글 수정
   def edit
+    unless session[:notice].nil?
+      @notice = "제목과 내용은 두글자 이상 입력해주세요"
+    end
+    if session[:title].present? && session[:content].present?
+      @market = Market.new(:title => session[:title], :content => session[:content])
+    elsif session[:title].present?
+       @market = Market.new(:title => session[:title])
+    elsif session[:content].present?
+       @market = Market.new(:content => session[:content])
+    end
+    session[:notice]=@nil
+    session[:title]=@nil
+    session[:content]=@nil
   end
   def update
     respond_to do |format|

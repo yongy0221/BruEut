@@ -3,13 +3,31 @@ class ForestsController < ApplicationController
   before_action :set_forest, only: [:show, :edit, :update, :destroy]
   before_action :user_name_done
   before_action :tiercheck, only: [:maketrue, :blind, :admin, :admin_part, :edit, :destroy, :show]
+  before_action :checklength, only: [:create]
   #------목록/유저대숲랜딩
   def index
     @forests = Forest.all.reverse_order
   end
   #-----새 사연 생성
+  def checklength
+    if  params[:forest]["content"].delete(' ').delete('<p>').delete('</p>').delete("\n").delete("\r").delete( '&nbsp;').length < 10
+      session[:notice]="1"
+      session[:content]=params[:forest]["content"]
+      redirect_to :back
+    end
+  end
   def new
-    @forest = Forest.new
+    unless session[:notice].nil?
+      @notice = "사연은 최소 10자 이상 입력해주세요"
+    end
+    if session[:content].present?
+      @forest = Forest.new(:content => session[:content])
+    else
+       @forest = Forest.new
+    end
+    session[:notice]=@nil
+    session[:title]=@nil
+    session[:content]=@nil
   end
   def create
     @forest = Forest.new(forest_params)
