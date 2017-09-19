@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
  #--------market routes
+ post 'markets/sold'
   resources :markets do
     resources :mcomments
   end
-  post 'markets/sold'
   post 'markets/like'
   post 'markets/dislike'
   get 'main/mrindex'

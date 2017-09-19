@@ -1,11 +1,10 @@
 class PointlessesController < ApplicationController
   #------모든 action전 닉네임 생성 체크/params
-  before_action :set_pointless, only: [:show, :edit, :update, :destroy]
+  before_action :set_pointless, only: [:show, :edit, :update, :destroy, :like, :dislike]
   before_action :user_name_done
   #------like/dislike
   def like
     @user=current_user
-    @pointless = Pointless.find(params[:pointless_id])
     if @pointless.pluids.where(user_id: @user.id).present?
       @pointless.pluids.where(user_id: @user.id).first.destroy
       @pointless.like = @pointless.like - 1
@@ -24,17 +23,16 @@ class PointlessesController < ApplicationController
   end
   def dislike
     @user=current_user
-    @pointless = Pointless.find(params[:pointless_id])
     if @pointless.pdluids.where(user_id: @user.id).present?
-      pl=@pointless.pdluids.where(user_id: @user.id).first.destroy
+      @pointless.pdluids.where(user_id: @user.id).first.destroy
       @pointless.dislike = @pointless.dislike - 1
     else
       @pdluid = Pdluid.new(user_id: current_user.id, pointless_id: @pointless.id)
       @pdluid.save
       @pointless.dislike = @pointless.dislike + 1
     end
-      @pointless.save
-      redirect_to :back
+    @pointless.save
+    redirect_to :back
   end
   #------목록
   def index
@@ -93,7 +91,6 @@ class PointlessesController < ApplicationController
       redirect_to pointlesses_path
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pointless

@@ -1,12 +1,25 @@
 class MarketsController < ApplicationController
   #-----모든 action 전 닉네임 완료 체크/market params 받아오기
-  before_action :set_market, only: [:show, :edit, :update, :destroy, :samecheck]
+  before_action :set_market, only: [:show, :edit, :update, :destroy, :sold, :samecheck, :tiercheck]
   before_action :user_name_done
+  before_action :samecheck, only: [:sold, :edit]
+  before_action :tiercheck, only: [:destroy]
+  #------동일 유저 체크
+  def samecheck
+    unless @market.user==current_user
+      redirect_to markets_path
+    end
+  end
+  #------권한/유저 체크
+  def tiercheck
+    unless @maerket.user == current_user || current_user.tier < 4
+      redirect_to markets_path
+    end
+  end
   #------판매중/판매완료 설정
   def sold
-    market = Market.find(params[:mid])
-    market.sold = true
-    market.save
+    @market.sold = true
+    @market.save
     redirect_to :back
   end
   #------판매글 목록
@@ -39,9 +52,6 @@ class MarketsController < ApplicationController
   end
   #------판매글 수정
   def edit
-    unless current_user == @market.user
-      redirect_to markets_path
-    end
   end
   def update
     respond_to do |format|
@@ -56,12 +66,10 @@ class MarketsController < ApplicationController
   end
   #------판매글 삭제
   def destroy
-    if current_user==@market.user || current_user.tier < 4
-      @market.destroy
-      respond_to do |format|
-        format.html { redirect_to markets_path}
-        format.json { head :no_content }
-      end
+    @market.destroy
+    respond_to do |format|
+      format.html { redirect_to markets_path}
+      format.json { head :no_content }
     end
   end
   #-------lke/dislike
