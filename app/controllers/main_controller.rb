@@ -23,6 +23,20 @@ class MainController < ApplicationController
       redirect_to root_path
     end
   end
+  def report
+    @preport = Preport.new
+    @preport.why = params[:preport]["why"]
+    @preport.plink = params[:preport]["plink"]
+    @preport.user_id = params[:preport]["user_id"]
+    @preport.save
+    redirect_to :back
+  end
+  def admin
+    if current_user.id > 3
+      redirect_to :back
+    end
+    @preports = Preport.all.reverse_order
+  end
   private
   def user_params
     params.require(:user).permit(:bname)

@@ -1,0 +1,8 @@
+<%= form_for Preport.new,  :url=> main_report_path,method: "post" do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.hidden_field :plink, :value => request.original_url %>
+<%= f.label "신고사유"%>
+<%= f.text_field :why, :required => true, maxlength: 20, size: 30 %>
+<%= f.submit :value => "신고하기"%>
+<br>*신고 사유는 20자 내로 간단히 작성해주세요.
+<% end %>

@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   #-----main routes
-  get 'main/firstlogin'
   post 'main/make'
+  post 'main/report'
+  get 'main/admin'
+  get 'main/firstlogin'
   get 'main/dashboard'
   root "main#dashboard"
 

@@ -38,6 +38,8 @@
     <% end %>
     <% if @user.id == @market.user_id || current_user.tier < 4 %>
       <%= link_to '[글 삭제]', @market, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
+      <text class="if-link" style="cursor:pointer" onclick="openrmodal()">[신고]</text>
+
     <% end %>
   <% end %>
 

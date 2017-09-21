@@ -1,0 +1,7 @@
+<h1>신고된 글</h1>
+<br>
+<text>  신고유저    신고글보기    신고사유 </text><br>
+<% @preports.each do |p| %>
+<text><%=p.user.bname%>   <%= link_to "신고글보기", p.plink %>  <%=p.why%>   </text>
+  <br>
+<% end %>

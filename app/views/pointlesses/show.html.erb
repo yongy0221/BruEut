@@ -25,6 +25,7 @@
       <% if @user.id == @pointless.user_id || current_user.tier < 4 %>
         <%= link_to '[글 삭제]', @pointless, method: :delete, data: { confirm: 'Are you sure?' }, class:"if-link" %>
       <% end %>
+      <text class="if-link" style="cursor:pointer" onclick="openrmodal()">[신고]</text>
   <% end %>
 
     <% if current_user%>

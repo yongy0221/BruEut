@@ -11,4 +11,7 @@ class User < ActiveRecord::Base
     end
   end
   has_many :pointlesses
+  has_many :forests
+  has_many :markets
+  has_many :preports
 end
