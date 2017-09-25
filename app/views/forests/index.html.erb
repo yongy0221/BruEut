@@ -52,21 +52,22 @@
 
           var letsmodal = document.getElementById('notice-real');
           console.log(letsmodal.innerHTML);
-          var modal = document.getElementsByClassName("myModal")[0];
+          var mymodal = document.getElementsByClassName("myModal")[0];
           var btn = document.getElementById("myBtn");
           var close = document.getElementsByClassName("close")[0];
           if (letsmodal.innerHTML==="true"){
           open = function() {
-              modal.style.display = "block";
+              mymodal.style.display = "block";
               console.log("lets modal");
           }
           open();
           close.onclick = function() {
-              modal.style.display = "none";
+              mymodal.style.display = "none";
+              console.log("lets close");
           }
           window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
+          if (event.target == mymodal) {
+              mymodal.style.display = "none";
             }
           }
         }
