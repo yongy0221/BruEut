@@ -12,7 +12,7 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile += %w( login.scss regis.scss)
-Rails.application.config.assets.precompile += %w( events.scss custom.scss partypost.scss forests.scss pointlesses.scss fcomments.css
+Rails.application.config.assets.precompile += %w( events.scss custom.scss partypost.scss forests.scss pointlesses.scss fcomments.scss
   fullcalendar.js gcal.js moment.js
   navbar.scss
 )

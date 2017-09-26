@@ -35,7 +35,7 @@
                 <% if market.sold %>
                   <text style="color:red;">[판매완료]</text>
                 <% else %>
-                  <%= link_to '[판매 완료 하기]', markets_sold_path(:id => market.id), method: :post, data: {confirm: '판매를 완료하시겠습니까?'}, style: "color:green" %>
+                  <%= link_to '[판매 완료 하기]', markets_sold_path(:id => market.id), method: :post, data: {confirm: '판매를 완료하시겠습니까?'}, class: "sold-link"%>
                 <% end %>
               <% end %>
             <% else %>
