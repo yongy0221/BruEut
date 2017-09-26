@@ -1,4 +1,4 @@
-<div class = "mybar">
+  <div class = "mybar">
   <a id="barlogo" href=<%= root_path %> >
       <%= image_tag 'logo_inverse_03.png', class: 'barlogo'%>
   </a>
@@ -29,17 +29,11 @@
         </div>
       </form>
     <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a class="dropdown-toggle aa" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> 브루인<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <% if current_user %>
-           <li id="profile-link"><%= link_to "내정보", root_path %></li>
-           <li><%= link_to "로그아웃", signout_path, id: "sign_out" %><span class="glyphicon glyphicon-log-in"></span></li>
-         <% else %>
-           <li><%= link_to "로그인", "/auth/google_oauth2", id: "sign_in" %><span class="glyphicon glyphicon-log-in"></span></li>
-         <% end %>
-        </ul>
-      </li>
+      <% if current_user %>
+       <li><a href = "<%= signout_path%>" id="sign_out", class = "text-loginout">로그아웃</a></li>
+     <% else %>
+       <li><%= link_to "로그인", "/auth/google_oauth2", id: "sign_in", class: "text-loginout" %><span class="glyphicon glyphicon-log-in"></span></li>
+     <% end %>
     </ul>
 
 </div>
