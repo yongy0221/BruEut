@@ -9,7 +9,7 @@
 <!-- ///////////////게시글//////////////////////////// -->
 
 <div class="main">
-  <%= link_to "판매중인물건보기", market_msindex_path, :class => "button-rec" %>
+  <%= link_to "판매중인물건보기", markets_msindex_path, :class => "button-rec" %>
 
 <table class="Eut">
   <thead>
@@ -35,7 +35,7 @@
                 <% if market.sold %>
                   <text style="color:red;">[판매완료]</text>
                 <% else %>
-                  <%= link_to '[판매 완료 하기]', markets_sold_path(:mid => market.id), method: :post, data: {confirm: '판매를 완료하시겠습니까?'}, style: "color:green" %>
+                  <%= link_to '[판매 완료 하기]', markets_sold_path(:id => market.id), method: :post, data: {confirm: '판매를 완료하시겠습니까?'}, style: "color:green" %>
                 <% end %>
               <% end %>
             <% else %>

@@ -1,3 +1,8 @@
 <h1>글 수정하기</h1>
 
 <%= render 'form' %>
+<script>
+  <%unless @notice.nil? %>
+    alert("<%=@notice%>");
+  <% end %>
+</script>

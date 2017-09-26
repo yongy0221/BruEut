@@ -1,7 +1,8 @@
 
 </body>
 <%= link_to "비공개사연 보기", forests_admin_part_path %>
-<% if @forests.present? %>>
+<% if @forests.present? %>
+<br><br>
 <text> 현재까지 <%=Forest.all.reverse_order.first.id%> 개의 사연이 있습니다.<br>
 현재 <%=Forest.where(:censored => false).size %> 개의 사연이 처리 중입니다.
 현재까지 <%=Forest.where(:censored => true).size %> 개의 사연을 공개했습니다.<br>

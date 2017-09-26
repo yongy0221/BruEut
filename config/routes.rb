@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   #-----main routes
-  get 'main/firstlogin'
   post 'main/make'
+  post 'main/report'
+  get 'main/admin'
+  get 'main/firstlogin'
   get 'main/dashboard'
   root "main#dashboard"
+
 
   #-------google login routes
   get 'auth/:provider/callback', to: 'sessions#create'
@@ -15,23 +18,21 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
 
  #--------market routes
+
+  get 'markets/msindex'
+  get 'markets/mrindex'
   resources :markets do
     resources :mcomments
   end
   post 'markets/sold'
   post 'markets/like'
   post 'markets/dislike'
-  get 'main/mrindex'
-  get 'main/sindex'
-  get 'market/msindex' => 'main#msindex'
-  get 'market/mrindex' => 'main#mrindex'
 
   #-----pointless routes
+  get 'pointlesses/rindex'
   resources :pointlesses do
     resources :pcomments
   end
-  get 'main/rindex'
-  get 'pointless/rindex' => 'main#rindex'
   post 'pointlesses/like'
   post 'pointlesses/dislike'
 

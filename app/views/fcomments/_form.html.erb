@@ -1,9 +1,9 @@
 <%= form_for([@f, @f.fcomments.build]) do |f| %>
   <div class="field">
-    <%= f.hidden_field :user_id, :value => @user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   <!-- </div>
   <div class="field"> -->
-    <%= f.hidden_field :commenter, :value => @user.bname %>
+    <%= f.hidden_field :commenter, :value => current_user.bname %>
   <!-- </div>
   <div class="field"> -->
   <div class="fl">

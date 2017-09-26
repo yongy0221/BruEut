@@ -1,12 +1,11 @@
 class MainController < ApplicationController
+  #-----rdiex,mrindex,msindex,dashboard 액션 전 유저 닉네임 설정 체크
+  before_action :user_name_done, only: [:rindex, :mrindex, :msindex, :dashboard]
+
   def dashboard
-    if current_user
-      unless current_user.create_name
-        redirect_to main_firstlogin_path
-      end
-    end
   end
 
+  #----닉네임 설정
   def firstlogin
     @user=current_user
   end
@@ -24,15 +23,19 @@ class MainController < ApplicationController
       redirect_to root_path
     end
   end
-  def rindex
-    @pointlesses = Pointless.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
+  def report
+    @preport = Preport.new
+    @preport.why = params[:preport]["why"]
+    @preport.plink = params[:preport]["plink"]
+    @preport.user_id = params[:preport]["user_id"]
+    @preport.save
+    redirect_to :back
   end
-
-  def mrindex
-    @markets = Market.where(:rec => true).paginate(:page => params[:page], :per_page => 20).reverse_order
-  end
-  def msindex
-    @markets = Market.where(:sold => false).paginate(:page => params[:page], :per_page => 20).reverse_order
+  def admin
+    if current_user.id > 3
+      redirect_to :back
+    end
+    @preports = Preport.all.reverse_order
   end
   private
   def user_params

@@ -1,11 +1,8 @@
 class PartypostController < ApplicationController
+  #------모든 action전 로그인/닉네임 생성 체크
   before_action :current_user
+  before_action :user_name_done
   def index
-    if current_user
-      unless current_user.create_name
-        redirect_to main_firstlogin_path
-      end
-    end
     @partyposts = Partypost.all
   end
 
