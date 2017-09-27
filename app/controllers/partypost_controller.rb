@@ -15,6 +15,19 @@ class PartypostController < ApplicationController
     redirect_to "/partypost"
   end
 
+<<<<<<< HEAD
+  def partycomment
+  partycomment = Partycomment.new
+  partycomment.content = params[:content]
+
+  partycomment.partypost_id = params[:partypost_id] ###
+  partycomment.user = current_user
+  partycomment.save
+  redirect_to "/partypost"
+end
+
+=======
+>>>>>>> 56a5a8f368b6cc782432e3fd2d4edebc23133d40
   def partylike
     l = Partylike.new
     l.user = current_user

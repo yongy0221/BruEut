@@ -91,6 +91,39 @@ class ForestsController < ApplicationController
      @forest.save
      redirect_to :back
   end
+<<<<<<< HEAD
+
+  def forestlike
+    fl = Forestlike.new
+    fl.user = current_user
+    fl.forest_id = params[:forest_id]
+    fl.save
+    redirect_to "/forests"
+  end
+
+  def forestunlike
+    fl = Forestlike.where(:forest_id => params[:forest_id]).where(:user => current_user).take
+    fl.delete
+    redirect_to "/forests"
+  end
+
+  def forestdislike
+    fl = Forestdislike.new
+    fl.user = current_user
+    fl.forest_id = params[:forest_id]
+    fl.save
+    redirect_to "/forests"
+  end
+
+  def forestundislike
+    fl = Forestdislike.where(:forest_id => params[:forest_id]).where(:user => current_user).take
+    fl.delete
+    redirect_to "/forests"
+  end
+
+
+=======
+>>>>>>> 56a5a8f368b6cc782432e3fd2d4edebc23133d40
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_forest

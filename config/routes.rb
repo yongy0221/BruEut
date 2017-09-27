@@ -50,10 +50,22 @@ Rails.application.routes.draw do
   get 'maketrue' => 'forests#maketrue'
   get 'blind' => 'forests#blind'
 
+<<<<<<< HEAD
+  get "forestlike/:forest_id" => "forests#forestlike"
+  get "forestunlike/:forest_id" => "forests#forestunlike"
+  get "forestdislike/:forest_id" => "forests#forestdislike"
+  get "forestundislike/:forest_id" => "forests#forestundislike"
+
+=======
+>>>>>>> 56a5a8f368b6cc782432e3fd2d4edebc23133d40
 #-------partypost routes
   get 'partypost' => 'partypost#index'
   get 'partylike' => 'partypost#partylike'
   post 'partycreate' => 'partypost#partycreate'
+<<<<<<< HEAD
+  post 'partycomment' => "partypost#partycomment"
+=======
+>>>>>>> 56a5a8f368b6cc782432e3fd2d4edebc23133d40
   get "partylike/:post_id" => "partypost#partylike"
   get "partyunlike/:post_id" => "partypost#partyunlike"
   get "partyjoin/:post_id" => "partypost#partyjoin"

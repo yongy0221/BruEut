@@ -35,6 +35,35 @@
 
       </table>
 
+<<<<<<< HEAD
+      ======================
+
+      <%if Forestlike.where(:user_id=>current_user).where(:forest_id => forest.id).empty?%>
+          <!-- <div class="button-holder"> -->
+            <a class = "button-like material-icons" href = "/forestlike/<%= forest.id %>"><i class="material-icons"> favorite </i>공감(<%= forest.forestlikes.count %>)</a>
+          <!-- </div> -->
+
+      <%else%>
+          <!-- <div class = "button-holder"> -->
+            <a class = "button-like material-icons" href = "/forestunlike/<%= forest.id %>"><i class="material-icons"> favorite_border </i>공감 취소(<%= forest.forestlikes.count %>)</a>
+          <!-- </div> -->
+
+      <%end%>
+<!-- ///////// 공감 비공감 버튼//////////// -->
+      <%if Forestdislike.where(:user_id=>current_user).where(:forest_id => forest.id).empty?%>
+          <!-- <div class="button-holder"> -->
+            <a class = "button-dislike material-icons" href = "/forestdislike/<%= forest.id %>"><i class="material-icons"> ac_unit </i>비공감(<%= forest.forestdislikes.count %>)</a>
+          <!-- </div> -->
+
+      <%else%>
+          <!-- <div class = "button-holder"> -->
+            <a class = "button-dislike material-icons" href = "/forestundislike/<%= forest.id %>"><i class="material-icons"> ac_unit </i>비공감 취소(<%= forest.forestdislikes.count %>)</a>
+          <!-- </div> -->
+
+      <%end%>
+          ========================
+=======
+>>>>>>> 56a5a8f368b6cc782432e3fd2d4edebc23133d40
            <%= render forest.fcomments %>
            <% if current_user %>
              <%= render "fcomments/form" %><br>
